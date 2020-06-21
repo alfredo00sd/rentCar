@@ -152,7 +152,7 @@ namespace rentCar
         //Car Crud
         private void CarManagerBtn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new AddCarView());
+            OpenChildForm(new CarMantView());
         }
 
         //Customer Crud

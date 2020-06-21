@@ -51,9 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="controllers\CarController.cs" />
     <Compile Include="DAO\CarDao.cs" />
-    <Compile Include="DAO\CommonCrudDAO.cs" />
+    <Compile Include="DAO\CommonsCarDAO.cs" />
     <Compile Include="DAO\LoginDao.cs" />
     <Compile Include="DBConnection.cs" />
     <Compile Include="DTO\car\CarDTO.cs" />
@@ -67,35 +66,41 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="views\car\AddCarView.cs">
+    <Compile Include="views\car\CarMantView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\car\AddCarView.Designer.cs">
-      <DependentUpon>AddCarView.cs</DependentUpon>
+    <Compile Include="views\car\CarMantView.Designer.cs">
+      <DependentUpon>CarMantView.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\car\CarCRUD.cs">
+    <Compile Include="views\car\ConfirmAction.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\car\CarCRUD.Designer.cs">
-      <DependentUpon>CarCRUD.cs</DependentUpon>
+    <Compile Include="views\car\ConfirmAction.Designer.cs">
+      <DependentUpon>ConfirmAction.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\car\CommonCRUDS.cs">
+    <Compile Include="views\car\maintenances\GeneralView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\car\CommonCRUDS.Designer.cs">
-      <DependentUpon>CommonCRUDS.cs</DependentUpon>
+    <Compile Include="views\car\maintenances\GeneralView.Designer.cs">
+      <DependentUpon>GeneralView.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\car\type\CarModelDEView.cs">
+    <Compile Include="views\car\maintenances\CarModelCrudView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\car\type\CarModelDEView.Designer.cs">
-      <DependentUpon>CarModelDEView.cs</DependentUpon>
+    <Compile Include="views\car\maintenances\CarModelCrudView.Designer.cs">
+      <DependentUpon>CarModelCrudView.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\car\type\Confirmation.cs">
+    <Compile Include="views\car\maintenances\GeneralCrud.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\car\type\Confirmation.Designer.cs">
-      <DependentUpon>Confirmation.cs</DependentUpon>
+    <Compile Include="views\car\maintenances\GeneralCrud.Designer.cs">
+      <DependentUpon>GeneralCrud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\car\maintenances\ConfirmationView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\car\maintenances\ConfirmationView.Designer.cs">
+      <DependentUpon>ConfirmationView.cs</DependentUpon>
     </Compile>
     <Compile Include="views\user\userLogin.cs">
       <SubType>Form</SubType>
@@ -121,20 +126,23 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="views\car\AddCarView.resx">
-      <DependentUpon>AddCarView.cs</DependentUpon>
+    <EmbeddedResource Include="views\car\CarMantView.resx">
+      <DependentUpon>CarMantView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\car\CarCRUD.resx">
-      <DependentUpon>CarCRUD.cs</DependentUpon>
+    <EmbeddedResource Include="views\car\ConfirmAction.resx">
+      <DependentUpon>ConfirmAction.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\car\CommonCRUDS.resx">
-      <DependentUpon>CommonCRUDS.cs</DependentUpon>
+    <EmbeddedResource Include="views\car\maintenances\GeneralView.resx">
+      <DependentUpon>GeneralView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\car\type\CarModelDEView.resx">
-      <DependentUpon>CarModelDEView.cs</DependentUpon>
+    <EmbeddedResource Include="views\car\maintenances\CarModelCrudView.resx">
+      <DependentUpon>CarModelCrudView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\car\type\Confirmation.resx">
-      <DependentUpon>Confirmation.cs</DependentUpon>
+    <EmbeddedResource Include="views\car\maintenances\GeneralCrud.resx">
+      <DependentUpon>GeneralCrud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\car\maintenances\ConfirmationView.resx">
+      <DependentUpon>ConfirmationView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\user\userLogin.resx">
       <DependentUpon>userLogin.cs</DependentUpon>

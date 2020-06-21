@@ -1,6 +1,6 @@
 ﻿namespace rentCar.views.car.type
 {
-    partial class CarModelDEView
+    partial class CommonDEView
     {
         /// <summary>
         /// Required designer variable.
@@ -132,7 +132,7 @@
             this.statusCheck.Text = "Estado activo";
             this.statusCheck.UseVisualStyleBackColor = true;
             // 
-            // CarModelDEView
+            // CommonDEView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -146,7 +146,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.saveEditBtn);
             this.Controls.Add(this.modelIdTB);
-            this.Name = "CarModelDEView";
+            this.Name = "CommonDEView";
             this.Text = "Editar/Borrar modelo";
             this.ResumeLayout(false);
             this.PerformLayout();

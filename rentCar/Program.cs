@@ -1,8 +1,5 @@
 ﻿using rentCar.views.car;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace rentCar
@@ -17,7 +14,7 @@ namespace rentCar
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CommonCRUDS());//new AppForm() //AddCarView
+            Application.Run(new CarMantView());//new AppForm() //GeneralView
         }
     }
 }

@@ -5,18 +5,18 @@ using System.Windows.Forms;
 
 namespace rentCar.views.car.type
 {
-    public partial class CarModelDEView : Form
+    public partial class CommonDEView : Form
     {
-        CarDao dao = new CarDao();
+        CommonsCarDAO dao = new CommonsCarDAO();
         CarModelCRUD modelCRUD = new CarModelCRUD();
 
-        public CarModelDEView()
+        public CommonDEView()
         {
             InitializeComponent();
             FillBrandCB();
         }
 
-        public CarModelDEView(CarModelDTO carModel) 
+        public CommonDEView(CarModelDTO carModel) 
         {
             InitializeComponent();
             FillBrandCB();
@@ -35,6 +35,7 @@ namespace rentCar.views.car.type
             CarBrandCB.DisplayMember = "brand";
         }
 
+        //Edit
         private void iconButton1_Click(object sender, EventArgs e)
         {
             CarModelDTO carModel = new CarModelDTO();
@@ -53,7 +54,8 @@ namespace rentCar.views.car.type
                 MessageBox.Show("Promblemas al editar");
             }
         }
-
+        
+        //Delete
         private void deleteBtn_Click(object sender, EventArgs e)
         {
             Confirmation confirm = new Confirmation();

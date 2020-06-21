@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace rentCar.views.car.type
+namespace rentCar.views.car
 {
-    public partial class Confirmation : Form
+    public partial class ConfirmAction : Form
     {
-        public Confirmation()
+        public ConfirmAction()
         {
             InitializeComponent();
         }
