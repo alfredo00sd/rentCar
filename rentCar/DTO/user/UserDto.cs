@@ -4,12 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace rentCar.DTO.user
 {
-    public class UserDto
+    public class UserDTO
     {
         private int userId { get; set; }
         private int employeeId { get; set; }
         [ForeignKey("employeeId")]
-        private EmployeeDto employee { get; set; }
+        private EmployeeDTO employee { get; set; }
         private int rolId { get; set; }
         [ForeignKey("rolId")]
         private RolDto RolDTO { get; set; }

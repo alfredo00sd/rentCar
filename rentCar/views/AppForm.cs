@@ -1,6 +1,7 @@
 ﻿using FontAwesome.Sharp;
 using rentCar.user;
 using rentCar.views.car;
+using rentCar.views.customers;
 using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
@@ -22,32 +23,44 @@ namespace rentCar
 
         public AppForm()
         {
-            //General config to the app.
-            InitializeComponent();
-            leftPanelBtn = new Panel
-            {
-                Size = new Size(7, 50)
-            };
-            menuPanel.Controls.Add(leftPanelBtn);
+            //userLogin logginForm = new userLogin();
 
-            //hide sub-menus
-            HiddeSubMenus();
+            //DialogResult dr = logginForm.ShowDialog();
 
-            //Unhide menu buttons
-            gestiBtn.Visible = true;
-            processBtn.Visible = true;
+            //if (dr == DialogResult.OK)
+            //{
+                //General config to the app.
+                InitializeComponent();
 
-            //User status bar
-            userStatus.Visible = true;
-            userName.Text = "Alfredo Acosta";
-            iconCurrentChildForm.Visible = true;
-            lblTitleChildForm.Visible = true;
+                leftPanelBtn = new Panel
+                {
+                    Size = new Size(7, 50)
+                };
+                menuPanel.Controls.Add(leftPanelBtn);
 
-            //Form initial state
-            this.Text = "";
-            this.ControlBox = false;
-            this.DoubleBuffered = true;
-            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+                //hide sub-menus
+                HiddeSubMenus();
+
+                //Unhide menu buttons
+                gestiBtn.Visible = true;
+                processBtn.Visible = true;
+
+                //User status bar
+                userStatus.Visible = true;
+                userName.Text = "Alfredo Acosta";
+                iconCurrentChildForm.Visible = true;
+                lblTitleChildForm.Visible = true;
+
+                //Form initial state
+                this.Text = "";
+                this.ControlBox = false;
+                this.DoubleBuffered = true;
+                this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+           // }
+            //else
+            //{
+              //  MessageBox.Show("Login invalido!");
+            //}
         }
 
         private void HiddeSubMenus()
@@ -64,7 +77,7 @@ namespace rentCar
 
             currentChildForm = childForm;
             childForm.TopLevel = false;
-            //childForm.Size = new Size(756, 535);
+            childForm.Size = new Size(1300, 650);
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
 
@@ -75,7 +88,7 @@ namespace rentCar
             childForm.Anchor = AnchorStyles.Bottom;
 
 
-            panelContainer.Controls.Add(childForm);
+            panelDash.Controls.Add(childForm);
             panelContainer.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
@@ -83,7 +96,8 @@ namespace rentCar
             lblTitleChildForm.Text = childForm.Text;
         }
 
-        //Methods
+        //--------------------------------------------------------------Left panel visual effects
+
         private void ActivateBtn(Object senderBtn, Color color)
         {
             //Disable btn before ativate a new one...
@@ -111,6 +125,7 @@ namespace rentCar
                 lblTitleChildForm.Text = currentBtn.Text;
             }
         }
+       
         private void DisableBtn()
         {
             if (currentBtn != null)
@@ -123,6 +138,7 @@ namespace rentCar
                 currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
             }
         }
+        
         private void Reset()
         {
             DisableBtn();
@@ -133,59 +149,58 @@ namespace rentCar
             iconCurrentChildForm.IconColor = Color.White;
             lblTitleChildForm.Text = "Hola, Bienvenido";
         }
+    
         private void AppLogo_Click(object sender, EventArgs e)
         {
             if (currentChildForm != null)
                 currentChildForm.Close();
-
             Reset();
         }
 
-        //Login
-        private void StartBtn_Click(object sender, EventArgs e)
-        {
-            ActivateBtn(sender, RGBColors.lightOrangeTheme);
+        //--------------------------------------------------------------Left panel visual effects
 
-            OpenChildForm(new userLogin());
-        }
-
-        //Car Crud
+        //--------------------------------------------------------------Car Crud
         private void CarManagerBtn_Click(object sender, EventArgs e)
         {
             OpenChildForm(new CarMantView());
         }
 
-        //Customer Crud
-        private void CustomerManagerBtn_Click(object sender, EventArgs e)
+        //--------------------------------------------------------------General car Crud
+        private void GeneralManagerBtn_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new GeneralView());
         }
 
-        //Employee Crud
+        //--------------------------------------------------------------Employee Crud
         private void EmployeeManagerBtn_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new EmployeeForm());
         }
 
-        //Inspection crud
+        private void CustomerManagerBtn_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new CustomerForm());
+        }
+
+        //--------------------------------------------------------------Inspection crud
         private void InspectorManagerBtn_Click(object sender, EventArgs e)
         {
 
         }
 
-        //Rent Crud
+        //--------------------------------------------------------------Rent Crud
         private void RentManagerBtn_Click(object sender, EventArgs e)
         {
 
         }
 
-        //Reports
+        //--------------------------------------------------------------Reports
         private void ReportBtn_Click(object sender, EventArgs e)
         {
 
         }
 
-        //Consults
+        //--------------------------------------------------------------Consults
         private void ConsultBtn_Click(object sender, EventArgs e)
         {
 
@@ -212,7 +227,8 @@ namespace rentCar
             else
                 processSubMenuPanel.Visible = true;
         }
-       
+
+        //--------------------------------------------------------------Form Utils
         //Drag form from title bar
         private void TitleBar_MouseDown(object sender, MouseEventArgs e)
         {
@@ -244,6 +260,7 @@ namespace rentCar
         private void CloseBtn_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
-        }        
+        }
+        //--------------------------------------------------------------Form Utils
     }
 }

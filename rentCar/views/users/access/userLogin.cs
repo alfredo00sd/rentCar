@@ -43,21 +43,45 @@ namespace rentCar.user
             {
                 MessageBox.Show("No puede dejar campos vacios");
             }
-            else 
+            else
             {
-                if (dao.ValidateLoggin(userCard.Text, passwordInput.Text) != null)
-                {
-                    Application.Run(new AppForm());
+                //if (dao.ValidateLoggin(userCard.Text, passwordInput.Text) != null)
+                //{
+                //    //Application.Run(new AppForm());
 
-                    //appForm.loggedUserConfig(dao.ValidateLoggin(userCard.Text, passwordInput.Text));
-
-                    this.Close();
-                }
-                else 
-                {
+                //    //appForm.loggedUserConfig(dao.ValidateLoggin(userCard.Text, passwordInput.Text));
+                //    this.validateUserBtn.DialogResult = DialogResult.OK;
+                //    this.Close();
+                //}
+                //else
+                //{
                     MessageBox.Show("Datos erroneos, favor revisar sus credenciales e intentar de nuevo.");
-                }
+                //}
             }
+        }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void maximizeBtn_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+
+                WindowState = FormWindowState.Maximized;
+            else
+                WindowState = FormWindowState.Normal;
+        }
+
+        private void minimizeBtn_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void recoverCredentials_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show("Favor contactar un administrador de sistemas.");
         }
     }
 }

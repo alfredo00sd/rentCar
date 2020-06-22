@@ -1,4 +1,5 @@
 ﻿using rentCar.DAO;
+using rentCar.views.car.type;
 using RentCarApp.DTO;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace rentCar.views.car
     public partial class CarMantView : Form
     {
         CommonsCarDAO dao = new CommonsCarDAO();
-        CarDao carDao = new CarDao();
+        CarDAO carDao = new CarDAO();
         CarModelCRUD modelCRUD = new CarModelCRUD();
 
         public CarMantView()
@@ -203,7 +204,7 @@ namespace rentCar.views.car
 
             //new GeneralCrud(dto.CarTypeId, dto.CarTypeDescription, dto.CarTypeStatus, "type");
 
-            ConfirmAction confirmAction = new ConfirmAction();
+            ChooseAction2 confirmAction = new ChooseAction2();
 
             DialogResult dr = confirmAction.ShowDialog();
 
@@ -214,16 +215,24 @@ namespace rentCar.views.car
             }
             else if (dr == DialogResult.Cancel) 
             {
-                ///Delete the record
-                if (carDao.DeleteCar(dto.CarId))
+                ConfirmAction confirm = new ConfirmAction();
+
+                DialogResult result = confirm.ShowDialog();
+
+                if (result == DialogResult.OK)
                 {
-                    MessageBox.Show("Elemento borrado!");
-                    ResetCarForm();
+                    ///Delete the record
+                    if (carDao.DeleteCar(dto.CarId))
+                    {
+                        MessageBox.Show("Elemento borrado!");
+                        ResetCarForm();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Inconvenientes al intentar borrar este record.");
+                    }
                 }
-                else 
-                {
-                    MessageBox.Show("Inconvenientes al intentar borrar este record.");
-                }
+                
             }
 
         }

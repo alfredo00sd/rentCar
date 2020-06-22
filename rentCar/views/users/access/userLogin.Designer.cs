@@ -37,8 +37,14 @@
             this.appLogo = new System.Windows.Forms.PictureBox();
             this.passwordInput = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.minimizeBtn = new FontAwesome.Sharp.IconPictureBox();
+            this.closeBtn = new FontAwesome.Sharp.IconPictureBox();
+            this.maximizeBtn = new FontAwesome.Sharp.IconPictureBox();
             this.userContainerForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimizeBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closeBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maximizeBtn)).BeginInit();
             this.SuspendLayout();
             // 
             // userCard
@@ -86,6 +92,7 @@
             this.recoverCredentials.TabIndex = 6;
             this.recoverCredentials.TabStop = true;
             this.recoverCredentials.Text = "Olvido sus credenciales ?";
+            this.recoverCredentials.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.recoverCredentials_LinkClicked);
             // 
             // validateUserBtn
             // 
@@ -137,6 +144,51 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Clave";
             // 
+            // minimizeBtn
+            // 
+            this.minimizeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.minimizeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(0)))), ((int)(((byte)(15)))));
+            this.minimizeBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.minimizeBtn.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
+            this.minimizeBtn.IconColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.minimizeBtn.IconSize = 23;
+            this.minimizeBtn.Location = new System.Drawing.Point(713, 3);
+            this.minimizeBtn.Name = "minimizeBtn";
+            this.minimizeBtn.Size = new System.Drawing.Size(24, 23);
+            this.minimizeBtn.TabIndex = 11;
+            this.minimizeBtn.TabStop = false;
+            this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
+            // 
+            // closeBtn
+            // 
+            this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.closeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(0)))), ((int)(((byte)(33)))));
+            this.closeBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.closeBtn.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.closeBtn.IconColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.closeBtn.IconSize = 23;
+            this.closeBtn.Location = new System.Drawing.Point(773, 3);
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.Size = new System.Drawing.Size(24, 23);
+            this.closeBtn.TabIndex = 10;
+            this.closeBtn.TabStop = false;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+            // 
+            // maximizeBtn
+            // 
+            this.maximizeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.maximizeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(0)))), ((int)(((byte)(15)))));
+            this.maximizeBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.maximizeBtn.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
+            this.maximizeBtn.IconColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.maximizeBtn.IconSize = 23;
+            this.maximizeBtn.Location = new System.Drawing.Point(743, 3);
+            this.maximizeBtn.Name = "maximizeBtn";
+            this.maximizeBtn.Size = new System.Drawing.Size(24, 23);
+            this.maximizeBtn.TabIndex = 9;
+            this.maximizeBtn.TabStop = false;
+            this.maximizeBtn.Click += new System.EventHandler(this.maximizeBtn_Click);
+            // 
             // userLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -144,11 +196,18 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(0)))), ((int)(((byte)(17)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.minimizeBtn);
+            this.Controls.Add(this.closeBtn);
+            this.Controls.Add(this.maximizeBtn);
             this.Controls.Add(this.userContainerForm);
             this.Name = "userLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.userContainerForm.ResumeLayout(false);
             this.userContainerForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimizeBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closeBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maximizeBtn)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -163,5 +222,8 @@
         private System.Windows.Forms.PictureBox appLogo;
         private FontAwesome.Sharp.IconButton validateUserBtn;
         private System.Windows.Forms.LinkLabel recoverCredentials;
+        private FontAwesome.Sharp.IconPictureBox minimizeBtn;
+        private FontAwesome.Sharp.IconPictureBox closeBtn;
+        private FontAwesome.Sharp.IconPictureBox maximizeBtn;
     }
 }

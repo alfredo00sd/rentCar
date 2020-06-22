@@ -60,6 +60,9 @@
             // 
             // GeneralMantViewPanel
             // 
+            this.GeneralMantViewPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.GeneralMantViewPanel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.GeneralMantViewPanel.Controls.Add(this.fuelTypeDTV);
             this.GeneralMantViewPanel.Controls.Add(this.brandsDataView);
@@ -83,7 +86,6 @@
             this.GeneralMantViewPanel.Controls.Add(this.carTypeTX);
             this.GeneralMantViewPanel.Controls.Add(this.label2);
             this.GeneralMantViewPanel.Controls.Add(this.label1);
-            this.GeneralMantViewPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GeneralMantViewPanel.Location = new System.Drawing.Point(0, 0);
             this.GeneralMantViewPanel.Name = "GeneralMantViewPanel";
             this.GeneralMantViewPanel.Size = new System.Drawing.Size(911, 604);

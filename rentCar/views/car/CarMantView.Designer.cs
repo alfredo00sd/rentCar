@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.helpBtn = new FontAwesome.Sharp.IconButton();
             this.refreshBtn = new FontAwesome.Sharp.IconButton();
             this.label16 = new System.Windows.Forms.Label();
             this.viewTitle = new System.Windows.Forms.Label();
@@ -70,7 +71,6 @@
             this.CarTypeCB = new System.Windows.Forms.ComboBox();
             this.carDV = new System.Windows.Forms.DataGridView();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.helpBtn = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -84,17 +84,34 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(0)))), ((int)(((byte)(17)))));
             this.panel1.Controls.Add(this.helpBtn);
             this.panel1.Controls.Add(this.refreshBtn);
             this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.viewTitle);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1075, 491);
             this.panel1.TabIndex = 0;
+            // 
+            // helpBtn
+            // 
+            this.helpBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.helpBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.helpBtn.IconColor = System.Drawing.Color.Black;
+            this.helpBtn.IconSize = 16;
+            this.helpBtn.Location = new System.Drawing.Point(928, 6);
+            this.helpBtn.Name = "helpBtn";
+            this.helpBtn.Rotation = 0D;
+            this.helpBtn.Size = new System.Drawing.Size(53, 23);
+            this.helpBtn.TabIndex = 11;
+            this.helpBtn.Text = "Help ?";
+            this.helpBtn.UseVisualStyleBackColor = true;
+            this.helpBtn.Click += new System.EventHandler(this.helpBtn_Click);
             // 
             // refreshBtn
             // 
@@ -619,30 +636,15 @@
             this.carDV.TabIndex = 0;
             this.carDV.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.carDV_CellMouseDoubleClick);
             // 
-            // helpBtn
-            // 
-            this.helpBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.helpBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.helpBtn.IconColor = System.Drawing.Color.Black;
-            this.helpBtn.IconSize = 16;
-            this.helpBtn.Location = new System.Drawing.Point(928, 6);
-            this.helpBtn.Name = "helpBtn";
-            this.helpBtn.Rotation = 0D;
-            this.helpBtn.Size = new System.Drawing.Size(53, 23);
-            this.helpBtn.TabIndex = 11;
-            this.helpBtn.Text = "Help ?";
-            this.helpBtn.UseVisualStyleBackColor = true;
-            this.helpBtn.Click += new System.EventHandler(this.helpBtn_Click);
-            // 
             // CarMantView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1075, 491);
+            this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Name = "CarMantView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CarView";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

@@ -30,20 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppForm));
             this.menuPanel = new System.Windows.Forms.Panel();
-            this.copyRights = new System.Windows.Forms.LinkLabel();
             this.adminSubMenuPanel = new System.Windows.Forms.Panel();
-            this.consultBtn = new FontAwesome.Sharp.IconButton();
             this.reportBtn = new FontAwesome.Sharp.IconButton();
+            this.consultBtn = new FontAwesome.Sharp.IconButton();
             this.processSubMenuPanel = new System.Windows.Forms.Panel();
             this.rentManagerBtn = new FontAwesome.Sharp.IconButton();
             this.inspectorManagerBtn = new FontAwesome.Sharp.IconButton();
+            this.copyRights = new System.Windows.Forms.LinkLabel();
             this.processBtn = new FontAwesome.Sharp.IconButton();
             this.gestiSubMenuPanel = new System.Windows.Forms.Panel();
+            this.CustomerManagerBtn = new FontAwesome.Sharp.IconButton();
             this.employeeManagerBtn = new FontAwesome.Sharp.IconButton();
-            this.customerManagerBtn = new FontAwesome.Sharp.IconButton();
+            this.GeneralManagerBtn = new FontAwesome.Sharp.IconButton();
             this.carManagerBtn = new FontAwesome.Sharp.IconButton();
             this.gestiBtn = new FontAwesome.Sharp.IconButton();
-            this.startBtn = new FontAwesome.Sharp.IconButton();
             this.logoPanel = new System.Windows.Forms.Panel();
             this.appLogo = new System.Windows.Forms.PictureBox();
             this.panelContainer = new System.Windows.Forms.Panel();
@@ -56,12 +56,14 @@
             this.maximizeBtn = new FontAwesome.Sharp.IconPictureBox();
             this.lblTitleChildForm = new System.Windows.Forms.Label();
             this.iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
+            this.panelDash = new System.Windows.Forms.Panel();
             this.menuPanel.SuspendLayout();
             this.adminSubMenuPanel.SuspendLayout();
             this.processSubMenuPanel.SuspendLayout();
             this.gestiSubMenuPanel.SuspendLayout();
             this.logoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appLogo)).BeginInit();
+            this.panelContainer.SuspendLayout();
             this.titleBar.SuspendLayout();
             this.userStatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
@@ -74,13 +76,12 @@
             // menuPanel
             // 
             this.menuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(0)))), ((int)(((byte)(15)))));
-            this.menuPanel.Controls.Add(this.copyRights);
             this.menuPanel.Controls.Add(this.adminSubMenuPanel);
             this.menuPanel.Controls.Add(this.processSubMenuPanel);
+            this.menuPanel.Controls.Add(this.copyRights);
             this.menuPanel.Controls.Add(this.processBtn);
             this.menuPanel.Controls.Add(this.gestiSubMenuPanel);
             this.menuPanel.Controls.Add(this.gestiBtn);
-            this.menuPanel.Controls.Add(this.startBtn);
             this.menuPanel.Controls.Add(this.logoPanel);
             this.menuPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.menuPanel.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -90,50 +91,15 @@
             this.menuPanel.Size = new System.Drawing.Size(234, 563);
             this.menuPanel.TabIndex = 0;
             // 
-            // copyRights
-            // 
-            this.copyRights.AutoSize = true;
-            this.copyRights.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.copyRights.LinkColor = System.Drawing.Color.White;
-            this.copyRights.Location = new System.Drawing.Point(0, 547);
-            this.copyRights.Name = "copyRights";
-            this.copyRights.Size = new System.Drawing.Size(181, 16);
-            this.copyRights.TabIndex = 9;
-            this.copyRights.TabStop = true;
-            this.copyRights.Text = "Alfredo Acosta 2018-1829";
-            // 
             // adminSubMenuPanel
             // 
-            this.adminSubMenuPanel.Controls.Add(this.consultBtn);
             this.adminSubMenuPanel.Controls.Add(this.reportBtn);
+            this.adminSubMenuPanel.Controls.Add(this.consultBtn);
             this.adminSubMenuPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.adminSubMenuPanel.Location = new System.Drawing.Point(0, 439);
+            this.adminSubMenuPanel.Location = new System.Drawing.Point(0, 421);
             this.adminSubMenuPanel.Name = "adminSubMenuPanel";
             this.adminSubMenuPanel.Size = new System.Drawing.Size(234, 103);
             this.adminSubMenuPanel.TabIndex = 8;
-            // 
-            // consultBtn
-            // 
-            this.consultBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.consultBtn.FlatAppearance.BorderSize = 0;
-            this.consultBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.consultBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.consultBtn.ForeColor = System.Drawing.Color.FloralWhite;
-            this.consultBtn.IconChar = FontAwesome.Sharp.IconChar.ClipboardList;
-            this.consultBtn.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.consultBtn.IconSize = 32;
-            this.consultBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.consultBtn.Location = new System.Drawing.Point(0, 50);
-            this.consultBtn.Name = "consultBtn";
-            this.consultBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.consultBtn.Rotation = 0D;
-            this.consultBtn.Size = new System.Drawing.Size(234, 50);
-            this.consultBtn.TabIndex = 8;
-            this.consultBtn.Text = "Consultas";
-            this.consultBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.consultBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.consultBtn.UseVisualStyleBackColor = true;
-            this.consultBtn.Click += new System.EventHandler(this.ConsultBtn_Click);
             // 
             // reportBtn
             // 
@@ -146,11 +112,11 @@
             this.reportBtn.IconColor = System.Drawing.Color.WhiteSmoke;
             this.reportBtn.IconSize = 32;
             this.reportBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.reportBtn.Location = new System.Drawing.Point(0, 0);
+            this.reportBtn.Location = new System.Drawing.Point(0, 44);
             this.reportBtn.Name = "reportBtn";
             this.reportBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.reportBtn.Rotation = 0D;
-            this.reportBtn.Size = new System.Drawing.Size(234, 50);
+            this.reportBtn.Size = new System.Drawing.Size(234, 46);
             this.reportBtn.TabIndex = 7;
             this.reportBtn.Text = "Reportes";
             this.reportBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -158,16 +124,39 @@
             this.reportBtn.UseVisualStyleBackColor = true;
             this.reportBtn.Click += new System.EventHandler(this.ReportBtn_Click);
             // 
+            // consultBtn
+            // 
+            this.consultBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.consultBtn.FlatAppearance.BorderSize = 0;
+            this.consultBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.consultBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.consultBtn.ForeColor = System.Drawing.Color.FloralWhite;
+            this.consultBtn.IconChar = FontAwesome.Sharp.IconChar.ClipboardList;
+            this.consultBtn.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.consultBtn.IconSize = 32;
+            this.consultBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.consultBtn.Location = new System.Drawing.Point(0, 0);
+            this.consultBtn.Name = "consultBtn";
+            this.consultBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.consultBtn.Rotation = 0D;
+            this.consultBtn.Size = new System.Drawing.Size(234, 44);
+            this.consultBtn.TabIndex = 8;
+            this.consultBtn.Text = "Consultas";
+            this.consultBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.consultBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.consultBtn.UseVisualStyleBackColor = true;
+            this.consultBtn.Click += new System.EventHandler(this.ConsultBtn_Click);
+            // 
             // processSubMenuPanel
             // 
             this.processSubMenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(0)))), ((int)(((byte)(33)))));
             this.processSubMenuPanel.Controls.Add(this.rentManagerBtn);
             this.processSubMenuPanel.Controls.Add(this.inspectorManagerBtn);
             this.processSubMenuPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.processSubMenuPanel.Location = new System.Drawing.Point(0, 360);
+            this.processSubMenuPanel.Location = new System.Drawing.Point(0, 348);
             this.processSubMenuPanel.Name = "processSubMenuPanel";
-            this.processSubMenuPanel.Size = new System.Drawing.Size(234, 79);
-            this.processSubMenuPanel.TabIndex = 7;
+            this.processSubMenuPanel.Size = new System.Drawing.Size(234, 73);
+            this.processSubMenuPanel.TabIndex = 10;
             // 
             // rentManagerBtn
             // 
@@ -184,7 +173,7 @@
             this.rentManagerBtn.Name = "rentManagerBtn";
             this.rentManagerBtn.Padding = new System.Windows.Forms.Padding(35, 0, 20, 0);
             this.rentManagerBtn.Rotation = 0D;
-            this.rentManagerBtn.Size = new System.Drawing.Size(234, 38);
+            this.rentManagerBtn.Size = new System.Drawing.Size(234, 41);
             this.rentManagerBtn.TabIndex = 12;
             this.rentManagerBtn.Text = "Renta/Devoluccion";
             this.rentManagerBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -215,6 +204,18 @@
             this.inspectorManagerBtn.UseVisualStyleBackColor = true;
             this.inspectorManagerBtn.Click += new System.EventHandler(this.InspectorManagerBtn_Click);
             // 
+            // copyRights
+            // 
+            this.copyRights.AutoSize = true;
+            this.copyRights.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.copyRights.LinkColor = System.Drawing.Color.White;
+            this.copyRights.Location = new System.Drawing.Point(0, 547);
+            this.copyRights.Name = "copyRights";
+            this.copyRights.Size = new System.Drawing.Size(181, 16);
+            this.copyRights.TabIndex = 9;
+            this.copyRights.TabStop = true;
+            this.copyRights.Text = "Alfredo Acosta 2018-1829";
+            // 
             // processBtn
             // 
             this.processBtn.Dock = System.Windows.Forms.DockStyle.Top;
@@ -226,7 +227,7 @@
             this.processBtn.IconColor = System.Drawing.Color.WhiteSmoke;
             this.processBtn.IconSize = 32;
             this.processBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.processBtn.Location = new System.Drawing.Point(0, 310);
+            this.processBtn.Location = new System.Drawing.Point(0, 298);
             this.processBtn.Name = "processBtn";
             this.processBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.processBtn.Rotation = 0D;
@@ -241,14 +242,38 @@
             // gestiSubMenuPanel
             // 
             this.gestiSubMenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(0)))), ((int)(((byte)(33)))));
+            this.gestiSubMenuPanel.Controls.Add(this.CustomerManagerBtn);
             this.gestiSubMenuPanel.Controls.Add(this.employeeManagerBtn);
-            this.gestiSubMenuPanel.Controls.Add(this.customerManagerBtn);
+            this.gestiSubMenuPanel.Controls.Add(this.GeneralManagerBtn);
             this.gestiSubMenuPanel.Controls.Add(this.carManagerBtn);
             this.gestiSubMenuPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gestiSubMenuPanel.Location = new System.Drawing.Point(0, 204);
+            this.gestiSubMenuPanel.Location = new System.Drawing.Point(0, 150);
             this.gestiSubMenuPanel.Name = "gestiSubMenuPanel";
-            this.gestiSubMenuPanel.Size = new System.Drawing.Size(234, 106);
+            this.gestiSubMenuPanel.Size = new System.Drawing.Size(234, 148);
             this.gestiSubMenuPanel.TabIndex = 5;
+            // 
+            // CustomerManagerBtn
+            // 
+            this.CustomerManagerBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CustomerManagerBtn.FlatAppearance.BorderSize = 0;
+            this.CustomerManagerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CustomerManagerBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.CustomerManagerBtn.ForeColor = System.Drawing.Color.FloralWhite;
+            this.CustomerManagerBtn.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
+            this.CustomerManagerBtn.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.CustomerManagerBtn.IconSize = 32;
+            this.CustomerManagerBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CustomerManagerBtn.Location = new System.Drawing.Point(0, 106);
+            this.CustomerManagerBtn.Name = "CustomerManagerBtn";
+            this.CustomerManagerBtn.Padding = new System.Windows.Forms.Padding(35, 0, 20, 0);
+            this.CustomerManagerBtn.Rotation = 0D;
+            this.CustomerManagerBtn.Size = new System.Drawing.Size(234, 42);
+            this.CustomerManagerBtn.TabIndex = 11;
+            this.CustomerManagerBtn.Text = "Clientes";
+            this.CustomerManagerBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CustomerManagerBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.CustomerManagerBtn.UseVisualStyleBackColor = true;
+            this.CustomerManagerBtn.Click += new System.EventHandler(this.CustomerManagerBtn_Click);
             // 
             // employeeManagerBtn
             // 
@@ -273,28 +298,28 @@
             this.employeeManagerBtn.UseVisualStyleBackColor = true;
             this.employeeManagerBtn.Click += new System.EventHandler(this.EmployeeManagerBtn_Click);
             // 
-            // customerManagerBtn
+            // GeneralManagerBtn
             // 
-            this.customerManagerBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.customerManagerBtn.FlatAppearance.BorderSize = 0;
-            this.customerManagerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.customerManagerBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.customerManagerBtn.ForeColor = System.Drawing.Color.FloralWhite;
-            this.customerManagerBtn.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
-            this.customerManagerBtn.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.customerManagerBtn.IconSize = 32;
-            this.customerManagerBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.customerManagerBtn.Location = new System.Drawing.Point(0, 34);
-            this.customerManagerBtn.Name = "customerManagerBtn";
-            this.customerManagerBtn.Padding = new System.Windows.Forms.Padding(35, 0, 20, 0);
-            this.customerManagerBtn.Rotation = 0D;
-            this.customerManagerBtn.Size = new System.Drawing.Size(234, 34);
-            this.customerManagerBtn.TabIndex = 9;
-            this.customerManagerBtn.Text = "Clientes";
-            this.customerManagerBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.customerManagerBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.customerManagerBtn.UseVisualStyleBackColor = true;
-            this.customerManagerBtn.Click += new System.EventHandler(this.CustomerManagerBtn_Click);
+            this.GeneralManagerBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.GeneralManagerBtn.FlatAppearance.BorderSize = 0;
+            this.GeneralManagerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GeneralManagerBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.GeneralManagerBtn.ForeColor = System.Drawing.Color.FloralWhite;
+            this.GeneralManagerBtn.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
+            this.GeneralManagerBtn.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.GeneralManagerBtn.IconSize = 32;
+            this.GeneralManagerBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.GeneralManagerBtn.Location = new System.Drawing.Point(0, 34);
+            this.GeneralManagerBtn.Name = "GeneralManagerBtn";
+            this.GeneralManagerBtn.Padding = new System.Windows.Forms.Padding(35, 0, 20, 0);
+            this.GeneralManagerBtn.Rotation = 0D;
+            this.GeneralManagerBtn.Size = new System.Drawing.Size(234, 34);
+            this.GeneralManagerBtn.TabIndex = 9;
+            this.GeneralManagerBtn.Text = "Mantenimientos";
+            this.GeneralManagerBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.GeneralManagerBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.GeneralManagerBtn.UseVisualStyleBackColor = true;
+            this.GeneralManagerBtn.Click += new System.EventHandler(this.GeneralManagerBtn_Click);
             // 
             // carManagerBtn
             // 
@@ -330,7 +355,7 @@
             this.gestiBtn.IconColor = System.Drawing.Color.WhiteSmoke;
             this.gestiBtn.IconSize = 32;
             this.gestiBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.gestiBtn.Location = new System.Drawing.Point(0, 154);
+            this.gestiBtn.Location = new System.Drawing.Point(0, 100);
             this.gestiBtn.Name = "gestiBtn";
             this.gestiBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.gestiBtn.Rotation = 0D;
@@ -341,29 +366,6 @@
             this.gestiBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.gestiBtn.UseVisualStyleBackColor = true;
             this.gestiBtn.Click += new System.EventHandler(this.GestiBtn_Click);
-            // 
-            // startBtn
-            // 
-            this.startBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.startBtn.FlatAppearance.BorderSize = 0;
-            this.startBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.startBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.startBtn.ForeColor = System.Drawing.Color.FloralWhite;
-            this.startBtn.IconChar = FontAwesome.Sharp.IconChar.UserCircle;
-            this.startBtn.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.startBtn.IconSize = 32;
-            this.startBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.startBtn.Location = new System.Drawing.Point(0, 100);
-            this.startBtn.Name = "startBtn";
-            this.startBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.startBtn.Rotation = 0D;
-            this.startBtn.Size = new System.Drawing.Size(234, 54);
-            this.startBtn.TabIndex = 3;
-            this.startBtn.Text = "Iniciar session";
-            this.startBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.startBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.startBtn.UseVisualStyleBackColor = true;
-            this.startBtn.Click += new System.EventHandler(this.StartBtn_Click);
             // 
             // logoPanel
             // 
@@ -389,6 +391,7 @@
             // panelContainer
             // 
             this.panelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(0)))), ((int)(((byte)(25)))));
+            this.panelContainer.Controls.Add(this.panelDash);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(234, 0);
             this.panelContainer.Name = "panelContainer";
@@ -510,6 +513,16 @@
             this.iconCurrentChildForm.TabIndex = 0;
             this.iconCurrentChildForm.TabStop = false;
             // 
+            // panelDash
+            // 
+            this.panelDash.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelDash.Location = new System.Drawing.Point(6, 56);
+            this.panelDash.Name = "panelDash";
+            this.panelDash.Size = new System.Drawing.Size(720, 495);
+            this.panelDash.TabIndex = 0;
+            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -519,8 +532,10 @@
             this.Controls.Add(this.titleBar);
             this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.menuPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "AppForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuPanel.ResumeLayout(false);
             this.menuPanel.PerformLayout();
             this.adminSubMenuPanel.ResumeLayout(false);
@@ -528,6 +543,7 @@
             this.gestiSubMenuPanel.ResumeLayout(false);
             this.logoPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.appLogo)).EndInit();
+            this.panelContainer.ResumeLayout(false);
             this.titleBar.ResumeLayout(false);
             this.titleBar.PerformLayout();
             this.userStatus.ResumeLayout(false);
@@ -547,16 +563,14 @@
         private System.Windows.Forms.Panel logoPanel;
         private System.Windows.Forms.PictureBox appLogo;
         private System.Windows.Forms.LinkLabel copyRights;
-        private System.Windows.Forms.Panel processSubMenuPanel;
         private FontAwesome.Sharp.IconButton rentManagerBtn;
         private FontAwesome.Sharp.IconButton inspectorManagerBtn;
         private FontAwesome.Sharp.IconButton processBtn;
         private System.Windows.Forms.Panel gestiSubMenuPanel;
         private FontAwesome.Sharp.IconButton employeeManagerBtn;
-        private FontAwesome.Sharp.IconButton customerManagerBtn;
+        private FontAwesome.Sharp.IconButton GeneralManagerBtn;
         private FontAwesome.Sharp.IconButton carManagerBtn;
         private FontAwesome.Sharp.IconButton gestiBtn;
-        private FontAwesome.Sharp.IconButton startBtn;
         private System.Windows.Forms.Panel panelContainer;
         private System.Windows.Forms.Panel titleBar;
         private FontAwesome.Sharp.IconPictureBox minimizeBtn;
@@ -570,6 +584,9 @@
         private System.Windows.Forms.Panel adminSubMenuPanel;
         private FontAwesome.Sharp.IconButton consultBtn;
         private FontAwesome.Sharp.IconButton reportBtn;
+        private FontAwesome.Sharp.IconButton CustomerManagerBtn;
+        private System.Windows.Forms.Panel processSubMenuPanel;
+        private System.Windows.Forms.Panel panelDash;
     }
 }
 

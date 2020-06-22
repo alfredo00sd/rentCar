@@ -1,6 +1,6 @@
 ﻿namespace rentCar.views.car.type
 {
-    partial class Confirmation
+    partial class ConfirmAction
     {
         /// <summary>
         /// Required designer variable.

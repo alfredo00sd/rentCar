@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralCrud));
             this.statusCheck = new System.Windows.Forms.CheckBox();
             this.deleteBtn = new FontAwesome.Sharp.IconButton();
             this.label2 = new System.Windows.Forms.Label();
@@ -111,7 +112,7 @@
             this.idInput.Size = new System.Drawing.Size(221, 20);
             this.idInput.TabIndex = 45;
             // 
-            // CommondCrudDE
+            // GeneralCrud
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -123,7 +124,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.saveEditBtn);
             this.Controls.Add(this.idInput);
-            this.Name = "CommondCrudDE";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "GeneralCrud";
             this.Text = "CommondCrudDE";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CommonDEView));
             this.modelIdTB = new System.Windows.Forms.TextBox();
             this.saveEditBtn = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
@@ -146,6 +147,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.saveEditBtn);
             this.Controls.Add(this.modelIdTB);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CommonDEView";
             this.Text = "Editar/Borrar modelo";
             this.ResumeLayout(false);

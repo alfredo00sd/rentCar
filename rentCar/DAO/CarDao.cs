@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace rentCar.DAO
 {
-    class CarDao : DBConnection
+    class CarDAO : DBConnection
     {
         //Add
         public bool SaveCar(CarDTO carDTO)

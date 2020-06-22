@@ -58,7 +58,7 @@ namespace rentCar.views.car.type
         //Delete
         private void deleteBtn_Click(object sender, EventArgs e)
         {
-            Confirmation confirm = new Confirmation();
+            ConfirmAction confirm = new ConfirmAction();
 
             DialogResult dr = confirm.ShowDialog();
 

@@ -51,17 +51,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\CarDao.cs" />
+    <Compile Include="DAO\CarDAO.cs" />
     <Compile Include="DAO\CommonsCarDAO.cs" />
-    <Compile Include="DAO\LoginDao.cs" />
-    <Compile Include="DBConnection.cs" />
+    <Compile Include="DAO\CustomerDAO.cs" />
+    <Compile Include="DAO\EmployeeDAO.cs" />
+    <Compile Include="DAO\LoginDAO.cs" />
+    <Compile Include="Config\DBConnection.cs" />
     <Compile Include="DTO\car\CarDTO.cs" />
-    <Compile Include="DTO\Employee\EmployeeDto.cs" />
-    <Compile Include="DTO\user\UserDto.cs" />
-    <Compile Include="AppForm.cs">
+    <Compile Include="DTO\CustomerDTO.cs" />
+    <Compile Include="DTO\EmployeeDTO.cs" />
+    <Compile Include="DTO\user\UserDTO.cs" />
+    <Compile Include="Utils\CustomValidations.cs" />
+    <Compile Include="views\AppForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AppForm.Designer.cs">
+    <Compile Include="views\AppForm.Designer.cs">
       <DependentUpon>AppForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -72,11 +76,11 @@
     <Compile Include="views\car\CarMantView.Designer.cs">
       <DependentUpon>CarMantView.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\car\ConfirmAction.cs">
+    <Compile Include="Utils\ChooseAction2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\car\ConfirmAction.Designer.cs">
-      <DependentUpon>ConfirmAction.cs</DependentUpon>
+    <Compile Include="Utils\ChooseAction2.Designer.cs">
+      <DependentUpon>ChooseAction2.cs</DependentUpon>
     </Compile>
     <Compile Include="views\car\maintenances\GeneralView.cs">
       <SubType>Form</SubType>
@@ -96,25 +100,37 @@
     <Compile Include="views\car\maintenances\GeneralCrud.Designer.cs">
       <DependentUpon>GeneralCrud.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\car\maintenances\ConfirmationView.cs">
+    <Compile Include="Utils\ConfirmAction.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\car\maintenances\ConfirmationView.Designer.cs">
-      <DependentUpon>ConfirmationView.cs</DependentUpon>
+    <Compile Include="Utils\ConfirmAction.Designer.cs">
+      <DependentUpon>ConfirmAction.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\user\userLogin.cs">
+    <Compile Include="Utils\ChooseAction3.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\user\userLogin.Designer.cs">
+    <Compile Include="Utils\ChooseAction3.Designer.cs">
+      <DependentUpon>ChooseAction3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\users\CustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\users\CustomerForm.Designer.cs">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\users\access\userLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\users\access\userLogin.Designer.cs">
       <DependentUpon>userLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\user\userRegister.cs">
+    <Compile Include="views\users\EmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\user\userRegister.Designer.cs">
-      <DependentUpon>userRegister.cs</DependentUpon>
+    <Compile Include="views\users\EmployeeForm.Designer.cs">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AppForm.resx">
+    <EmbeddedResource Include="views\AppForm.resx">
       <DependentUpon>AppForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -129,8 +145,8 @@
     <EmbeddedResource Include="views\car\CarMantView.resx">
       <DependentUpon>CarMantView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\car\ConfirmAction.resx">
-      <DependentUpon>ConfirmAction.cs</DependentUpon>
+    <EmbeddedResource Include="Utils\ChooseAction2.resx">
+      <DependentUpon>ChooseAction2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\car\maintenances\GeneralView.resx">
       <DependentUpon>GeneralView.cs</DependentUpon>
@@ -141,14 +157,20 @@
     <EmbeddedResource Include="views\car\maintenances\GeneralCrud.resx">
       <DependentUpon>GeneralCrud.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\car\maintenances\ConfirmationView.resx">
-      <DependentUpon>ConfirmationView.cs</DependentUpon>
+    <EmbeddedResource Include="Utils\ConfirmAction.resx">
+      <DependentUpon>ConfirmAction.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\user\userLogin.resx">
+    <EmbeddedResource Include="views\users\access\userLogin.resx">
       <DependentUpon>userLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\user\userRegister.resx">
-      <DependentUpon>userRegister.cs</DependentUpon>
+    <EmbeddedResource Include="Utils\ChooseAction3.resx">
+      <DependentUpon>ChooseAction3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\users\EmployeeForm.resx">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\users\CustomerForm.resx">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -166,10 +188,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="views\consultas\" />
-    <Folder Include="views\customers\" />
-    <Folder Include="views\employees\" />
-    <Folder Include="views\inspeccion\" />
-    <Folder Include="views\renta\" />
     <Folder Include="views\reportes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
