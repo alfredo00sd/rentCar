@@ -71,6 +71,7 @@
             this.CarTypeCB = new System.Windows.Forms.ComboBox();
             this.carDV = new System.Windows.Forms.DataGridView();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.carStatsCheck = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -168,6 +169,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.carStatsCheck);
             this.splitContainer1.Panel1.Controls.Add(this.label15);
             this.splitContainer1.Panel1.Controls.Add(this.label11);
             this.splitContainer1.Panel1.Controls.Add(this.textBox1);
@@ -364,7 +366,7 @@
             this.commentBox.MaxLength = 200;
             this.commentBox.Multiline = true;
             this.commentBox.Name = "commentBox";
-            this.commentBox.Size = new System.Drawing.Size(355, 67);
+            this.commentBox.Size = new System.Drawing.Size(275, 67);
             this.commentBox.TabIndex = 89;
             // 
             // placaInput
@@ -636,6 +638,18 @@
             this.carDV.TabIndex = 0;
             this.carDV.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.carDV_CellMouseDoubleClick);
             // 
+            // carStatsCheck
+            // 
+            this.carStatsCheck.AutoSize = true;
+            this.carStatsCheck.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.carStatsCheck.ForeColor = System.Drawing.Color.White;
+            this.carStatsCheck.Location = new System.Drawing.Point(708, 151);
+            this.carStatsCheck.Name = "carStatsCheck";
+            this.carStatsCheck.Size = new System.Drawing.Size(74, 18);
+            this.carStatsCheck.TabIndex = 105;
+            this.carStatsCheck.Text = "Estatus";
+            this.carStatsCheck.UseVisualStyleBackColor = true;
+            // 
             // CarMantView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -705,5 +719,6 @@
         private System.Windows.Forms.Label label16;
         private FontAwesome.Sharp.IconButton refreshBtn;
         private FontAwesome.Sharp.IconButton helpBtn;
+        private System.Windows.Forms.CheckBox carStatsCheck;
     }
 }

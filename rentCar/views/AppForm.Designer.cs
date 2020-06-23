@@ -47,6 +47,7 @@
             this.logoPanel = new System.Windows.Forms.Panel();
             this.appLogo = new System.Windows.Forms.PictureBox();
             this.panelContainer = new System.Windows.Forms.Panel();
+            this.panelDash = new System.Windows.Forms.Panel();
             this.titleBar = new System.Windows.Forms.Panel();
             this.userStatus = new System.Windows.Forms.Panel();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
@@ -56,7 +57,6 @@
             this.maximizeBtn = new FontAwesome.Sharp.IconPictureBox();
             this.lblTitleChildForm = new System.Windows.Forms.Label();
             this.iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
-            this.panelDash = new System.Windows.Forms.Panel();
             this.menuPanel.SuspendLayout();
             this.adminSubMenuPanel.SuspendLayout();
             this.processSubMenuPanel.SuspendLayout();
@@ -398,6 +398,16 @@
             this.panelContainer.Size = new System.Drawing.Size(738, 563);
             this.panelContainer.TabIndex = 2;
             // 
+            // panelDash
+            // 
+            this.panelDash.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelDash.Location = new System.Drawing.Point(6, 56);
+            this.panelDash.Name = "panelDash";
+            this.panelDash.Size = new System.Drawing.Size(720, 495);
+            this.panelDash.TabIndex = 0;
+            // 
             // titleBar
             // 
             this.titleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(0)))), ((int)(((byte)(15)))));
@@ -512,16 +522,6 @@
             this.iconCurrentChildForm.Size = new System.Drawing.Size(32, 32);
             this.iconCurrentChildForm.TabIndex = 0;
             this.iconCurrentChildForm.TabStop = false;
-            // 
-            // panelDash
-            // 
-            this.panelDash.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelDash.Location = new System.Drawing.Point(6, 56);
-            this.panelDash.Name = "panelDash";
-            this.panelDash.Size = new System.Drawing.Size(720, 495);
-            this.panelDash.TabIndex = 0;
             // 
             // AppForm
             // 

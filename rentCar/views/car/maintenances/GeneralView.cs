@@ -111,7 +111,7 @@ namespace rentCar.views.car
 
             //Combox brands congig
             CarBrandCB.DropDownStyle = ComboBoxStyle.DropDownList;
-            CarBrandCB.DataSource = dao.GetDataForCB(2);
+            CarBrandCB.DataSource = dao.GetDataForCB("car_brand");
             CarBrandCB.ValueMember = "id";
             CarBrandCB.DisplayMember = "brand";
         }
@@ -210,7 +210,8 @@ namespace rentCar.views.car
                 MessageBox.Show("favor de completar el campo");
             }
             else {
-                MessageBox.Show(dao.Add(brandTX.Text, "brand"));
+                dao.Add(brandTX.Text, "brand", true);
+                MessageBox.Show("Agregado!");
                 refreshDataView("brand");
             }
         }
@@ -223,7 +224,8 @@ namespace rentCar.views.car
             }
             else
             {
-                MessageBox.Show(dao.Add(carTypeTX.Text, "type"));
+                dao.Add(carTypeTX.Text, "type_of_car",true);
+                MessageBox.Show("Agregado");
                 refreshDataView("type");
             }
         }
@@ -235,7 +237,13 @@ namespace rentCar.views.car
 
             if (newModelDescription != null && newModelDescription != "" && brandId > 0)
             {
-                MessageBox.Show(modelCRUD.AddNewModel(brandId, newModelDescription));
+                CarModelDTO dto = new CarModelDTO();
+                dto.ParentBrandId = brandId;
+                dto.ModelDescription = newModelDescription;
+                dto.Status = true;
+
+                modelCRUD.AddNewModel(dto);
+                MessageBox.Show("Agregado");
                 refreshDataView("model");
             }
             else
@@ -252,7 +260,8 @@ namespace rentCar.views.car
             }
             else
             {
-                MessageBox.Show(dao.Add(carFuelTypeTX.Text, "fuelType"));
+                dao.Add(carFuelTypeTX.Text, "type_of_fuel", true);
+                MessageBox.Show("agregado");
                 refreshDataView("fuel");
             }
         }

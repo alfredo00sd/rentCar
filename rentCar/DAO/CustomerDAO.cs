@@ -12,26 +12,9 @@ namespace rentCar.DAO
         readonly SqlCommand cmd = new SqlCommand();
         List<CustomerDTO> dtoList;
 
-        //Add
-        public void ADD(CustomerDTO dto)
-        {
-            cmd.Connection = conexion.AbrirConexion();
-            cmd.CommandText = "insert into customers values(@name, @lastName, @cedula, @type, @creditCard, @creditLimit, @status, @RNC)";
-            cmd.CommandType = CommandType.Text;
-            
-            //            insert into customers values('Juan','Carlos', '40212313333', 'Fisica', 'XXXXXXXXXXXXXXXXX', 2000, 1, null);
-            //            insert into customers values('Juan','Carlos', null, 'Fisica', 'XXXXXXXXXXXXXXXXX', 2000, 1, 'ACE123452');
-
-            FillCustomerDtoParams(cmd, dto);
-            cmd.ExecuteNonQuery();
-
-            cmd.Parameters.Clear();
-            conexion.CerrarConexion();
-        }
-
         //Fills
         private void FillCustomerDtoParams(SqlCommand cmd, CustomerDTO dto)
-        {    
+        {
             cmd.Parameters.AddWithValue("@id", dto.Id);
             cmd.Parameters.AddWithValue("@name", dto.Name);
             cmd.Parameters.AddWithValue("@lastName", dto.LastName);
@@ -68,6 +51,21 @@ namespace rentCar.DAO
             return ListaGenerica;
         }
 
+        //Add
+        public void ADD(CustomerDTO dto)
+        {
+            cmd.Connection = conexion.AbrirConexion();
+            cmd.CommandText = "insert into customers values(@name, @lastName, @cedula, @type, @creditCard, @creditLimit, @status, @RNC)";
+            cmd.CommandType = CommandType.Text;
+
+            FillCustomerDtoParams(cmd, dto);
+            cmd.ExecuteNonQuery();
+
+            cmd.Parameters.Clear();
+            conexion.CerrarConexion();
+        }
+
+        
         //Edit
         public void EDIT(CustomerDTO dto)
         {

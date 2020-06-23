@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(userLogin));
-            this.userCard = new System.Windows.Forms.TextBox();
+            this.userNameTX = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.userContainerForm = new System.Windows.Forms.Panel();
             this.recoverCredentials = new System.Windows.Forms.LinkLabel();
             this.validateUserBtn = new FontAwesome.Sharp.IconButton();
             this.appLogo = new System.Windows.Forms.PictureBox();
-            this.passwordInput = new System.Windows.Forms.TextBox();
+            this.passTX = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.minimizeBtn = new FontAwesome.Sharp.IconPictureBox();
             this.closeBtn = new FontAwesome.Sharp.IconPictureBox();
@@ -47,14 +47,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.maximizeBtn)).BeginInit();
             this.SuspendLayout();
             // 
-            // userCard
+            // userNameTX
             // 
-            this.userCard.Location = new System.Drawing.Point(166, 220);
-            this.userCard.MaxLength = 15;
-            this.userCard.Name = "userCard";
-            this.userCard.Size = new System.Drawing.Size(304, 20);
-            this.userCard.TabIndex = 0;
-            this.userCard.TextChanged += new System.EventHandler(this.userCard_TextChanged);
+            this.userNameTX.Location = new System.Drawing.Point(166, 220);
+            this.userNameTX.MaxLength = 15;
+            this.userNameTX.Name = "userNameTX";
+            this.userNameTX.Size = new System.Drawing.Size(304, 20);
+            this.userNameTX.TabIndex = 0;
             // 
             // label1
             // 
@@ -63,9 +62,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(163, 204);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 14);
+            this.label1.Size = new System.Drawing.Size(55, 14);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Tarjeta de empleado";
+            this.label1.Text = "Usuario";
             // 
             // userContainerForm
             // 
@@ -73,9 +72,9 @@
             this.userContainerForm.Controls.Add(this.recoverCredentials);
             this.userContainerForm.Controls.Add(this.validateUserBtn);
             this.userContainerForm.Controls.Add(this.appLogo);
-            this.userContainerForm.Controls.Add(this.passwordInput);
+            this.userContainerForm.Controls.Add(this.passTX);
             this.userContainerForm.Controls.Add(this.label2);
-            this.userContainerForm.Controls.Add(this.userCard);
+            this.userContainerForm.Controls.Add(this.userNameTX);
             this.userContainerForm.Controls.Add(this.label1);
             this.userContainerForm.Location = new System.Drawing.Point(75, 33);
             this.userContainerForm.Name = "userContainerForm";
@@ -124,14 +123,14 @@
             this.appLogo.TabIndex = 4;
             this.appLogo.TabStop = false;
             // 
-            // passwordInput
+            // passTX
             // 
-            this.passwordInput.Location = new System.Drawing.Point(166, 269);
-            this.passwordInput.MaxLength = 30;
-            this.passwordInput.Name = "passwordInput";
-            this.passwordInput.PasswordChar = '*';
-            this.passwordInput.Size = new System.Drawing.Size(304, 20);
-            this.passwordInput.TabIndex = 2;
+            this.passTX.Location = new System.Drawing.Point(166, 269);
+            this.passTX.MaxLength = 30;
+            this.passTX.Name = "passTX";
+            this.passTX.PasswordChar = '*';
+            this.passTX.Size = new System.Drawing.Size(304, 20);
+            this.passTX.TabIndex = 2;
             // 
             // label2
             // 
@@ -200,6 +199,7 @@
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.maximizeBtn);
             this.Controls.Add(this.userContainerForm);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "userLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.userContainerForm.ResumeLayout(false);
@@ -214,10 +214,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox userCard;
+        private System.Windows.Forms.TextBox userNameTX;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel userContainerForm;
-        private System.Windows.Forms.TextBox passwordInput;
+        private System.Windows.Forms.TextBox passTX;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox appLogo;
         private FontAwesome.Sharp.IconButton validateUserBtn;

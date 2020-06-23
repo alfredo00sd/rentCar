@@ -9,7 +9,8 @@ namespace rentCar.user
     {
         //Start SINGLETON
         private static userLogin Instancia = null;
-        LoginDao dao = new LoginDao();
+        private readonly LoginDao dao = new LoginDao();
+        private UserDTO user = new UserDTO();
 
         public userLogin()
         {
@@ -31,32 +32,26 @@ namespace rentCar.user
         }
         //End SINGLETON        
 
-
-        private void userCard_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void validateUserBtn_Click(object sender, EventArgs e)
         {
-            if (userCard.Text.Equals("") || passwordInput.Text.Equals(""))
+            if (userNameTX.Text.Equals("") || passTX.Text.Equals(""))
             {
                 MessageBox.Show("No puede dejar campos vacios");
             }
             else
             {
-                //if (dao.ValidateLoggin(userCard.Text, passwordInput.Text) != null)
-                //{
-                //    //Application.Run(new AppForm());
+                user = dao.ValidateLoggin(userNameTX.Text, passTX.Text);
 
-                //    //appForm.loggedUserConfig(dao.ValidateLoggin(userCard.Text, passwordInput.Text));
-                //    this.validateUserBtn.DialogResult = DialogResult.OK;
-                //    this.Close();
-                //}
-                //else
-                //{
-                    MessageBox.Show("Datos erroneos, favor revisar sus credenciales e intentar de nuevo.");
-                //}
+                if (user.Message.Equals("OK"))
+                {
+                    AppForm NewForm = new AppForm(user);
+                    NewForm.Show();
+                    this.Dispose(false);
+                }
+                else
+                {
+                    MessageBox.Show(user.Message);
+                }
             }
         }
 

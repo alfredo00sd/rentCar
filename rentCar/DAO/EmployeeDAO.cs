@@ -11,14 +11,13 @@ namespace rentCar.DAO
     {
         private DBConnection conexion = new DBConnection();
         SqlDataReader reader;
-        SqlCommand cmd = new SqlCommand();
+        private readonly SqlCommand cmd = new SqlCommand();
 
         //Searchs...
 
         //Add
         public void ADD(EmployeeDTO dto) 
         {
-            //string insert = "insert into employees values(@dominicanCard, @employeeCard, @workSession, @name, @lastName, getDate(), @workPosition, @comission, @status)";
             cmd.Connection = conexion.AbrirConexion();
             cmd.CommandText = "insert into employees values(@dominicanCard, @employeeCard, @workSession, @name, @lastName, getDate(), @workPosition, @comission, @status)";
             cmd.CommandType = CommandType.Text;
@@ -31,7 +30,7 @@ namespace rentCar.DAO
 
         //Fills
         private void FillEmployeeDtoParams(SqlCommand cmd, EmployeeDTO dto)
-        {    //Save foto in base64 table and give the id to save on car info table...
+        {
             cmd.Parameters.AddWithValue("@id", dto.EmployeeId);
             cmd.Parameters.AddWithValue("@dominicanCard", dto.IdentificationCard);
             cmd.Parameters.AddWithValue("@employeeCard", dto.EmployeeCard);
@@ -145,7 +144,6 @@ namespace rentCar.DAO
         //Get by id
         public bool GetEmployeeById(string cedula) 
         {
-            //string query = "select * from employees where identification_card = '" + cedula + "'";
             cmd.Connection = conexion.AbrirConexion();
             cmd.CommandText = "select * from employees where identification_card = '" + cedula + "'";
             cmd.CommandType = CommandType.Text;

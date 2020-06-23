@@ -5,26 +5,12 @@ use CarRentSA
 go
 ----------///Create tables
 
---------------///Create management associated tables
-
-	INSERT INTO general_status values ('Disponible');
-	INSERT INTO general_status values ('Mantenimiento');
-	INSERT INTO general_status values ('Nuevo');
-	INSERT INTO general_status values ('fin de renta');
-	INSERT INTO general_status values ('rentado');
-	INSERT INTO general_status values ('No disponible');
-	INSERT INTO general_status values ('Lavanderia');
-	INSERT INTO general_status values ('Vendido');
-	INSERT INTO general_status values ('Activa');
-	INSERT INTO general_status values ('Descartado');
-
-	select * from general_status;
 ------------------///Create car associated tables
 	CREATE TABLE type_of_car --car_type
 	(
 		id int IDENTITY(1,1) primary key,
-		status bit,
 		description varchar(20) NOT NULL,
+		status bit
 	);
 ------------------///insert associated data to the table
 	INSERT INTO type_of_car values (1, 'Sedán');
@@ -41,8 +27,8 @@ select * from type_of_car;
 	CREATE TABLE car_brand
 	(
 		id int IDENTITY(1,1) primary key,
-		status bit,
-		description varchar(20) NOT NULL
+		description varchar(20) NOT NULL,
+		status bit	
 	);
 ------------------///insert associated data to the table
 	INSERT INTO car_brand values (1, 'Honda');
@@ -53,15 +39,32 @@ select * from type_of_car;
 	INSERT INTO car_brand values (1, 'Mazda');
 	INSERT INTO car_brand values (0, 'Tesla');
 
+select * from type_of_car;
 select * from car_brand;
+select * from type_of_fuel;
 
+select e.employee_card as userCard, u.user_password as userPass, r.rol_key as rol from employees e, users u, roles r where e.employee_card = @userCard and u.user_password = @userClave and u.user_status = 1 and r.rol_id = u.rol_id
+
+select * from users
+select * from employees
+select user_name, user_password, employee_id, user_status from users where user_name like 't%'
+
+select id, description as modelo from car_model where car_brand_id = 6
+select m.id, m.description as modelo, b.id as marcaId, b.description as marca,  m.status from car_model m, car_brand b where b.id = m.car_brand_id
+
+--(@Base64Photo, @CarType, @CarBrand, @CarModel, @CarFabYear, @CarChasisNum, @CarEngineNum, @CarLicensePlate, @CarColor, @FuelType, @QuantityOfFuel, @CarNumberOfDoors, @CarCapacityOfPassangers,  @CarConditions, @CarUseInKM, @CarInvComment, GETDATE(), null, @CarStatus)";
+
+update carInfo set photo_path = @Base64Photo, type = @CarType, brand = @CarBrand, model = @CarModel, car_fabrication_year = @CarFabYear, car_chassis_number = @CarChasisNum, car_engine_number = @CarEngineNum, car_license_plate = @CarLicensePlate, car_color = @CarColor, fuel_type = @FuelType, car_number_of_doors = @CarNumberOfDoors, car_capacity_of_passangers = @CarCapacityOfPassangers, car_conditions = @CarConditions, use_in_km = @CarUseInKM, car_status = @CarStatus, car_inv_commentary = @CarInvComment where id = @CarId
+
+select * from carInfo
 ------------------///Create car associated tables
 	CREATE TABLE car_model
 	(
 		id int IDENTITY(1,1) primary key,
-		status bit,
+		description varchar(40) NOT NULL,
 		car_brand_id int foreign key references car_brand(id),
-		description varchar(40) NOT NULL
+		car_brandDes varchar(40),
+		status bit
 	);
 ------------------///insert associated data to the table
 	INSERT INTO car_model values (0, 7, 'Model S');
@@ -72,13 +75,12 @@ select * from car_brand;
 	INSERT INTO car_model values (1, 2, 'Corrolla S');
 
 select * from car_model;
-
 ------------------///Create car associated tables
 	CREATE TABLE type_of_fuel
 	(
-		fuel_type_id int IDENTITY(1,1) primary key,
-		status bit,
-		fuel_type varchar(20) NOT NULL
+		id int IDENTITY(1,1) primary key,
+		description varchar(20) NOT NULL,
+		status bit
 	);
 ------------------///insert associated data to the table
 	INSERT INTO type_of_fuel values (1,'Gasolina');
@@ -90,30 +92,32 @@ select * from car_model;
 select * from type_of_fuel;
 
 ------------------///Create car associated tables
+
+
 CREATE TABLE carInfo
 	(
 		id int IDENTITY(1,1) primary key,
-		type  varchar(100),
-		brand varchar(100),
+		photo_path varchar(150),
+		type  varchar(50),
+		brand varchar(50),
 		model varchar(100),
-		photo_path varchar(300),
-		fuel_type varchar(100),
-		car_status varchar(100),
+		fabrication_year int NOT NULL,
+		chassis_number varchar(100) NOT NULL,
+		engine_number varchar(100) NOT NULL,
+		license_plate varchar(100) NOT NULL,
+		color varchar(100) NOT NULL,
+		fuel_type varchar(50),
 		quantity_of_fuel varchar(100) NOT NULL,
-		car_fabrication_year int NOT NULL,
-		car_chassis_number varchar(100) NOT NULL,
-		car_engine_number varchar(100) NOT NULL,
-		car_license_plate varchar(100) NOT NULL,
-		car_color varchar(100) NOT NULL,
-		car_number_of_doors int NOT NULL,
-		car_acquisition_date date,
-		car_capacity_of_passangers int NOT NULL,
-		car_conditions varchar(100) NOT NULL,
-		use_in_km varchar(100) NOT NULL,
+		number_of_doors int NOT NULL,
+		capacity_of_passangers int NOT NULL,
+		conditions varchar(100) NOT NULL,
+		use_in_km int NOT NULL,
+		comment varchar(200) NOT NULL,
+		acquisition_date date,
 		departure_date date,
-		car_inv_commentary varchar(200) NOT NULL
-	);
-------------------///insert associated data to the table
+		status bit
+		);
+-----------------///insert associated data to the table
 	
 	select * from carInfo;	
 	
@@ -183,7 +187,14 @@ insert into employees values ('11111111111', 'TD00124', 'Noche', 'Pepe', 'Alvare
 
 select * from employees
 
+select * from car_model
+
+select m.id, m.description as modelo, b.id as marcaId, b.description as marca,  m.status from car_model m, car_brand b where b.id = m.car_brand_id;
+
 delete from employees where id = 3
+
+select car_model_id as id, car_model_description as modelo from car_model where car_brand_id = @carBrandId and car_model_status = 14
+
 
 update employees set employee_card = 'TD12347', work_session = 'Diurna', name = 'Alejandra', lastname = 'Alvarez Lorenzo', work_position = 'Inspector', employee_commission = 20, status = 1 where id = 3 and identification_card = '00114121080'
 update employees set employee_card = 'TD12345', work_session = 'Diurna', name = 'Alfredo', lastname = 'Acosta Pena', work_position = 'ADMI', employee_commission = 20, status = 1 where id = 1 and identification_card = '40214810653'

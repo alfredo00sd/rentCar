@@ -1,49 +1,69 @@
 ﻿using rentCar.DTO.user;
 using System;
+using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Forms;
 
 namespace rentCar.DAO.user
 {
-    class LoginDao : DBConnection
+    class LoginDao
     {
-        //public UserDTO ValidateLoggin(String userCard, String userClave)
-        //{
-        //    UserDTO user = new UserDTO();
+        private readonly DBConnection conexion = new DBConnection();
+        private SqlDataReader reader;
+        private readonly SqlCommand cmd = new SqlCommand();
+        private UserDTO user;
+        private bool status;
 
-        //    try
-        //    {
-        //        Conexion.Open();
+        public UserDTO ValidateLoggin(String userCard, String userClave)
+        {
+            cmd.Connection = conexion.AbrirConexion();
+            cmd.CommandText = "select * from users where user_name = @userName and user_password = @pass";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@userName", userCard);
+            cmd.Parameters.AddWithValue("@pass", userClave);//Remember to encode the password
 
-        //        SqlCommand command = new SqlCommand("select e.employee_card as userCard, u.user_password as userPass, r.rol_key as rol from employees e, users u, roles r where e.employee_card = @userCard and u.user_password = @userClave and u.user_status = 1 and r.rol_id = u.rol_id;", Conexion);
-        //        command.Parameters.AddWithValue("@userCard", userCard);
-        //        command.Parameters.AddWithValue("@userClave", userClave);//Remember to encode the password
+            reader = cmd.ExecuteReader();
 
-        //        SqlDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)//Exite el carro!
+            {
+                reader.Read();
+                
+                status = (bool)reader["user_status"];
 
-        //        if (reader.HasRows)
-        //        {
-        //            while (reader.Read())
-        //            {
+                if (!status)
+                {
+                    user = new UserDTO
+                    {
+                        Message = "Usuario desactivado! favor contactar al administrador..."
+                    };
+                    return user;
+                }
+                else {
 
-        //                user.username = reader.GetString(0);
-        //                user.password = reader.GetString(1);
-        //                user.rolKey = reader.GetString(2);
+                    user = new UserDTO
+                    {
+                        UserId = reader.GetInt32(0),
+                        EmployeeId = reader.GetInt32(1),
+                        RolCode = reader.GetString(2),
+                        IdentificationCard = reader.GetString(3),
+                        UserName = reader.GetString(4),
+                        Password = reader.GetString(5),
+                        Status = status,
+                        Message = "OK"
+                    };
+                    return user;
+                }
+            }
+            else
+            {
+                user = new UserDTO
+                {
+                    Message = "Usuario o Clave erronea, favor validar o contactar al administrador!"
+                };
+                return user;
+            }
 
-        //                //MessageBox.Show("User : " + user + ", Pass : " + pass + " and rol : " + rol);
-        //            }
-
-        //            return user;
-        //        }
-        //        else { return null; }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //        return null;
-        //    }
-        //    finally { Conexion.Close(); }
-        //}
-
+            reader.Close();
+            conexion.CerrarConexion();
+        }
     }
 }

@@ -15,27 +15,22 @@ namespace rentCar.views.car.commonCruds
             InitializeComponent();
         }
 
-        public GeneralCrud(int id, string decription, string status, string table)
+        public GeneralCrud(int id, string decription, bool status, string table)
         {
             InitializeComponent();
 
             idInput.Text = "" + id;
             descriptionInput.Text = decription;
-            statusCheck.Checked = status.Equals("Activo");
+            statusCheck.Checked = status;
             this.table = table;
         }
 
         private void saveEditBtn_Click(object sender, EventArgs e)
         {
-            if (dao.Edit(idInput.Text, descriptionInput.Text, statusCheck.Checked ? "Activo" : "Descativado", table))
-            {
-                MessageBox.Show("Cambios guardados!");
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Promblemas al editar");
-            }
+            dao.Edit(idInput.Text, descriptionInput.Text, statusCheck.Checked, table);
+            
+            MessageBox.Show("Cambios guardados!");
+            this.Close();
         }
 
         private void deleteBtn_Click(object sender, EventArgs e)
@@ -46,16 +41,10 @@ namespace rentCar.views.car.commonCruds
 
             if (dr == DialogResult.OK)
             {
-                if (dao.Delete(idInput.Text, table))
-                {
-                    MessageBox.Show("Elemento eliminado!");
-                    //Close edit form
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Problemas al borrar este elemento");
-                }
+                dao.Delete(idInput.Text, table);
+                MessageBox.Show("Elemento eliminado!");
+                //Close edit form
+                this.Close();
             }
         }
     }

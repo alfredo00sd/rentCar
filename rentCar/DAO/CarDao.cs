@@ -7,183 +7,35 @@ using System.Windows.Forms;
 
 namespace rentCar.DAO
 {
-    class CarDAO : DBConnection
+    class CarDAO 
     {
-        //Add
-        public bool SaveCar(CarDTO carDTO)
-        {
-            string insertCarQuery = "INSERT INTO carInfo values (@CarType, @CarBrand, @CarModel, @Base64Photo, @FuelType, @CarStatus, @QuantityOfFuel, @CarFabYear, @CarChasisNum, @CarEngineNum, @CarLicensePlate, @CarColor, @CarNumberOfDoors, GETDATE(), @CarCapacityOfPassangers, @CarConditions, @CarUseInKM, null, @CarInvComment);";
-
-            using (var cn = new SqlConnection(CONNECTION_STRING))
-            {
-                cn.Open();
-                DataTable dt = new DataTable();
-                try
-                {
-                    SqlCommand cmd = new SqlCommand(insertCarQuery, cn);
-
-                    FillCarDtoParams(cmd, carDTO);
-
-                    cmd.ExecuteNonQuery();
-                }
-                catch (SqlException e)
-                {
-                    MessageBox.Show(e.ToString());
-                    Console.WriteLine(e.ToString());
-                    return false;
-                }
-                finally
-                {
-                    cn.Close();
-                }
-                return true;
-            }
-        }
-        
-        //Gets
-        public List<CarDTO> SearchByCriteria(String criteria)
-        {
-            string sqlSearch = "select id, photo_path, type, brand, model, car_fabrication_year, car_chassis_number, car_engine_number, car_license_plate, car_color, fuel_type, quantity_of_fuel, car_number_of_doors, car_capacity_of_passangers, car_acquisition_date, car_conditions, use_in_km, car_status, car_inv_commentary from  carInfo where car_license_plate like @criteria + '%' or car_chassis_number like @criteria + '%' or car_engine_number like @criteria + '%' or car_fabrication_year like @criteria + '%' or brand like @criteria + '%' or model like @criteria + '%'";
-            List<CarDTO> carDTOs = new List<CarDTO>();
-            SqlDataReader reader;
-
-            using (var cn = new SqlConnection(CONNECTION_STRING))
-            {
-                try
-                {
-                    SqlCommand cmd = new SqlCommand(sqlSearch, cn);
-                    cmd.Parameters.AddWithValue("@criteria", criteria);
-
-                    cn.Open();
-
-                    reader = cmd.ExecuteReader();
-
-                    carDTOs = FillCarDTOList(reader);
-                }
-                catch (SqlException e)
-                {
-                    Console.WriteLine(e.ToString());
-                }
-                finally
-                {
-                    cn.Close();
-                }
-            }
-            return carDTOs;
-        }
-
-        public List<CarDTO> GetAllCars()
-        {
-            string sqlSearch = " select id, photo_path, type, brand, model, car_fabrication_year, car_chassis_number, car_engine_number, car_license_plate, car_color, fuel_type, quantity_of_fuel, car_number_of_doors, car_capacity_of_passangers, car_acquisition_date, car_conditions, use_in_km, car_status, car_inv_commentary from  carInfo";
-            List<CarDTO> carDTOs = new List<CarDTO>();
-            SqlDataReader reader;
-
-            using (var cn = new SqlConnection(CONNECTION_STRING))
-            {
-                try
-                {
-                    SqlCommand cmd = new SqlCommand(sqlSearch, cn);
-                    cn.Open();
-
-                    reader = cmd.ExecuteReader();
-
-                    carDTOs = FillCarDTOList(reader);
-                }
-                catch (SqlException e)
-                {
-                    Console.WriteLine(e.ToString());
-                }
-                finally
-                {
-                    cn.Close();
-                }
-            }
-            return carDTOs;
-        }
-
-        public void GetCarById()
-        {
-
-        }
-        
-        //Edit
-        public bool EditCar(CarDTO carDTO)
-        {
-            string updateQuery = "update carInfo set photo_path = @Base64Photo, type = @CarType, brand = @CarBrand, model = @CarModel, car_fabrication_year = @CarFabYear, car_chassis_number = @CarChasisNum, car_engine_number = @CarEngineNum, car_license_plate = @CarLicensePlate, car_color = @CarColor, fuel_type = @FuelType, car_number_of_doors = @CarNumberOfDoors, car_capacity_of_passangers = @CarCapacityOfPassangers, car_conditions = @CarConditions, use_in_km = @CarUseInKM, car_status = @CarStatus, car_inv_commentary = @CarInvComment where id = 1";//@CarId
-
-            using (var cn = new SqlConnection(CONNECTION_STRING))
-            {
-                cn.Open();
-                DataTable dt = new DataTable();
-                try
-                {
-                    SqlCommand cmd = new SqlCommand(updateQuery, cn);
-
-                    FillCarDtoParams(cmd, carDTO);
-                    
-                    cmd.ExecuteNonQuery();
-                }
-                catch (SqlException e)
-                {
-                    MessageBox.Show(e.ToString());
-                    Console.WriteLine(e.ToString());
-                    return false;
-                }
-                finally
-                {
-                    cn.Close();
-                }
-                return true;
-            }
-        }
-
-        //Delete
-        public bool DeleteCar(int carId)
-        {
-            using (var cn = new SqlConnection(CONNECTION_STRING))
-            {
-                try
-                {
-                    cn.Open();
-                    SqlCommand cmd = new SqlCommand("delete from carInfo where id = @CarId ", cn);
-                    cmd.Parameters.AddWithValue("@CarId", carId);
-                    cmd.ExecuteNonQuery();
-                }
-                catch (SqlException e)
-                {
-                    Console.WriteLine(e.ToString());
-                    return false;
-                }
-                finally
-                {
-                    cn.Close();
-                }
-                return true;
-            }
-        }
+        //Filds
+        private DBConnection conexion = new DBConnection();
+        SqlDataReader reader;
+        readonly SqlCommand cmd = new SqlCommand();
+        List<CarDTO> dtoList;
 
         //Utils
         private void FillCarDtoParams(SqlCommand cmd, CarDTO carDTO)
         {    //Save foto in base64 table and give the id to save on car info table...
-            cmd.CommandType = CommandType.Text;
-            cmd.Parameters.AddWithValue("@CarId", carDTO.CarId);
-            cmd.Parameters.AddWithValue("@CarType", carDTO.CarType);
-            cmd.Parameters.AddWithValue("@CarBrand", carDTO.CarBrand);
-            cmd.Parameters.AddWithValue("@CarModel", carDTO.CarModel);
-            cmd.Parameters.AddWithValue("@Base64Photo", "path/to/foto");//replace with dto path to photo
+            cmd.Parameters.AddWithValue("@CarId", carDTO.Id);
+            cmd.Parameters.AddWithValue("@CarType", carDTO.Type);
+            cmd.Parameters.AddWithValue("@CarBrand", carDTO.Brand);
+            cmd.Parameters.AddWithValue("@CarModel", carDTO.Model);
+            cmd.Parameters.AddWithValue("@Base64Photo", carDTO.PhotoPath);//replace with dto path to photo
             cmd.Parameters.AddWithValue("@FuelType", carDTO.FuelType);
-            cmd.Parameters.AddWithValue("@CarStatus", "Nuevo ingreso");//General tag to all new cars in inv
-            cmd.Parameters.AddWithValue("@QuantityOfFuel", "Lleno");//General tag to all new cars in inv
-            cmd.Parameters.AddWithValue("@CarFabYear", carDTO.CarFabYear);
-            cmd.Parameters.AddWithValue("@CarChasisNum", carDTO.CarChasisNum.ToUpper());
-            cmd.Parameters.AddWithValue("@CarEngineNum", carDTO.CarEngineNum.ToUpper());
-            cmd.Parameters.AddWithValue("@CarLicensePlate", carDTO.CarLicensePlate.ToUpper());
-            cmd.Parameters.AddWithValue("@CarColor", carDTO.CarColor);
-            cmd.Parameters.AddWithValue("@CarNumberOfDoors", carDTO.CarNumberOfDoors);
-            cmd.Parameters.AddWithValue("@CarCapacityOfPassangers", carDTO.CarCapacityOfPassangers);
-            cmd.Parameters.AddWithValue("@CarConditions", carDTO.CarConditions);
-            cmd.Parameters.AddWithValue("@CarUseInKM", carDTO.CarUseInKM);
-            cmd.Parameters.AddWithValue("@CarInvComment", carDTO.CarInvComment);
+            cmd.Parameters.AddWithValue("@QuantityOfFuel", carDTO.QuantityOfFuel);//General tag to all new cars in inv
+            cmd.Parameters.AddWithValue("@CarFabYear", carDTO.FabYear);
+            cmd.Parameters.AddWithValue("@CarChasisNum", carDTO.ChasisNum.ToUpper());
+            cmd.Parameters.AddWithValue("@CarEngineNum", carDTO.EngineNum.ToUpper());
+            cmd.Parameters.AddWithValue("@CarLicensePlate", carDTO.LicensePlate.ToUpper());
+            cmd.Parameters.AddWithValue("@CarColor", carDTO.Color);
+            cmd.Parameters.AddWithValue("@CarNumberOfDoors", carDTO.NumberOfDoors);
+            cmd.Parameters.AddWithValue("@CarCapacityOfPassangers", carDTO.CapacityOfPassangers);
+            cmd.Parameters.AddWithValue("@CarConditions", carDTO.Conditions);
+            cmd.Parameters.AddWithValue("@CarUseInKM", carDTO.UseInKM);
+            cmd.Parameters.AddWithValue("@CarInvComment", carDTO.Comment);
+            cmd.Parameters.AddWithValue("@CarStatus", carDTO.Status ? 1 : 0);//General tag to all new cars in inv
         }
 
         public List<CarDTO> FillCarDTOList(SqlDataReader reader)
@@ -194,281 +46,297 @@ namespace rentCar.DAO
             {
                 ListaGenerica.Add(new CarDTO
                 {
-                    CarId = reader.GetInt32(0),
-                    CarBase64Photo = reader.GetString(1), //can not be null reader.GetInt32(4)
-                    CarType  = reader.GetString(2),
-                    CarBrand = reader.GetString(3),
-                    CarModel = reader.GetString(4), // not null
-                    CarFabYear = reader.GetInt32(5),
-                    CarChasisNum = reader.GetString(6),
-                    CarEngineNum = reader.GetString(7),
-                    CarLicensePlate = reader.GetString(8),
-                    CarColor = reader.GetString(9),
+                    Id = reader.GetInt32(0),
+                    PhotoPath = reader.GetString(1), //can not be null reader.GetInt32(4)
+                    Type = reader.GetString(2),
+                    Brand = reader.GetString(3),
+                    Model = reader.GetString(4), // not null
+                    FabYear = reader.GetInt32(5),
+                    ChasisNum = reader.GetString(6),
+                    EngineNum = reader.GetString(7),
+                    LicensePlate = reader.GetString(8),
+                    Color = reader.GetString(9),
                     FuelType = reader.GetString(10), //Not null
                     QuantityOfFuel = reader.GetString(11),
-                    CarNumberOfDoors = reader.GetInt32(12),
-                    CarCapacityOfPassangers = reader.GetInt32(13),
-                    //14 Fecha de ingreso...
-                    CarConditions = reader.GetString(15),
-                    CarUseInKM = reader.GetString(16),//Convert.ToInt32(reader.GetString(17)), //problem casting type
-                    CarStatus = reader.GetString(17),
-                    CarInvComment = reader.GetString(18)//reader.GetString(18)
+                    NumberOfDoors = reader.GetInt32(12),
+                    CapacityOfPassangers = reader.GetInt32(13),
+                    Conditions = reader.GetString(15),
+                    UseInKM = reader.GetInt32(16),//Convert.ToInt32(reader.GetString(17)), //problem casting type
+                    Comment = reader.GetString(17),//reader.GetString(18)
+                    //18 Fecha de ingreso...
+                    //10 Fecha de salida...
+                    Status = (bool)reader["status"]
                 });
             }
+            return ListaGenerica;
+        }
+
+        //Add
+        public void ADD(CarDTO carDTO)
+        {
+            if (GetCarById(carDTO.LicensePlate, carDTO.ChasisNum, carDTO.EngineNum))
+            {
+                MessageBox.Show("ERROR : No se acepta duplicidad de registros. Este vehiculo, ya esta en el sistema! favor validar la placa: "+carDTO.LicensePlate+", el chasis: "+carDTO.ChasisNum+" o el numero de motor: "+carDTO.EngineNum);
+            }
+            else 
+            { 
+                cmd.Connection = conexion.AbrirConexion();
+                cmd.CommandText = "insert into carInfo values (@Base64Photo, @CarType, @CarBrand, @CarModel, @CarFabYear, @CarChasisNum, @CarEngineNum, @CarLicensePlate, @CarColor, @FuelType, @QuantityOfFuel, @CarNumberOfDoors, @CarCapacityOfPassangers,  @CarConditions, @CarUseInKM, @CarInvComment, GETDATE(), null, @CarStatus)";
+                cmd.CommandType = CommandType.Text;
+
+                FillCarDtoParams(cmd, carDTO);
+
+                cmd.ExecuteNonQuery();
+
+                cmd.Parameters.Clear();
+                conexion.CerrarConexion();
+            }
+        }
+        
+        //Searchs...
+        public List<CarDTO> SearchByCriteria(String criteria)
+        {
+            cmd.Connection = conexion.AbrirConexion();
+            cmd.CommandText = "select * from carInfo where license_plate like @criteria + '%' or chassis_number like @criteria + '%' or engine_number like @criteria + '%' or fabrication_year like @criteria + '%' or brand like @criteria + '%' or model like @criteria + '%'";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@criteria", criteria);
+
+            reader = cmd.ExecuteReader();
+
+            dtoList = FillCarDTOList(reader);
 
             reader.Close();
+            conexion.CerrarConexion();
 
-            return ListaGenerica;
+            return dtoList;
+        }
+
+        //Gets
+        public List<CarDTO> GETALL()
+        {
+            cmd.Connection = conexion.AbrirConexion();
+            cmd.CommandText = "select * from carInfo";
+            cmd.CommandType = CommandType.Text;
+            reader = cmd.ExecuteReader();
+
+            dtoList = FillCarDTOList(reader);
+
+            conexion.CerrarConexion();
+            reader.Close();
+
+            return dtoList;
+        }
+
+        public bool GetCarById(string placa, string chasis, string engine)
+        {
+            cmd.Connection = conexion.AbrirConexion();
+            cmd.CommandText = "select * from carInfo where car_license_plate = '" + placa + "' or car_chassis_number = '" + chasis + "' or car_engine_number = '" + engine + "'";
+            cmd.CommandType = CommandType.Text;
+
+            reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)//Exite el carro!
+            {
+                reader.Close();
+                conexion.CerrarConexion();
+                return true;
+            }
+            else
+            {
+                reader.Close();
+                conexion.CerrarConexion();
+                return false;
+            }
+        }
+        
+        //Edit
+        public void EDIT(CarDTO dto)
+        {
+            cmd.Connection = conexion.AbrirConexion();
+            cmd.CommandText = "update carInfo set photo_path = @Base64Photo, type = @CarType, brand = @CarBrand, model = @CarModel, car_fabrication_year = @CarFabYear, car_chassis_number = @CarChasisNum, car_engine_number = @CarEngineNum, car_license_plate = @CarLicensePlate, car_color = @CarColor, fuel_type = @FuelType, car_number_of_doors = @CarNumberOfDoors, car_capacity_of_passangers = @CarCapacityOfPassangers, car_conditions = @CarConditions, use_in_km = @CarUseInKM, car_status = @CarStatus, car_inv_commentary = @CarInvComment where id = @CarId";
+            cmd.CommandType = CommandType.Text;
+
+            FillCarDtoParams(cmd, dto);
+
+            cmd.ExecuteNonQuery();
+
+            cmd.Parameters.Clear();
+            conexion.CerrarConexion();
+        }
+
+        //Delete
+        public void DELETE(int id)
+        {
+            cmd.Connection = conexion.AbrirConexion();
+            cmd.CommandText = "delete from carInfo where id = @id ";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@id", id);
+
+            cmd.ExecuteNonQuery();
+
+            cmd.Parameters.Clear();
+            conexion.CerrarConexion();
         }
     }
 
-    class CarModelCRUD : DBConnection
+    class CarModelCRUD
     {
-        //Add
-        public string AddNewModel(int brandId, string modelDes) 
-        {
-            string sqlInsert = "insert into car_model values (14, @CarBrandId, @CarModelDes)";
+        //Filds
+        private DBConnection conexion = new DBConnection();
+        SqlDataReader reader;
+        readonly SqlCommand cmd = new SqlCommand();
+        List<CarModelDTO> dtoList;
 
-            //Validate duplicates
-            if (GetModelByDes(modelDes))
+        //Utils
+        public List<CarDTO> FillCarModelDTOList(SqlDataReader reader)
+        {
+            List<CarDTO> ListaGenerica = new List<CarDTO>();
+
+            while (reader.Read())
             {
-                return "Este modelo " + modelDes + " ya existe en el sistema";
-            }
-            else 
-            {
-                using (var cn = new SqlConnection(CONNECTION_STRING))
+                dtoList.Add(new CarModelDTO
                 {
-                    DataTable dt = new DataTable();
-                    try
-                    {
-                        cn.Open();
-                        SqlCommand cmd = new SqlCommand(sqlInsert, cn);
-                        cmd.Parameters.AddWithValue("@CarBrandId", brandId);
-                        cmd.Parameters.AddWithValue("@CarModelDes", modelDes);
-                        cmd.ExecuteNonQuery();
-                    }
-                    catch (SqlException e)
-                    {
-                        MessageBox.Show(e.ToString());
-                        Console.WriteLine(e.ToString());
-                    }
-                    finally
-                    {
-                        cn.Close();
-                    }
-                    return "Modelo agregado!";
-                }
+                    ModelId = reader.GetInt32(0),
+                    ModelDescription = reader.GetString(1),
+                    ParentBrandId = reader.GetInt32(2),
+                    ParentBrand = reader.GetString(3),
+                    Status = (bool)reader["status"]
+                });
+            }
+            return ListaGenerica;
+        }
+
+        private void FillCarModelDtoParams(CarModelDTO carModel)
+        {
+            cmd.Parameters.AddWithValue("@CarModelDesId", carModel.ModelId);
+            cmd.Parameters.AddWithValue("@CarModelDes", carModel.ModelDescription);
+            cmd.Parameters.AddWithValue("@CarBrandId", carModel.ParentBrandId);
+            cmd.Parameters.AddWithValue("@CarBrand", carModel.ParentBrand);
+            cmd.Parameters.AddWithValue("@status", carModel.Status ? 1 : 0);
+        }
+
+        //Add
+        public void AddNewModel(CarModelDTO carModelDTO) 
+        {
+            //Validate duplicates
+            if (GetModelByDes(carModelDTO.ModelDescription))
+            {
+                MessageBox.Show("Este modelo " + carModelDTO.ModelDescription + " ya existe en el sistema");
+            }
+            else
+            {
+                cmd.Connection = conexion.AbrirConexion();
+                cmd.CommandText = "insert into car_model values (@CarModelDes, @CarBrandId, @CarBrand, @status)";
+                cmd.CommandType = CommandType.Text;
+                
+                FillCarModelDtoParams(carModelDTO); 
+                
+                cmd.ExecuteNonQuery();
+
+                cmd.Parameters.Clear();
+                conexion.CerrarConexion();
             }
         }
 
         //Gets by
         public bool GetModelByDes(string modelDes) 
         {
-            string query = "select * from car_model where car_model_description = '"+modelDes+"'";
+            cmd.Connection = conexion.AbrirConexion();
+            cmd.CommandText = "select * from car_model where car_model_description = '" + modelDes + "'";
+            cmd.CommandType = CommandType.Text;
 
-            SqlDataReader reader;
-            
-            using (var cn = new SqlConnection(CONNECTION_STRING))
+            reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)//Exite el modelo!
             {
-                try
-                {
-                    SqlCommand cmd = new SqlCommand(query, cn);
-                    cn.Open();
-
-                    reader = cmd.ExecuteReader();
-
-                    if (reader.HasRows)
-                        return true;
-                    
-                    reader.Close();
-                }
-                catch (SqlException e)
-                {
-                    Console.WriteLine(e.ToString());
-                }
-                finally
-                {
-                    cn.Close();
-                }
+                reader.Close();
+                conexion.CerrarConexion();
+                return true;
             }
-            return false;
+            else
+            {
+                reader.Close();
+                conexion.CerrarConexion();
+                return false;
+            }            
         }
      
         public List<CarModelDTO> GetCarModelsByCondition(string condition)
         {
-            string query = "select m.car_model_id as id, m.car_model_description as model, b.car_brand_description as parentBrand, b.car_brand_id as parentBrandId, g.general_status_description as modelStatus from car_model m, car_brand b, general_status g  where m.car_brand_id = b.car_brand_id and m.car_model_status = g.general_status_id and m.car_model_description like '"+condition+"%'";
+            cmd.Connection = conexion.AbrirConexion();
+            cmd.CommandText = "select * from car_model where description like '" + condition + "%'";
+            cmd.CommandType = CommandType.Text;
+           
+            reader = cmd.ExecuteReader();
 
-            SqlDataReader reader;
-            List<CarModelDTO> Lista = new List<CarModelDTO>();
+            FillCarModelDTOList(reader);
 
-            using (var cn = new SqlConnection(CONNECTION_STRING))
-            {
-                try
-                {
-                    SqlCommand cmd = new SqlCommand(query, cn);
-                    cn.Open();
+            reader.Close();
+            conexion.CerrarConexion();
 
-                    reader = cmd.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        Lista.Add(new CarModelDTO
-                        {
-                            ModelId = reader.GetInt32(0),
-                            ModelDescription = reader.GetString(1),
-                            ParentBrand = reader.GetString(2),
-                            ParentBrandId = reader.GetInt32(3),
-                            Status = reader.GetString(4)
-                        });
-                    }
-                    reader.Close();
-                }
-                catch (SqlException e)
-                {
-                    Console.WriteLine(e.ToString());
-                }
-                finally
-                {
-                    cn.Close();
-                }
-            }
-            return Lista;
+            return dtoList;
         }
    
-        public DataTable GetCarModelByBrand(String carBrandId)
+        public List<CarModelDTO> GetCarModelByBrand(String carBrandId)
         {
-            string carModelByBrandQuery = "select car_model_id as id, car_model_description as modelo from car_model where car_brand_id = @carBrandId and car_model_status = 14";
+            cmd.Connection = conexion.AbrirConexion();
+            cmd.CommandText = "select id, description as modelo from car_model where car_brand_id = @carBrandId";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@carBrandId",carBrandId);
+           
+            reader = cmd.ExecuteReader();
 
-            using (var cn = new SqlConnection(CONNECTION_STRING))
-            {
-                cn.Open();
-                DataTable dt = new DataTable();
-                try
-                {
-                    SqlCommand cmd = new SqlCommand(carModelByBrandQuery, cn);
-                    cmd.Parameters.AddWithValue("@carBrandId", carBrandId);
+            FillCarModelDTOList(reader);
 
-                    SqlDataReader myReader = cmd.ExecuteReader();
-                    dt.Load(myReader);
-                }
-                catch (SqlException e)
-                {
-                    Console.WriteLine(e.ToString());
-                }
-                finally
-                {
-                    cn.Close();
-                }
+            reader.Close();
+            conexion.CerrarConexion();
 
-                if (dt.Rows.Count > 0)
-                {
-                    return dt;
-                }
-                else
-                {
-                    dt.Rows.Add(new Object[] { 1, "N/A" });
-
-                    return dt;
-                }
-            }
+            return dtoList;
         }
 
         //Get
         public List<CarModelDTO> GetCarModels()
         {
-            string query = "select m.car_model_id as id, m.car_model_description as model, b.car_brand_description as parentBrand, b.car_brand_id as parentBrandId, g.general_status_description as modelStatus from car_model m, car_brand b, general_status g where m.car_brand_id = b.car_brand_id and m.car_model_status = g.general_status_id";
+            cmd.Connection = conexion.AbrirConexion();
+            cmd.CommandText = "select m.id, m.description as modelo, b.id as marcaId, b.description as marca, m.status from car_model m, car_brand b where b.id = m.car_brand_id";
+            cmd.CommandType = CommandType.Text;
+            reader = cmd.ExecuteReader();
 
-            SqlDataReader reader;
-            List<CarModelDTO> Lista = new List<CarModelDTO>();
+            FillCarModelDTOList(reader);
 
-            using (var cn = new SqlConnection(CONNECTION_STRING))
-            {
-                try
-                {
-                    SqlCommand cmd = new SqlCommand(query, cn);
-                    cn.Open();
+            reader.Close();
+            conexion.CerrarConexion();
 
-                    reader = cmd.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        Lista.Add(new CarModelDTO
-                        {
-                            ModelId = reader.GetInt32(0),
-                            ModelDescription = reader.GetString(1),
-                            ParentBrand = reader.GetString(2),
-                            ParentBrandId = reader.GetInt32(3),
-                            Status = reader.GetString(4)
-                        });
-
-                    }
-                    reader.Close();
-                }
-                catch (SqlException e)
-                {
-                    Console.WriteLine(e.ToString());
-                }
-                finally
-                {
-                    cn.Close();
-                }
-            }
-            return Lista;
+            return dtoList;
         }
 
         //Edit
-        public bool EditCarModel(CarModelDTO carModel) 
+        public void EditCarModel(CarModelDTO dto) 
         {
-            using (var cn = new SqlConnection(CONNECTION_STRING))
-            {
-                try
-                {
-                    cn.Open();
-                    SqlCommand cmd = new SqlCommand("update car_model set car_model_status = @CarModelStatus, car_brand_id = @CarModelParentBrand, car_model_description = @CarModelDes where car_model_id = @CarModelId", cn);
-                    cmd.Parameters.AddWithValue("@CarModelId", carModel.ModelId);
-                    cmd.Parameters.AddWithValue("@CarModelParentBrand", carModel.ParentBrandId);
-                    cmd.Parameters.AddWithValue("@CarModelDes", carModel.ModelDescription);
-                    int modelStatus = carModel.Status.Equals("Activo") ? 14 : 15;
-                    cmd.Parameters.AddWithValue("@CarModelStatus", modelStatus);
+            cmd.Connection = conexion.AbrirConexion();
+            cmd.CommandText = "update car_model set description = @CarModelDes, car_brand_id = @CarBrandId, car_brandDes = CarBrand, status = @status where id = @CarModelDesId";
+            cmd.CommandType = CommandType.Text;
 
-                    cmd.ExecuteNonQuery();
-                }
-                catch (SqlException e)
-                {
-                    Console.WriteLine(e.ToString());
-                    return false;
-                }
-                finally
-                {
-                    cn.Close();
-                }
-                return true;
-            }
+            FillCarModelDtoParams(dto);
+
+            cmd.ExecuteNonQuery();
+
+            cmd.Parameters.Clear();
+            conexion.CerrarConexion();
         }
 
         //Delete
-        public bool DeleteCarModel(string carModelId)
+        public void DeleteCarModel(string carModelId)
         {
-            using (var cn = new SqlConnection(CONNECTION_STRING))
-            {
-                try
-                {
-                    cn.Open();
-                    SqlCommand cmd = new SqlCommand("delete from car_model where car_model_id = @CarModelId ", cn);
-                    cmd.Parameters.AddWithValue("@CarModelId", carModelId);
-                    cmd.ExecuteNonQuery();
-                }
-                catch (SqlException e)
-                {
-                    Console.WriteLine(e.ToString());
-                    return false;
-                }
-                finally
-                {
-                    cn.Close();
-                }
-                return true;
-            }
+            cmd.Connection = conexion.AbrirConexion();
+            cmd.CommandText = "delete from car_model where car_model_id = @CarModelId";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@CarModelId", carModelId);
+
+            cmd.ExecuteNonQuery();
+
+            cmd.Parameters.Clear();
+            conexion.CerrarConexion();
         }
     }
 }

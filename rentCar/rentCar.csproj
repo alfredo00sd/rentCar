@@ -57,10 +57,10 @@
     <Compile Include="DAO\EmployeeDAO.cs" />
     <Compile Include="DAO\LoginDAO.cs" />
     <Compile Include="Config\DBConnection.cs" />
-    <Compile Include="DTO\car\CarDTO.cs" />
+    <Compile Include="DTO\CarDTO.cs" />
     <Compile Include="DTO\CustomerDTO.cs" />
     <Compile Include="DTO\EmployeeDTO.cs" />
-    <Compile Include="DTO\user\UserDTO.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Utils\CustomValidations.cs" />
     <Compile Include="views\AppForm.cs">
       <SubType>Form</SubType>

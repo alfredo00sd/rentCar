@@ -1,4 +1,5 @@
 ﻿using FontAwesome.Sharp;
+using rentCar.DTO.user;
 using rentCar.user;
 using rentCar.views.car;
 using rentCar.views.customers;
@@ -19,6 +20,12 @@ namespace rentCar
         {
             public static Color darkRedTheme = Color.FromArgb(110, 0, 15);
             public static Color lightOrangeTheme = Color.FromArgb(250, 53, 0);
+        }
+
+        public AppForm(UserDTO user) {
+            InitializeComponent();
+
+            userName.Text = user.UserName;
         }
 
         public AppForm()

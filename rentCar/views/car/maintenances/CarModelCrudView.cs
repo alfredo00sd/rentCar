@@ -30,7 +30,7 @@ namespace rentCar.views.car.type
         private void FillBrandCB() 
         {
             CarBrandCB.DropDownStyle = ComboBoxStyle.DropDownList;
-            CarBrandCB.DataSource = dao.GetDataForCB(2);
+            CarBrandCB.DataSource = dao.GetDataForCB("car_brand");
             CarBrandCB.ValueMember = "id";
             CarBrandCB.DisplayMember = "brand";
         }
@@ -43,16 +43,12 @@ namespace rentCar.views.car.type
             carModel.ModelId = Convert.ToInt32(modelIdTB.Text);
             carModel.ModelDescription = modeloTB.Text;
             carModel.ParentBrandId = Convert.ToInt32(CarBrandCB.SelectedValue);
-            carModel.Status = statusCheck.Checked ? "Activo" : "Descativado";
+            carModel.Status = statusCheck.Checked;
 
-            if (modelCRUD.EditCarModel(carModel))
-            {
-                MessageBox.Show("Cambios guardados!");
-                this.Close();
-            }
-            else {
-                MessageBox.Show("Promblemas al editar");
-            }
+
+            modelCRUD.EditCarModel(carModel);
+            MessageBox.Show("Cambios guardados!");
+            this.Close();
         }
         
         //Delete
@@ -64,16 +60,10 @@ namespace rentCar.views.car.type
 
             if (dr == DialogResult.OK)
             {
-                if (modelCRUD.DeleteCarModel(modelIdTB.Text))
-                {
-                    MessageBox.Show("Elemento eliminado!");
-                    //Close edit form
-                    this.Close();
-                }
-                else 
-                {
-                    MessageBox.Show("Problemas al borrar este modelo");
-                }
+                modelCRUD.DeleteCarModel(modelIdTB.Text);
+                MessageBox.Show("Elemento eliminado!");
+                //Close edit form
+                this.Close();   
             }
         }
     }
