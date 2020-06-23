@@ -13,12 +13,12 @@ go
 		status bit
 	);
 ------------------///insert associated data to the table
-	INSERT INTO type_of_car values (1, 'Sedán');
-	INSERT INTO type_of_car values (1, 'Compacto');
-	INSERT INTO type_of_car values (1, 'Jeepeta');
-	INSERT INTO type_of_car values (0, 'Camioneta');
-	INSERT INTO type_of_car values (1, 'Coupé');
-	INSERT INTO type_of_car values (0, 'Sport');
+	INSERT INTO type_of_car values ('Sedán',1);
+	INSERT INTO type_of_car values ('Compacto',1);
+	INSERT INTO type_of_car values ('Jeepeta',1);
+	INSERT INTO type_of_car values ('Camioneta',1);
+	INSERT INTO type_of_car values ('Coupé',1);
+	INSERT INTO type_of_car values ('Sport',0);
 --	INSERT INTO car_type values (1, 'Otro');
 
 select * from type_of_car;
@@ -31,13 +31,13 @@ select * from type_of_car;
 		status bit	
 	);
 ------------------///insert associated data to the table
-	INSERT INTO car_brand values (1, 'Honda');
-	INSERT INTO car_brand values (1, 'Toyota');
-	INSERT INTO car_brand values (1, 'Jeep');
-	INSERT INTO car_brand values (0, 'Hummer');
-	INSERT INTO car_brand values (1, 'Cadilac');
-	INSERT INTO car_brand values (1, 'Mazda');
-	INSERT INTO car_brand values (0, 'Tesla');
+	INSERT INTO car_brand values ('Honda',1);
+	INSERT INTO car_brand values ('Toyota',1);
+	INSERT INTO car_brand values ('Jeep',0);
+	INSERT INTO car_brand values ('Hummer',1);
+	INSERT INTO car_brand values ('Cadilac',1);
+	INSERT INTO car_brand values ('Mazda',1);
+	INSERT INTO car_brand values ('Tesla',1);
 
 select * from type_of_car;
 select * from car_brand;
@@ -67,12 +67,12 @@ select * from carInfo
 		status bit
 	);
 ------------------///insert associated data to the table
-	INSERT INTO car_model values (0, 7, 'Model S');
-	INSERT INTO car_model values (1, 6, 'Mazda 3');
-	INSERT INTO car_model values (1, 6, 'Mazada 2 Demio');
-	INSERT INTO car_model values (1, 6, 'Mazda 6');
-	INSERT INTO car_model values (1, 1, 'Civic EXT');
-	INSERT INTO car_model values (1, 2, 'Corrolla S');
+	INSERT INTO car_model values ('Model S',7,'Tesla',0);
+	INSERT INTO car_model values ('Mazda 3',6,'Mazda',1);
+	INSERT INTO car_model values ('Mazada 2 Demio',6,'Mazda',1);
+	INSERT INTO car_model values ('Mazda 6',6,'Mazda',1);
+	INSERT INTO car_model values ('Civic EXT',1,'Toyota',1);
+	INSERT INTO car_model values ('Corrolla S',2,'Honda',1);
 
 select * from car_model;
 ------------------///Create car associated tables
@@ -83,16 +83,20 @@ select * from car_model;
 		status bit
 	);
 ------------------///insert associated data to the table
-	INSERT INTO type_of_fuel values (1,'Gasolina');
-	INSERT INTO type_of_fuel values (1,'GLP');
-	INSERT INTO type_of_fuel values (0,'Gas natural');
-	INSERT INTO type_of_fuel values (0,'Hibrido');
-	INSERT INTO type_of_fuel values (0,'Electrico');
+	INSERT INTO type_of_fuel values ('Gasolina',1);
+	INSERT INTO type_of_fuel values ('GLP',1);
+	INSERT INTO type_of_fuel values ('Gas natural',0);
+	INSERT INTO type_of_fuel values ('Hibrido',0);
+	INSERT INTO type_of_fuel values ('Electrico',0);
 
 select * from type_of_fuel;
 
-------------------///Create car associated tables
+select * from car_model
 
+select * from type_of_car
+
+select description from type_of_car where description = 'Compacto' 
+------------------///Create car associated tables
 
 CREATE TABLE carInfo
 	(
@@ -119,6 +123,8 @@ CREATE TABLE carInfo
 		);
 -----------------///insert associated data to the table
 	
+	select * from users
+
 	select * from carInfo;	
 	
 	select GETDATE();

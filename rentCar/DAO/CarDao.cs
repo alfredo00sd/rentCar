@@ -55,14 +55,15 @@ namespace rentCar.DAO
                     ChasisNum = reader.GetString(6),
                     EngineNum = reader.GetString(7),
                     LicensePlate = reader.GetString(8),
-                    Color = reader.GetString(9),
+                    Color = reader.GetString(9).Replace("Color","").Replace("[","").Replace("]",""),
                     FuelType = reader.GetString(10), //Not null
                     QuantityOfFuel = reader.GetString(11),
                     NumberOfDoors = reader.GetInt32(12),
                     CapacityOfPassangers = reader.GetInt32(13),
-                    Conditions = reader.GetString(15),
-                    UseInKM = reader.GetInt32(16),//Convert.ToInt32(reader.GetString(17)), //problem casting type
-                    Comment = reader.GetString(17),//reader.GetString(18)
+                    Conditions = reader.GetString(14),
+                    UseInKM = reader.GetInt32(15),//Convert.ToInt32(reader.GetString(17)), //problem casting type
+                    Comment = reader.GetString(16),//reader.GetString(18)
+                    AdquisitionDate = Convert.ToString(reader.GetDateTime(17)),
                     //18 Fecha de ingreso...
                     //10 Fecha de salida...
                     Status = (bool)reader["status"]
@@ -130,7 +131,7 @@ namespace rentCar.DAO
         public bool GetCarById(string placa, string chasis, string engine)
         {
             cmd.Connection = conexion.AbrirConexion();
-            cmd.CommandText = "select * from carInfo where car_license_plate = '" + placa + "' or car_chassis_number = '" + chasis + "' or car_engine_number = '" + engine + "'";
+            cmd.CommandText = "select * from carInfo where license_plate = '" + placa + "' or chassis_number = '" + chasis + "' or engine_number = '" + engine + "'";
             cmd.CommandType = CommandType.Text;
 
             reader = cmd.ExecuteReader();
@@ -153,7 +154,7 @@ namespace rentCar.DAO
         public void EDIT(CarDTO dto)
         {
             cmd.Connection = conexion.AbrirConexion();
-            cmd.CommandText = "update carInfo set photo_path = @Base64Photo, type = @CarType, brand = @CarBrand, model = @CarModel, car_fabrication_year = @CarFabYear, car_chassis_number = @CarChasisNum, car_engine_number = @CarEngineNum, car_license_plate = @CarLicensePlate, car_color = @CarColor, fuel_type = @FuelType, car_number_of_doors = @CarNumberOfDoors, car_capacity_of_passangers = @CarCapacityOfPassangers, car_conditions = @CarConditions, use_in_km = @CarUseInKM, car_status = @CarStatus, car_inv_commentary = @CarInvComment where id = @CarId";
+            cmd.CommandText = "update carInfo set photo_path = @Base64Photo, type = @CarType, brand = @CarBrand, model = @CarModel, fabrication_year = @CarFabYear, chassis_number = @CarChasisNum, engine_number = @CarEngineNum, license_plate = @CarLicensePlate, color = @CarColor, fuel_type = @FuelType, number_of_doors = @CarNumberOfDoors, capacity_of_passangers = @CarCapacityOfPassangers, conditions = @CarConditions, use_in_km = @CarUseInKM, status = @CarStatus, comment = @CarInvComment where id = @CarId";
             cmd.CommandType = CommandType.Text;
 
             FillCarDtoParams(cmd, dto);
@@ -185,12 +186,11 @@ namespace rentCar.DAO
         private DBConnection conexion = new DBConnection();
         SqlDataReader reader;
         readonly SqlCommand cmd = new SqlCommand();
-        List<CarModelDTO> dtoList;
-
+        
         //Utils
-        public List<CarDTO> FillCarModelDTOList(SqlDataReader reader)
+        public List<CarModelDTO> FillCarModelDTOList(SqlDataReader reader)
         {
-            List<CarDTO> ListaGenerica = new List<CarDTO>();
+            List<CarModelDTO> dtoList = new List<CarModelDTO>();
 
             while (reader.Read())
             {
@@ -203,7 +203,7 @@ namespace rentCar.DAO
                     Status = (bool)reader["status"]
                 });
             }
-            return ListaGenerica;
+            return dtoList;
         }
 
         private void FillCarModelDtoParams(CarModelDTO carModel)
@@ -216,12 +216,13 @@ namespace rentCar.DAO
         }
 
         //Add
-        public void AddNewModel(CarModelDTO carModelDTO) 
+        public bool AddNewModel(CarModelDTO carModelDTO) 
         {
             //Validate duplicates
             if (GetModelByDes(carModelDTO.ModelDescription))
             {
                 MessageBox.Show("Este modelo " + carModelDTO.ModelDescription + " ya existe en el sistema");
+                return false;
             }
             else
             {
@@ -235,6 +236,8 @@ namespace rentCar.DAO
 
                 cmd.Parameters.Clear();
                 conexion.CerrarConexion();
+                
+                return true;
             }
         }
 
@@ -242,7 +245,7 @@ namespace rentCar.DAO
         public bool GetModelByDes(string modelDes) 
         {
             cmd.Connection = conexion.AbrirConexion();
-            cmd.CommandText = "select * from car_model where car_model_description = '" + modelDes + "'";
+            cmd.CommandText = "select * from car_model where description = '" + modelDes + "'";
             cmd.CommandType = CommandType.Text;
 
             reader = cmd.ExecuteReader();
@@ -266,10 +269,12 @@ namespace rentCar.DAO
             cmd.Connection = conexion.AbrirConexion();
             cmd.CommandText = "select * from car_model where description like '" + condition + "%'";
             cmd.CommandType = CommandType.Text;
-           
+
+            List<CarModelDTO> dtoList;
+
             reader = cmd.ExecuteReader();
 
-            FillCarModelDTOList(reader);
+            dtoList = FillCarModelDTOList(reader);
 
             reader.Close();
             conexion.CerrarConexion();
@@ -277,17 +282,42 @@ namespace rentCar.DAO
             return dtoList;
         }
    
-        public List<CarModelDTO> GetCarModelByBrand(String carBrandId)
+        public List<CarModelDTO> GetCarModelByBrand(int carBrandId)
         {
             cmd.Connection = conexion.AbrirConexion();
-            cmd.CommandText = "select id, description as modelo from car_model where car_brand_id = @carBrandId";
+            cmd.CommandText = "select id, description as modelo from car_model where car_brand_id = "+carBrandId+"";
             cmd.CommandType = CommandType.Text;
-            cmd.Parameters.AddWithValue("@carBrandId",carBrandId);
            
+            List<CarModelDTO> dtoList = new List<CarModelDTO>();
+
             reader = cmd.ExecuteReader();
 
-            FillCarModelDTOList(reader);
+            if (!reader.HasRows)
+            {
+                dtoList.Add(new CarModelDTO
+                {
+                    ModelId = 0,
+                    ModelDescription = "N/A",
+                    //ParentBrandId = carBrandId,
+                    //ParentBrand = "N/A",
+                    //Status = (bool)reader["status"]
+                });
+                return dtoList;
+            }
 
+            while (reader.Read())
+            {
+                
+                dtoList.Add(new CarModelDTO
+                {
+                    ModelId = reader.GetInt32(0),
+                    ModelDescription = reader.GetString(1),
+                    //ParentBrandId = reader.GetInt32(2),
+                    //ParentBrand = reader.GetString(3),
+                    //Status = (bool)reader["status"]
+                });
+            }
+            
             reader.Close();
             conexion.CerrarConexion();
 
@@ -300,9 +330,12 @@ namespace rentCar.DAO
             cmd.Connection = conexion.AbrirConexion();
             cmd.CommandText = "select m.id, m.description as modelo, b.id as marcaId, b.description as marca, m.status from car_model m, car_brand b where b.id = m.car_brand_id";
             cmd.CommandType = CommandType.Text;
+
+            List<CarModelDTO> dtoList;
+
             reader = cmd.ExecuteReader();
 
-            FillCarModelDTOList(reader);
+            dtoList = FillCarModelDTOList(reader);
 
             reader.Close();
             conexion.CerrarConexion();
@@ -314,7 +347,7 @@ namespace rentCar.DAO
         public void EditCarModel(CarModelDTO dto) 
         {
             cmd.Connection = conexion.AbrirConexion();
-            cmd.CommandText = "update car_model set description = @CarModelDes, car_brand_id = @CarBrandId, car_brandDes = CarBrand, status = @status where id = @CarModelDesId";
+            cmd.CommandText = "update car_model set description = @CarModelDes, car_brand_id = @CarBrandId, car_brandDes = @CarBrand, status = @status where id = @CarModelDesId";
             cmd.CommandType = CommandType.Text;
 
             FillCarModelDtoParams(dto);
@@ -329,7 +362,7 @@ namespace rentCar.DAO
         public void DeleteCarModel(string carModelId)
         {
             cmd.Connection = conexion.AbrirConexion();
-            cmd.CommandText = "delete from car_model where car_model_id = @CarModelId";
+            cmd.CommandText = "delete from car_model where id = @CarModelId";
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@CarModelId", carModelId);
 

@@ -14,6 +14,7 @@ namespace rentCar.views.car
         private CommonsCarDAO dao = new CommonsCarDAO();
         private CarDAO carDao = new CarDAO();
         private CarModelCRUD modelCRUD = new CarModelCRUD();
+        private int carId;
 
         public CarMantView()
         {
@@ -31,14 +32,39 @@ namespace rentCar.views.car
         private void loadCarDVData() 
         {
             carDV.DataSource = carDao.GETALL();
-            //carDV.Columns[9].HeaderText = "Color";
+            carDV.Columns[0].HeaderText = "#";
+            carDV.Columns[0].Width = 60;
 
-            //var dto = (CarDTO) carDV.Rows[2].DataBoundItem;
+            carDV.Columns[1].HeaderText = "Foto";
+            carDV.Columns[2].HeaderText = "Tipo de carro";
+            carDV.Columns[3].HeaderText = "Marca";
+            carDV.Columns[4].HeaderText = "Modelo";
+            carDV.Columns[5].HeaderText = "Año";
+            carDV.Columns[6].HeaderText = "No. Chasis";
+            carDV.Columns[7].HeaderText = "No. Motor";
+            carDV.Columns[8].HeaderText = "No. Placa";
+            carDV.Columns[9].HeaderText = "Color";
+            //dgv.DefaultCellStyle.BackColor = Color.FromArgb(193, 199, 232);
+            carDV.Columns[10].HeaderText = "Tipo de combustible";
+            carDV.Columns[11].HeaderText = "Nivel combustible";
+            carDV.Columns[12].HeaderText = "Cant. Puertas";
+            carDV.Columns[13].HeaderText = "Cant.  Pasajeros";
+            carDV.Columns[14].HeaderText = "Condicion";
+            carDV.Columns[15].HeaderText = "Uso en KM";
+            carDV.Columns[16].HeaderText = "Comentario";
+            carDV.Columns[17].HeaderText = "Estado";
+            carDV.Columns[18].HeaderText = "Ingresado el";
 
-            //MessageBox.Show();
+            List<CarDTO> dtos = new List<CarDTO>();
+            //Do loop here...
+            dtos.Add((CarDTO)carDV.Rows[0].DataBoundItem);
+            
+            string color = dtos[0].Color.Trim().ToLower();
+            
+            carDV.Columns[9].DefaultCellStyle.BackColor = Color.FromName(color);
+            carDV.Columns[9].DefaultCellStyle.ForeColor = Color.FromName(color);
 
-            //carDV.Columns[9].DefaultCellStyle.BackColor = Color.FromName("black");
-
+            //carDV.Columns[9].DefaultCellStyle.BackColor = Color.FromName("yellow");
         }
         //-----------------------------------------------------------Loads
 
@@ -47,38 +73,38 @@ namespace rentCar.views.car
 
         private void CarBrandCB_Leaves(object sender, System.EventArgs e)
         {
+            CarBrandCB.ValueMember = "BrandId";
+
             if (IsNumeric(CarBrandCB.SelectedValue))
             {
-                CarModelCB.DataSource = modelCRUD.GetCarModelByBrand(Convert.ToString(CarBrandCB.SelectedValue));
-                CarTypeCB.ValueMember = "description";
-                CarTypeCB.DisplayMember = "description";
+                CarModelCB.DataSource = modelCRUD.GetCarModelByBrand(Convert.ToInt32(CarBrandCB.SelectedValue));
+                CarModelCB.ValueMember = "ModelDescription";
+                CarModelCB.DisplayMember = "ModelDescription";
             }
         }
 
         private void FillCarTypeCB() 
         {
             CarTypeCB.DropDownStyle = ComboBoxStyle.DropDownList;
-            CarTypeCB.DataSource = dao.GetDataForCB("type_of_car");
-            CarTypeCB.ValueMember = "description";
-            CarTypeCB.DisplayMember = "description";
+            CarTypeCB.DataSource = dao.GetCartypes();
+            CarTypeCB.ValueMember = "CarTypeDescription";
+            CarTypeCB.DisplayMember = "CarTypeDescription";
         }
 
         private void FillCarBrandCB()
         {
             CarBrandCB.DropDownStyle = ComboBoxStyle.DropDownList;
-            CarBrandCB.DataSource = dao.GetDataForCB("car_brand");
-            CarBrandCB.ValueMember = "id";
-            CarTypeCB.DisplayMember = "description";
-
-            CarModelCB.DropDownStyle = ComboBoxStyle.DropDownList;
+            CarBrandCB.DataSource = dao.GetCarBrands();
+            CarBrandCB.ValueMember = "BrandDescription";
+            CarBrandCB.DisplayMember = "BrandDescription";
         }
 
         private void FillFuelTypeCB()
         {
             FuelTypeCB.DropDownStyle = ComboBoxStyle.DropDownList;
-            FuelTypeCB.DataSource = dao.GetDataForCB("type_of_fuel");
-            CarTypeCB.ValueMember = "description";
-            CarTypeCB.DisplayMember = "description";
+            FuelTypeCB.DataSource = dao.GetCarFuelType();
+            FuelTypeCB.ValueMember = "FuelType";
+            FuelTypeCB.DisplayMember = "FuelType";
         }
 
         //-----------------------------------------------------------Fill combo boxes
@@ -118,11 +144,12 @@ namespace rentCar.views.car
         {
             return new CarDTO
             {
+                Id = carId,
                 PhotoPath = "path/to/photo",
-                Type = "" + CarTypeCB.SelectedValue,
-                Brand = "" + CarBrandCB.SelectedValue,
-                Model = "" + CarModelCB.SelectedValue,
-                FuelType = "" + FuelTypeCB.SelectedValue,
+                Type = Convert.ToString(CarTypeCB.SelectedValue),
+                Brand = Convert.ToString(CarBrandCB.SelectedValue),
+                Model = Convert.ToString(CarModelCB.SelectedValue),
+                FuelType = Convert.ToString(FuelTypeCB.SelectedValue),
                 QuantityOfFuel = "Lleno", //asumed is full as was recented adcquiered
                 LicensePlate = placaInput.Text,
                 ChasisNum = chasisNoInput.Text,
@@ -149,7 +176,7 @@ namespace rentCar.views.car
 
         private void SaveCarBtn_Click(object sender, EventArgs e)
         {
-            CarBrandCB.ValueMember = "description";//necesary to catpure car brand description and not the id.
+            CarBrandCB.ValueMember = "BrandDescription";//necesary to catpure car brand description and not the id.
 
             CarDTO Car = FillUpCarDto();
                 
@@ -216,6 +243,7 @@ namespace rentCar.views.car
             if (dr == DialogResult.OK)
             {
                 //Prepare the form to edit record
+                carId = dto.Id;
                 EditMode(dto);
             }
             else if (dr == DialogResult.Cancel)

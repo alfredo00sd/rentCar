@@ -65,9 +65,10 @@ namespace rentCar.views.car
         {
             dgv.Columns[0].HeaderText = "#";
             dgv.Columns[0].Width = 60;
+            
             dgv.Columns[1].HeaderText = "Descripcion";
             dgv.Columns[2].HeaderText = "Estado";
-            dgv.DefaultCellStyle.BackColor = Color.FromArgb(193, 199, 232);
+            //dgv.DefaultCellStyle.BackColor = Color.FromArgb(193, 199, 232);
         }
 
         //----------------------------------------------------------------------Util methods
@@ -107,13 +108,13 @@ namespace rentCar.views.car
             modelsDataView.Columns[1].HeaderText = "Modelo";
             modelsDataView.Columns[2].HeaderText = "Marca";
             modelsDataView.Columns[4].HeaderText = "Estado";
-            modelsDataView.DefaultCellStyle.BackColor = Color.FromArgb(193, 199, 232);
+            //modelsDataView.DefaultCellStyle.BackColor = Color.FromArgb(193, 199, 232);
 
             //Combox brands congig
             CarBrandCB.DropDownStyle = ComboBoxStyle.DropDownList;
             CarBrandCB.DataSource = dao.GetDataForCB("car_brand");
             CarBrandCB.ValueMember = "id";
-            CarBrandCB.DisplayMember = "brand";
+            CarBrandCB.DisplayMember = "description";
         }
 
         //----------------------------------------------------------------------Loads data actions
@@ -128,7 +129,7 @@ namespace rentCar.views.car
 
             if (dto == null) return;
 
-            GeneralCrud editModelForm = new GeneralCrud(dto.BrandId, dto.BrandDescription, dto.BrandStatus, "brand");
+            GeneralCrud editModelForm = new GeneralCrud(dto.BrandId, dto.BrandDescription, dto.BrandStatus, "car_brand");
 
             DialogResult dr = editModelForm.ShowDialog();
 
@@ -148,7 +149,7 @@ namespace rentCar.views.car
 
             if (modelo == null) return;
 
-            CommonDEView editModelForm = new CommonDEView(modelo);
+            CarModelEditForm editModelForm = new CarModelEditForm(modelo);
 
             DialogResult dr = editModelForm.ShowDialog();
 
@@ -167,7 +168,7 @@ namespace rentCar.views.car
 
             if (dto == null) return;
 
-            GeneralCrud editModelForm = new GeneralCrud(dto.CarTypeId, dto.CarTypeDescription, dto.CarTypeStatus,"type");
+            GeneralCrud editModelForm = new GeneralCrud(dto.CarTypeId, dto.CarTypeDescription, dto.CarTypeStatus,"type_of_car");
 
             DialogResult dr = editModelForm.ShowDialog();
 
@@ -187,7 +188,7 @@ namespace rentCar.views.car
 
             if (dto == null) return;
 
-            GeneralCrud editModelForm = new GeneralCrud(dto.FuelTypeId, dto.FuelType, dto.FuelStatus, "fuelType");
+            GeneralCrud editModelForm = new GeneralCrud(dto.FuelTypeId, dto.FuelType, dto.FuelStatus, "type_of_fuel");
 
             DialogResult dr = editModelForm.ShowDialog();
 
@@ -210,9 +211,11 @@ namespace rentCar.views.car
                 MessageBox.Show("favor de completar el campo");
             }
             else {
-                dao.Add(brandTX.Text, "brand", true);
-                MessageBox.Show("Agregado!");
-                refreshDataView("brand");
+                if (dao.Add(brandTX.Text, "car_brand", true)) {
+
+                    MessageBox.Show("Agregado!");
+                    refreshDataView("brand");
+                }
             }
         }
 
@@ -224,9 +227,10 @@ namespace rentCar.views.car
             }
             else
             {
-                dao.Add(carTypeTX.Text, "type_of_car",true);
-                MessageBox.Show("Agregado");
-                refreshDataView("type");
+                if (dao.Add(carTypeTX.Text, "type_of_car", true)) {
+                    MessageBox.Show("Agregado");
+                    refreshDataView("type");
+                }
             }
         }
 
@@ -238,13 +242,18 @@ namespace rentCar.views.car
             if (newModelDescription != null && newModelDescription != "" && brandId > 0)
             {
                 CarModelDTO dto = new CarModelDTO();
+                CarBrandCB.ValueMember = "id";
                 dto.ParentBrandId = brandId;
+                CarBrandCB.ValueMember = "description";
+                dto.ParentBrand = Convert.ToString(CarBrandCB.SelectedValue);
                 dto.ModelDescription = newModelDescription;
                 dto.Status = true;
-
-                modelCRUD.AddNewModel(dto);
-                MessageBox.Show("Agregado");
-                refreshDataView("model");
+             
+                if (modelCRUD.AddNewModel(dto)) 
+                {
+                    MessageBox.Show("Agregado");
+                    refreshDataView("model");
+                }
             }
             else
             {
@@ -260,9 +269,11 @@ namespace rentCar.views.car
             }
             else
             {
-                dao.Add(carFuelTypeTX.Text, "type_of_fuel", true);
-                MessageBox.Show("agregado");
-                refreshDataView("fuel");
+                if (dao.Add(carFuelTypeTX.Text, "type_of_fuel", true)) 
+                {
+                    MessageBox.Show("agregado");
+                    refreshDataView("fuel");
+                }
             }
         }
 

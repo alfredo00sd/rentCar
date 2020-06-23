@@ -126,6 +126,7 @@
             this.Controls.Add(this.idInput);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GeneralCrud";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CommondCrudDE";
             this.ResumeLayout(false);
             this.PerformLayout();

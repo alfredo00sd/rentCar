@@ -80,6 +80,7 @@ namespace RentCarApp.DTO
         string _conditions; //max 15
         int _useInKM;// max 40
         string _comment; // max 200
+        string _adquisitionDate;
         bool _status;
 
         // Get <> Set property
@@ -153,5 +154,6 @@ namespace RentCarApp.DTO
         public string Comment { get => _comment; set => _comment = value; }
 
         public bool Status { get => _status; set => _status = value; }
+        public string AdquisitionDate { get => _adquisitionDate; set => _adquisitionDate = value; }
     }   
 }

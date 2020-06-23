@@ -5,18 +5,18 @@ using System.Windows.Forms;
 
 namespace rentCar.views.car.type
 {
-    public partial class CommonDEView : Form
+    public partial class CarModelEditForm : Form
     {
         CommonsCarDAO dao = new CommonsCarDAO();
         CarModelCRUD modelCRUD = new CarModelCRUD();
 
-        public CommonDEView()
+        public CarModelEditForm()
         {
             InitializeComponent();
             FillBrandCB();
         }
 
-        public CommonDEView(CarModelDTO carModel) 
+        public CarModelEditForm(CarModelDTO carModel) 
         {
             InitializeComponent();
             FillBrandCB();
@@ -24,7 +24,7 @@ namespace rentCar.views.car.type
             modelIdTB.Text = ""+carModel.ModelId;
             modeloTB.Text  = carModel.ModelDescription;
             CarBrandCB.SelectedValue = carModel.ParentBrandId;
-            statusCheck.Checked = carModel.Status.Equals("Activo");
+            statusCheck.Checked = carModel.Status;
         }
 
         private void FillBrandCB() 
@@ -32,7 +32,7 @@ namespace rentCar.views.car.type
             CarBrandCB.DropDownStyle = ComboBoxStyle.DropDownList;
             CarBrandCB.DataSource = dao.GetDataForCB("car_brand");
             CarBrandCB.ValueMember = "id";
-            CarBrandCB.DisplayMember = "brand";
+            CarBrandCB.DisplayMember = "description";
         }
 
         //Edit
@@ -42,6 +42,9 @@ namespace rentCar.views.car.type
 
             carModel.ModelId = Convert.ToInt32(modelIdTB.Text);
             carModel.ModelDescription = modeloTB.Text;
+            CarBrandCB.ValueMember = "description";
+            carModel.ParentBrand = Convert.ToString(CarBrandCB.SelectedValue);
+            CarBrandCB.ValueMember = "id";
             carModel.ParentBrandId = Convert.ToInt32(CarBrandCB.SelectedValue);
             carModel.Status = statusCheck.Checked;
 

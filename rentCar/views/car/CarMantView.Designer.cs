@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarMantView));
             this.panel1 = new System.Windows.Forms.Panel();
             this.helpBtn = new FontAwesome.Sharp.IconButton();
             this.refreshBtn = new FontAwesome.Sharp.IconButton();
@@ -35,6 +36,7 @@
             this.viewTitle = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.carStatsCheck = new System.Windows.Forms.CheckBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -71,7 +73,6 @@
             this.CarTypeCB = new System.Windows.Forms.ComboBox();
             this.carDV = new System.Windows.Forms.DataGridView();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.carStatsCheck = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -211,6 +212,18 @@
             this.splitContainer1.Size = new System.Drawing.Size(1048, 438);
             this.splitContainer1.SplitterDistance = 227;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // carStatsCheck
+            // 
+            this.carStatsCheck.AutoSize = true;
+            this.carStatsCheck.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.carStatsCheck.ForeColor = System.Drawing.Color.White;
+            this.carStatsCheck.Location = new System.Drawing.Point(708, 151);
+            this.carStatsCheck.Name = "carStatsCheck";
+            this.carStatsCheck.Size = new System.Drawing.Size(74, 18);
+            this.carStatsCheck.TabIndex = 105;
+            this.carStatsCheck.Text = "Estatus";
+            this.carStatsCheck.UseVisualStyleBackColor = true;
             // 
             // label15
             // 
@@ -638,18 +651,6 @@
             this.carDV.TabIndex = 0;
             this.carDV.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.carDV_CellMouseDoubleClick);
             // 
-            // carStatsCheck
-            // 
-            this.carStatsCheck.AutoSize = true;
-            this.carStatsCheck.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.carStatsCheck.ForeColor = System.Drawing.Color.White;
-            this.carStatsCheck.Location = new System.Drawing.Point(708, 151);
-            this.carStatsCheck.Name = "carStatsCheck";
-            this.carStatsCheck.Size = new System.Drawing.Size(74, 18);
-            this.carStatsCheck.TabIndex = 105;
-            this.carStatsCheck.Text = "Estatus";
-            this.carStatsCheck.UseVisualStyleBackColor = true;
-            // 
             // CarMantView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -657,6 +658,7 @@
             this.ClientSize = new System.Drawing.Size(1075, 491);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CarMantView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panel1.ResumeLayout(false);

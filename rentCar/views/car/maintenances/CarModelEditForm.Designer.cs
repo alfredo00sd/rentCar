@@ -1,6 +1,6 @@
 ﻿namespace rentCar.views.car.type
 {
-    partial class CommonDEView
+    partial class CarModelEditForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CommonDEView));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarModelEditForm));
             this.modelIdTB = new System.Windows.Forms.TextBox();
             this.saveEditBtn = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
@@ -133,7 +133,7 @@
             this.statusCheck.Text = "Estado activo";
             this.statusCheck.UseVisualStyleBackColor = true;
             // 
-            // CommonDEView
+            // CarModelEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -148,7 +148,8 @@
             this.Controls.Add(this.saveEditBtn);
             this.Controls.Add(this.modelIdTB);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "CommonDEView";
+            this.Name = "CarModelEditForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar/Borrar modelo";
             this.ResumeLayout(false);
             this.PerformLayout();

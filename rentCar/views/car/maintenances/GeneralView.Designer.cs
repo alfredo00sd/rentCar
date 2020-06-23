@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralView));
             this.GeneralMantViewPanel = new System.Windows.Forms.Panel();
             this.fuelTypeDTV = new System.Windows.Forms.DataGridView();
             this.brandsDataView = new System.Windows.Forms.DataGridView();
@@ -51,6 +52,7 @@
             this.carTypeTX = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.GeneralMantViewPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fuelTypeDTV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.brandsDataView)).BeginInit();
@@ -60,10 +62,8 @@
             // 
             // GeneralMantViewPanel
             // 
-            this.GeneralMantViewPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.GeneralMantViewPanel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.GeneralMantViewPanel.Controls.Add(this.label10);
             this.GeneralMantViewPanel.Controls.Add(this.fuelTypeDTV);
             this.GeneralMantViewPanel.Controls.Add(this.brandsDataView);
             this.GeneralMantViewPanel.Controls.Add(this.carTypeDTV);
@@ -86,9 +86,10 @@
             this.GeneralMantViewPanel.Controls.Add(this.carTypeTX);
             this.GeneralMantViewPanel.Controls.Add(this.label2);
             this.GeneralMantViewPanel.Controls.Add(this.label1);
+            this.GeneralMantViewPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GeneralMantViewPanel.Location = new System.Drawing.Point(0, 0);
             this.GeneralMantViewPanel.Name = "GeneralMantViewPanel";
-            this.GeneralMantViewPanel.Size = new System.Drawing.Size(911, 604);
+            this.GeneralMantViewPanel.Size = new System.Drawing.Size(1036, 592);
             this.GeneralMantViewPanel.TabIndex = 0;
             // 
             // fuelTypeDTV
@@ -97,11 +98,11 @@
             this.fuelTypeDTV.AllowUserToDeleteRows = false;
             this.fuelTypeDTV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.fuelTypeDTV.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
-            this.fuelTypeDTV.Location = new System.Drawing.Point(482, 354);
+            this.fuelTypeDTV.Location = new System.Drawing.Point(714, 43);
             this.fuelTypeDTV.MultiSelect = false;
             this.fuelTypeDTV.Name = "fuelTypeDTV";
             this.fuelTypeDTV.ReadOnly = true;
-            this.fuelTypeDTV.Size = new System.Drawing.Size(417, 194);
+            this.fuelTypeDTV.Size = new System.Drawing.Size(306, 194);
             this.fuelTypeDTV.TabIndex = 55;
             this.fuelTypeDTV.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.fuelTypeDTV_CellMouseDoubleClick);
             // 
@@ -111,11 +112,11 @@
             this.brandsDataView.AllowUserToDeleteRows = false;
             this.brandsDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.brandsDataView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
-            this.brandsDataView.Location = new System.Drawing.Point(13, 44);
+            this.brandsDataView.Location = new System.Drawing.Point(365, 43);
             this.brandsDataView.MultiSelect = false;
             this.brandsDataView.Name = "brandsDataView";
             this.brandsDataView.ReadOnly = true;
-            this.brandsDataView.Size = new System.Drawing.Size(417, 194);
+            this.brandsDataView.Size = new System.Drawing.Size(309, 194);
             this.brandsDataView.TabIndex = 54;
             this.brandsDataView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.brandsDataView_CellMouseDoubleClick);
             // 
@@ -125,18 +126,18 @@
             this.carTypeDTV.AllowUserToDeleteRows = false;
             this.carTypeDTV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.carTypeDTV.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
-            this.carTypeDTV.Location = new System.Drawing.Point(13, 354);
+            this.carTypeDTV.Location = new System.Drawing.Point(12, 43);
             this.carTypeDTV.MultiSelect = false;
             this.carTypeDTV.Name = "carTypeDTV";
             this.carTypeDTV.ReadOnly = true;
-            this.carTypeDTV.Size = new System.Drawing.Size(417, 194);
+            this.carTypeDTV.Size = new System.Drawing.Size(309, 194);
             this.carTypeDTV.TabIndex = 53;
             this.carTypeDTV.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.carTypeDTV_CellMouseDoubleClick);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(608, 554);
+            this.label9.Location = new System.Drawing.Point(714, 239);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(133, 13);
             this.label9.TabIndex = 52;
@@ -148,10 +149,10 @@
             this.addCarFuelType.IconChar = FontAwesome.Sharp.IconChar.None;
             this.addCarFuelType.IconColor = System.Drawing.Color.Black;
             this.addCarFuelType.IconSize = 16;
-            this.addCarFuelType.Location = new System.Drawing.Point(797, 554);
+            this.addCarFuelType.Location = new System.Drawing.Point(903, 241);
             this.addCarFuelType.Name = "addCarFuelType";
             this.addCarFuelType.Rotation = 0D;
-            this.addCarFuelType.Size = new System.Drawing.Size(102, 41);
+            this.addCarFuelType.Size = new System.Drawing.Size(117, 39);
             this.addCarFuelType.TabIndex = 51;
             this.addCarFuelType.Text = "Agregar ";
             this.addCarFuelType.UseVisualStyleBackColor = true;
@@ -160,7 +161,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(140, 560);
+            this.label8.Location = new System.Drawing.Point(9, 239);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(101, 13);
             this.label8.TabIndex = 50;
@@ -172,10 +173,10 @@
             this.addCarType.IconChar = FontAwesome.Sharp.IconChar.None;
             this.addCarType.IconColor = System.Drawing.Color.Black;
             this.addCarType.IconSize = 16;
-            this.addCarType.Location = new System.Drawing.Point(328, 557);
+            this.addCarType.Location = new System.Drawing.Point(197, 241);
             this.addCarType.Name = "addCarType";
             this.addCarType.Rotation = 0D;
-            this.addCarType.Size = new System.Drawing.Size(102, 41);
+            this.addCarType.Size = new System.Drawing.Size(124, 40);
             this.addCarType.TabIndex = 49;
             this.addCarType.Text = "Agregar ";
             this.addCarType.UseVisualStyleBackColor = true;
@@ -187,10 +188,10 @@
             this.addBrand.IconChar = FontAwesome.Sharp.IconChar.None;
             this.addBrand.IconColor = System.Drawing.Color.Black;
             this.addBrand.IconSize = 16;
-            this.addBrand.Location = new System.Drawing.Point(328, 244);
+            this.addBrand.Location = new System.Drawing.Point(550, 241);
             this.addBrand.Name = "addBrand";
             this.addBrand.Rotation = 0D;
-            this.addBrand.Size = new System.Drawing.Size(102, 41);
+            this.addBrand.Size = new System.Drawing.Size(124, 41);
             this.addBrand.TabIndex = 48;
             this.addBrand.Text = "Agregar ";
             this.addBrand.UseVisualStyleBackColor = true;
@@ -199,7 +200,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(140, 245);
+            this.label7.Location = new System.Drawing.Point(362, 244);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(71, 13);
             this.label7.TabIndex = 47;
@@ -207,7 +208,7 @@
             // 
             // brandTX
             // 
-            this.brandTX.Location = new System.Drawing.Point(143, 263);
+            this.brandTX.Location = new System.Drawing.Point(365, 260);
             this.brandTX.Name = "brandTX";
             this.brandTX.Size = new System.Drawing.Size(179, 20);
             this.brandTX.TabIndex = 46;
@@ -215,7 +216,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(624, 248);
+            this.label6.Location = new System.Drawing.Point(399, 534);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(76, 13);
             this.label6.TabIndex = 44;
@@ -224,7 +225,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(480, 247);
+            this.label5.Location = new System.Drawing.Point(241, 534);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 13);
             this.label5.TabIndex = 43;
@@ -235,7 +236,7 @@
             this.CarBrandCB.DisplayMember = "assad";
             this.CarBrandCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CarBrandCB.FormattingEnabled = true;
-            this.CarBrandCB.Location = new System.Drawing.Point(483, 263);
+            this.CarBrandCB.Location = new System.Drawing.Point(244, 549);
             this.CarBrandCB.Name = "CarBrandCB";
             this.CarBrandCB.Size = new System.Drawing.Size(138, 21);
             this.CarBrandCB.TabIndex = 42;
@@ -246,17 +247,17 @@
             this.modelsDataView.AllowUserToDeleteRows = false;
             this.modelsDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.modelsDataView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
-            this.modelsDataView.Location = new System.Drawing.Point(482, 44);
+            this.modelsDataView.Location = new System.Drawing.Point(12, 329);
             this.modelsDataView.MultiSelect = false;
             this.modelsDataView.Name = "modelsDataView";
             this.modelsDataView.ReadOnly = true;
-            this.modelsDataView.Size = new System.Drawing.Size(417, 194);
+            this.modelsDataView.Size = new System.Drawing.Size(662, 194);
             this.modelsDataView.TabIndex = 30;
             this.modelsDataView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.modelsDataView_CellMouseDoubleClick);
             // 
             // modelInput
             // 
-            this.modelInput.Location = new System.Drawing.Point(627, 263);
+            this.modelInput.Location = new System.Drawing.Point(402, 549);
             this.modelInput.Name = "modelInput";
             this.modelInput.Size = new System.Drawing.Size(164, 20);
             this.modelInput.TabIndex = 29;
@@ -268,7 +269,7 @@
             this.addNewModel.IconChar = FontAwesome.Sharp.IconChar.None;
             this.addNewModel.IconColor = System.Drawing.Color.Black;
             this.addNewModel.IconSize = 16;
-            this.addNewModel.Location = new System.Drawing.Point(797, 242);
+            this.addNewModel.Location = new System.Drawing.Point(572, 528);
             this.addNewModel.Name = "addNewModel";
             this.addNewModel.Rotation = 0D;
             this.addNewModel.Size = new System.Drawing.Size(102, 41);
@@ -281,15 +282,15 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(479, 319);
+            this.label4.Location = new System.Drawing.Point(711, 8);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(348, 23);
+            this.label4.Size = new System.Drawing.Size(304, 23);
             this.label4.TabIndex = 27;
-            this.label4.Text = "Mantenimiento tipo de combustible";
+            this.label4.Text = "Mantenimiento de combustible";
             // 
             // carFuelTypeTX
             // 
-            this.carFuelTypeTX.Location = new System.Drawing.Point(611, 575);
+            this.carFuelTypeTX.Location = new System.Drawing.Point(717, 260);
             this.carFuelTypeTX.Name = "carFuelTypeTX";
             this.carFuelTypeTX.Size = new System.Drawing.Size(180, 20);
             this.carFuelTypeTX.TabIndex = 24;
@@ -298,7 +299,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(9, 319);
+            this.label3.Location = new System.Drawing.Point(8, 8);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(301, 23);
             this.label3.TabIndex = 20;
@@ -306,7 +307,7 @@
             // 
             // carTypeTX
             // 
-            this.carTypeTX.Location = new System.Drawing.Point(143, 578);
+            this.carTypeTX.Location = new System.Drawing.Point(12, 257);
             this.carTypeTX.Name = "carTypeTX";
             this.carTypeTX.Size = new System.Drawing.Size(179, 20);
             this.carTypeTX.TabIndex = 17;
@@ -315,7 +316,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(479, 9);
+            this.label2.Location = new System.Drawing.Point(9, 294);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(269, 23);
             this.label2.TabIndex = 13;
@@ -325,19 +326,29 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 9);
+            this.label1.Location = new System.Drawing.Point(361, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(256, 23);
             this.label1.TabIndex = 6;
             this.label1.Text = "Mantenimiento de marcas";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(489, 572);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(77, 13);
+            this.label10.TabIndex = 57;
+            this.label10.Text = "Buscar modelo";
+            // 
             // GeneralView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(911, 604);
+            this.ClientSize = new System.Drawing.Size(1036, 592);
             this.ControlBox = false;
             this.Controls.Add(this.GeneralMantViewPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GeneralView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.GeneralMantViewPanel.ResumeLayout(false);
@@ -375,5 +386,6 @@
         private System.Windows.Forms.DataGridView carTypeDTV;
         private System.Windows.Forms.DataGridView fuelTypeDTV;
         private System.Windows.Forms.DataGridView brandsDataView;
+        private System.Windows.Forms.Label label10;
     }
 }

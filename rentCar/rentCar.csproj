@@ -88,11 +88,11 @@
     <Compile Include="views\car\maintenances\GeneralView.Designer.cs">
       <DependentUpon>GeneralView.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\car\maintenances\CarModelCrudView.cs">
+    <Compile Include="views\car\maintenances\CarModelEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\car\maintenances\CarModelCrudView.Designer.cs">
-      <DependentUpon>CarModelCrudView.cs</DependentUpon>
+    <Compile Include="views\car\maintenances\CarModelEditForm.Designer.cs">
+      <DependentUpon>CarModelEditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="views\car\maintenances\GeneralCrud.cs">
       <SubType>Form</SubType>
@@ -151,8 +151,8 @@
     <EmbeddedResource Include="views\car\maintenances\GeneralView.resx">
       <DependentUpon>GeneralView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\car\maintenances\CarModelCrudView.resx">
-      <DependentUpon>CarModelCrudView.cs</DependentUpon>
+    <EmbeddedResource Include="views\car\maintenances\CarModelEditForm.resx">
+      <DependentUpon>CarModelEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\car\maintenances\GeneralCrud.resx">
       <DependentUpon>GeneralCrud.cs</DependentUpon>
