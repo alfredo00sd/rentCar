@@ -32,7 +32,6 @@
             this.menuPanel = new System.Windows.Forms.Panel();
             this.adminSubMenuPanel = new System.Windows.Forms.Panel();
             this.reportBtn = new FontAwesome.Sharp.IconButton();
-            this.consultBtn = new FontAwesome.Sharp.IconButton();
             this.processSubMenuPanel = new System.Windows.Forms.Panel();
             this.rentManagerBtn = new FontAwesome.Sharp.IconButton();
             this.inspectorManagerBtn = new FontAwesome.Sharp.IconButton();
@@ -88,17 +87,16 @@
             this.menuPanel.ForeColor = System.Drawing.Color.White;
             this.menuPanel.Location = new System.Drawing.Point(0, 0);
             this.menuPanel.Name = "menuPanel";
-            this.menuPanel.Size = new System.Drawing.Size(234, 563);
+            this.menuPanel.Size = new System.Drawing.Size(234, 624);
             this.menuPanel.TabIndex = 0;
             // 
             // adminSubMenuPanel
             // 
             this.adminSubMenuPanel.Controls.Add(this.reportBtn);
-            this.adminSubMenuPanel.Controls.Add(this.consultBtn);
             this.adminSubMenuPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.adminSubMenuPanel.Location = new System.Drawing.Point(0, 421);
             this.adminSubMenuPanel.Name = "adminSubMenuPanel";
-            this.adminSubMenuPanel.Size = new System.Drawing.Size(234, 103);
+            this.adminSubMenuPanel.Size = new System.Drawing.Size(234, 50);
             this.adminSubMenuPanel.TabIndex = 8;
             // 
             // reportBtn
@@ -112,40 +110,17 @@
             this.reportBtn.IconColor = System.Drawing.Color.WhiteSmoke;
             this.reportBtn.IconSize = 32;
             this.reportBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.reportBtn.Location = new System.Drawing.Point(0, 44);
+            this.reportBtn.Location = new System.Drawing.Point(0, 0);
             this.reportBtn.Name = "reportBtn";
             this.reportBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.reportBtn.Rotation = 0D;
-            this.reportBtn.Size = new System.Drawing.Size(234, 46);
+            this.reportBtn.Size = new System.Drawing.Size(234, 47);
             this.reportBtn.TabIndex = 7;
             this.reportBtn.Text = "Reportes";
             this.reportBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.reportBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.reportBtn.UseVisualStyleBackColor = true;
             this.reportBtn.Click += new System.EventHandler(this.ReportBtn_Click);
-            // 
-            // consultBtn
-            // 
-            this.consultBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.consultBtn.FlatAppearance.BorderSize = 0;
-            this.consultBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.consultBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.consultBtn.ForeColor = System.Drawing.Color.FloralWhite;
-            this.consultBtn.IconChar = FontAwesome.Sharp.IconChar.ClipboardList;
-            this.consultBtn.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.consultBtn.IconSize = 32;
-            this.consultBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.consultBtn.Location = new System.Drawing.Point(0, 0);
-            this.consultBtn.Name = "consultBtn";
-            this.consultBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.consultBtn.Rotation = 0D;
-            this.consultBtn.Size = new System.Drawing.Size(234, 44);
-            this.consultBtn.TabIndex = 8;
-            this.consultBtn.Text = "Consultas";
-            this.consultBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.consultBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.consultBtn.UseVisualStyleBackColor = true;
-            this.consultBtn.Click += new System.EventHandler(this.ConsultBtn_Click);
             // 
             // processSubMenuPanel
             // 
@@ -173,9 +148,9 @@
             this.rentManagerBtn.Name = "rentManagerBtn";
             this.rentManagerBtn.Padding = new System.Windows.Forms.Padding(35, 0, 20, 0);
             this.rentManagerBtn.Rotation = 0D;
-            this.rentManagerBtn.Size = new System.Drawing.Size(234, 41);
+            this.rentManagerBtn.Size = new System.Drawing.Size(234, 35);
             this.rentManagerBtn.TabIndex = 12;
-            this.rentManagerBtn.Text = "Renta/Devoluccion";
+            this.rentManagerBtn.Text = "Renta/Devolucion";
             this.rentManagerBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.rentManagerBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.rentManagerBtn.UseVisualStyleBackColor = true;
@@ -209,7 +184,7 @@
             this.copyRights.AutoSize = true;
             this.copyRights.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.copyRights.LinkColor = System.Drawing.Color.White;
-            this.copyRights.Location = new System.Drawing.Point(0, 547);
+            this.copyRights.Location = new System.Drawing.Point(0, 608);
             this.copyRights.Name = "copyRights";
             this.copyRights.Size = new System.Drawing.Size(181, 16);
             this.copyRights.TabIndex = 9;
@@ -395,7 +370,7 @@
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(234, 0);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(738, 563);
+            this.panelContainer.Size = new System.Drawing.Size(738, 624);
             this.panelContainer.TabIndex = 2;
             // 
             // panelDash
@@ -405,7 +380,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelDash.Location = new System.Drawing.Point(6, 56);
             this.panelDash.Name = "panelDash";
-            this.panelDash.Size = new System.Drawing.Size(720, 495);
+            this.panelDash.Size = new System.Drawing.Size(720, 556);
             this.panelDash.TabIndex = 0;
             // 
             // titleBar
@@ -527,7 +502,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(972, 563);
+            this.ClientSize = new System.Drawing.Size(972, 624);
             this.ControlBox = false;
             this.Controls.Add(this.titleBar);
             this.Controls.Add(this.panelContainer);
@@ -582,7 +557,6 @@
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private System.Windows.Forms.Panel userStatus;
         private System.Windows.Forms.Panel adminSubMenuPanel;
-        private FontAwesome.Sharp.IconButton consultBtn;
         private FontAwesome.Sharp.IconButton reportBtn;
         private FontAwesome.Sharp.IconButton CustomerManagerBtn;
         private System.Windows.Forms.Panel processSubMenuPanel;

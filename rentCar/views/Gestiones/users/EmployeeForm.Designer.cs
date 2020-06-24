@@ -80,7 +80,7 @@
             this.panel1.Location = new System.Drawing.Point(13, 13);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(860, 459);
+            this.panel1.Size = new System.Drawing.Size(948, 459);
             this.panel1.TabIndex = 3;
             // 
             // comissions
@@ -90,7 +90,7 @@
             0,
             0,
             0});
-            this.comissions.Location = new System.Drawing.Point(632, 36);
+            this.comissions.Location = new System.Drawing.Point(725, 26);
             this.comissions.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -106,7 +106,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(401, 17);
+            this.label7.Location = new System.Drawing.Point(494, 7);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(45, 14);
@@ -121,7 +121,7 @@
             "Rentador",
             "Insperctor",
             "Administrador"});
-            this.workPositionCB.Location = new System.Drawing.Point(404, 123);
+            this.workPositionCB.Location = new System.Drawing.Point(497, 113);
             this.workPositionCB.Name = "workPositionCB";
             this.workPositionCB.Size = new System.Drawing.Size(210, 22);
             this.workPositionCB.TabIndex = 21;
@@ -135,7 +135,7 @@
             "Vespertina",
             "Diurna",
             "Nocturna"});
-            this.workSessionCB.Location = new System.Drawing.Point(404, 34);
+            this.workSessionCB.Location = new System.Drawing.Point(497, 24);
             this.workSessionCB.Name = "workSessionCB";
             this.workSessionCB.Size = new System.Drawing.Size(210, 22);
             this.workSessionCB.TabIndex = 20;
@@ -144,7 +144,7 @@
             // 
             this.employeStateCheck.AutoSize = true;
             this.employeStateCheck.ForeColor = System.Drawing.Color.White;
-            this.employeStateCheck.Location = new System.Drawing.Point(632, 78);
+            this.employeStateCheck.Location = new System.Drawing.Point(725, 68);
             this.employeStateCheck.Name = "employeStateCheck";
             this.employeStateCheck.Size = new System.Drawing.Size(129, 18);
             this.employeStateCheck.TabIndex = 19;
@@ -156,7 +156,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(401, 105);
+            this.label8.Location = new System.Drawing.Point(494, 95);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(36, 14);
@@ -165,7 +165,7 @@
             // 
             // dominicanIDTX
             // 
-            this.dominicanIDTX.Location = new System.Drawing.Point(404, 79);
+            this.dominicanIDTX.Location = new System.Drawing.Point(497, 69);
             this.dominicanIDTX.Margin = new System.Windows.Forms.Padding(4);
             this.dominicanIDTX.MaxLength = 11;
             this.dominicanIDTX.Name = "dominicanIDTX";
@@ -177,7 +177,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(401, 61);
+            this.label6.Location = new System.Drawing.Point(494, 51);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 14);
@@ -187,9 +187,9 @@
             // employeeDV
             // 
             this.employeeDV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.employeeDV.Location = new System.Drawing.Point(15, 166);
+            this.employeeDV.Location = new System.Drawing.Point(17, 142);
             this.employeeDV.Name = "employeeDV";
-            this.employeeDV.Size = new System.Drawing.Size(827, 280);
+            this.employeeDV.Size = new System.Drawing.Size(915, 299);
             this.employeeDV.TabIndex = 13;
             this.employeeDV.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.employeeDV_CellMouseDoubleClick);
             // 
@@ -198,7 +198,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(401, 17);
+            this.label5.Location = new System.Drawing.Point(494, 7);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(0, 14);
@@ -209,7 +209,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(629, 17);
+            this.label4.Location = new System.Drawing.Point(722, 7);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(134, 14);
@@ -218,7 +218,7 @@
             // 
             // employeeLastNameTX
             // 
-            this.employeeLastNameTX.Location = new System.Drawing.Point(173, 123);
+            this.employeeLastNameTX.Location = new System.Drawing.Point(266, 113);
             this.employeeLastNameTX.Margin = new System.Windows.Forms.Padding(4);
             this.employeeLastNameTX.MaxLength = 40;
             this.employeeLastNameTX.Name = "employeeLastNameTX";
@@ -230,7 +230,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(170, 105);
+            this.label3.Location = new System.Drawing.Point(263, 95);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 14);
@@ -248,7 +248,7 @@
             this.createUserBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.createUserBtn.IconColor = System.Drawing.Color.Black;
             this.createUserBtn.IconSize = 16;
-            this.createUserBtn.Location = new System.Drawing.Point(632, 103);
+            this.createUserBtn.Location = new System.Drawing.Point(725, 93);
             this.createUserBtn.Margin = new System.Windows.Forms.Padding(4);
             this.createUserBtn.Name = "createUserBtn";
             this.createUserBtn.Rotation = 0D;
@@ -261,17 +261,17 @@
             // appLogo
             // 
             this.appLogo.Image = ((System.Drawing.Image)(resources.GetObject("appLogo.Image")));
-            this.appLogo.Location = new System.Drawing.Point(13, 17);
+            this.appLogo.Location = new System.Drawing.Point(15, 12);
             this.appLogo.Margin = new System.Windows.Forms.Padding(4);
             this.appLogo.Name = "appLogo";
-            this.appLogo.Size = new System.Drawing.Size(149, 128);
+            this.appLogo.Size = new System.Drawing.Size(243, 123);
             this.appLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.appLogo.TabIndex = 4;
             this.appLogo.TabStop = false;
             // 
             // employeeNameTX
             // 
-            this.employeeNameTX.Location = new System.Drawing.Point(173, 79);
+            this.employeeNameTX.Location = new System.Drawing.Point(266, 69);
             this.employeeNameTX.Margin = new System.Windows.Forms.Padding(4);
             this.employeeNameTX.MaxLength = 30;
             this.employeeNameTX.Name = "employeeNameTX";
@@ -283,7 +283,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(170, 61);
+            this.label2.Location = new System.Drawing.Point(263, 51);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 14);
@@ -292,7 +292,7 @@
             // 
             // empoyeeCardTX
             // 
-            this.empoyeeCardTX.Location = new System.Drawing.Point(173, 35);
+            this.empoyeeCardTX.Location = new System.Drawing.Point(266, 25);
             this.empoyeeCardTX.Margin = new System.Windows.Forms.Padding(4);
             this.empoyeeCardTX.MaxLength = 20;
             this.empoyeeCardTX.Name = "empoyeeCardTX";
@@ -304,7 +304,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(170, 17);
+            this.label1.Location = new System.Drawing.Point(263, 7);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(137, 14);
@@ -316,7 +316,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(0)))), ((int)(((byte)(17)))));
-            this.ClientSize = new System.Drawing.Size(892, 485);
+            this.ClientSize = new System.Drawing.Size(974, 485);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

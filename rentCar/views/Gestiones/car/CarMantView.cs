@@ -19,13 +19,8 @@ namespace rentCar.views.car
         public CarMantView()
         {
             InitializeComponent();
-
-            carStatsCheck.Checked = true;
-
-            FillCarTypeCB();
-            FillCarBrandCB();
-            FillFuelTypeCB();
-            loadCarDVData();
+            
+            ResetCarForm();
         }
 
         //-----------------------------------------------------------Loads
@@ -113,9 +108,25 @@ namespace rentCar.views.car
 
         private void ResetCarForm() 
         {
-            CarMantView NewForm = new CarMantView();
-            NewForm.Show();
-            this.Dispose(false);
+            FillCarTypeCB();
+            FillCarBrandCB();
+            FillFuelTypeCB();
+            loadCarDVData();
+
+            viewTitle.Text = "Mantenimiento de vehiculos";
+            SaveCarBtn.Text = "Agregar nuevo";
+
+            placaInput.Text = "";
+            chasisNoInput.Text = "";
+            motorNoInput.Text = "";
+            CarFabYearCB.SelectedItem = "";
+            cantPuertas.SelectedItem = "";
+            cantPasajeros.SelectedItem = "";
+            CarCondition.SelectedItem = "";
+            commentBox.Text = "";
+            useInKm.Value = 0;
+            colorContainer.BackColor = Color.FromName("white");//Try to use the dto value...
+            carStatsCheck.Checked = true;
         }
 
         private bool IsNumeric(object Expression)
@@ -267,7 +278,7 @@ namespace rentCar.views.car
         //------------------------------------------------------------------------------Fill the form to edit the data
         private void EditMode(CarDTO dto) 
         {
-            viewTitle.Text = "Editar";
+            viewTitle.Text = "Edicion de registro";
             SaveCarBtn.Text = "Editar record";
          
             CarTypeCB.SelectedIndex  = CarTypeCB.FindStringExact(dto.Type); //dto.CarTypeId;

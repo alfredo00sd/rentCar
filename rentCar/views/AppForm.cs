@@ -4,6 +4,7 @@ using rentCar.user;
 using rentCar.views;
 using rentCar.views.car;
 using rentCar.views.customers;
+using rentCar.views.reportes;
 using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
@@ -205,13 +206,7 @@ namespace rentCar
         //--------------------------------------------------------------Reports
         private void ReportBtn_Click(object sender, EventArgs e)
         {
-
-        }
-
-        //--------------------------------------------------------------Consults
-        private void ConsultBtn_Click(object sender, EventArgs e)
-        {
-
+            OpenChildForm(new ReportsForm());
         }
 
         //Panel de gestion

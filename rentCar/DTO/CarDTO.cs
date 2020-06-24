@@ -82,10 +82,7 @@ namespace RentCarApp.DTO
         string _comment; // max 200
         string _adquisitionDate;
         bool _status;
-
-        //Get full car for rent or inspection
-        public string FullCarDescription => Brand + "->" + Model + " del " + FabYear + " tipo " + Type + ", placa No. " + LicensePlate;
-
+        
         // Get <> Set property
         public int Id { get => _id; set => _id = value; }
 
@@ -158,5 +155,9 @@ namespace RentCarApp.DTO
 
         public bool Status { get => _status; set => _status = value; }
         public string AdquisitionDate { get => _adquisitionDate; set => _adquisitionDate = value; }
-    }   
+
+        //Get full car for rent or inspection
+        public string FullCarDescription => Brand + "->" + Model + " del " + FabYear + " tipo " + Type + ", placa No. " + LicensePlate;
+
+    }
 }

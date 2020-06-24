@@ -32,7 +32,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.helpBtn = new FontAwesome.Sharp.IconButton();
             this.refreshBtn = new FontAwesome.Sharp.IconButton();
-            this.label16 = new System.Windows.Forms.Label();
             this.viewTitle = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -92,7 +91,6 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(0)))), ((int)(((byte)(17)))));
             this.panel1.Controls.Add(this.helpBtn);
             this.panel1.Controls.Add(this.refreshBtn);
-            this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.viewTitle);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -130,17 +128,6 @@
             this.refreshBtn.UseVisualStyleBackColor = true;
             this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(214, 9);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(101, 23);
-            this.label16.TabIndex = 9;
-            this.label16.Text = "vehiculo";
-            // 
             // viewTitle
             // 
             this.viewTitle.AutoSize = true;
@@ -148,9 +135,9 @@
             this.viewTitle.ForeColor = System.Drawing.Color.White;
             this.viewTitle.Location = new System.Drawing.Point(12, 9);
             this.viewTitle.Name = "viewTitle";
-            this.viewTitle.Size = new System.Drawing.Size(214, 23);
+            this.viewTitle.Size = new System.Drawing.Size(316, 23);
             this.viewTitle.TabIndex = 8;
-            this.viewTitle.Text = "Mantenimiento de ";
+            this.viewTitle.Text = "Mantenimiento de vehiculos";
             // 
             // panel2
             // 
@@ -364,10 +351,10 @@
             this.SaveCarBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.SaveCarBtn.IconColor = System.Drawing.Color.Black;
             this.SaveCarBtn.IconSize = 16;
-            this.SaveCarBtn.Location = new System.Drawing.Point(798, 185);
+            this.SaveCarBtn.Location = new System.Drawing.Point(798, 171);
             this.SaveCarBtn.Name = "SaveCarBtn";
             this.SaveCarBtn.Rotation = 0D;
-            this.SaveCarBtn.Size = new System.Drawing.Size(228, 33);
+            this.SaveCarBtn.Size = new System.Drawing.Size(228, 47);
             this.SaveCarBtn.TabIndex = 90;
             this.SaveCarBtn.Text = "Agregar nuevo";
             this.SaveCarBtn.UseVisualStyleBackColor = true;
@@ -718,7 +705,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
         private FontAwesome.Sharp.IconButton refreshBtn;
         private FontAwesome.Sharp.IconButton helpBtn;
         private System.Windows.Forms.CheckBox carStatsCheck;

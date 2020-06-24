@@ -98,7 +98,7 @@ namespace rentCar.DAO
         public List<CarDTO> SearchByCriteria(String criteria)
         {
             cmd.Connection = conexion.AbrirConexion();
-            cmd.CommandText = "select * from carInfo where license_plate like @criteria + '%' or chassis_number like @criteria + '%' or engine_number like @criteria + '%' or fabrication_year like @criteria + '%' or brand like @criteria + '%' or model like @criteria + '%'";
+            cmd.CommandText = "select * from carInfo where status = 1 and license_plate like @criteria + '%' or chassis_number like @criteria + '%' or engine_number like @criteria + '%' or fabrication_year like @criteria + '%' or brand like @criteria + '%' or model like @criteria + '%'";
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@criteria", criteria);
 
@@ -116,7 +116,7 @@ namespace rentCar.DAO
         public List<CarDTO> GETALL()
         {
             cmd.Connection = conexion.AbrirConexion();
-            cmd.CommandText = "select * from carInfo";
+            cmd.CommandText = "select * from carInfo where status = 1";
             cmd.CommandType = CommandType.Text;
             reader = cmd.ExecuteReader();
 

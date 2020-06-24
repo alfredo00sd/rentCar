@@ -20,28 +20,14 @@ namespace rentCar.views
         {
             InitializeComponent();
 
-            formTile.Text = "Formulario de inspeccion";
-
-            //Load inspection table data
-            inspectionsDV.DataSource = dao.GETALL();
-
-            //Load car data
-            CarCB.DataSource = carDAO.GETALL();//Id
-            CarCB.ValueMember = "FullCarDescription";
-            CarCB.DisplayMember = "FullCarDescription";
-
-            //Load customer data
-            CustomerCB.DataSource = customerDAO.GETALL();//Id
-            CustomerCB.ValueMember = "FullCustomerDescription";
-            CustomerCB.DisplayMember = "FullCustomerDescription";
+            RefreshForm();
+            formatDV();
         }
 
         private void heplBtn_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Para realizar una renta, tras la inspeccion hacer doble clic sobre el registro de la inspeccion realizada y completar el formulario");
         }
-
-
 
         //Fills
         private void FillForm(InspectionDTO dto)
@@ -65,6 +51,28 @@ namespace rentCar.views
             checkLlanta4.Checked = dto.Wheel4Check;
         }
         //------------------------------------------------------------------------------Fill the form to edit the data
+
+        private void formatDV() 
+        {
+            this.inspectionsDV.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.inspectionsDV.Columns[0].HeaderText = "#";
+            inspectionsDV.Columns[1].Visible = false;
+            inspectionsDV.Columns[3].Visible = false;
+            //this.inspectionsDV.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.inspectionsDV.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            //this.inspectionsDV.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.inspectionsDV.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.inspectionsDV.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.inspectionsDV.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.inspectionsDV.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.inspectionsDV.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.inspectionsDV.Columns[9].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.inspectionsDV.Columns[9].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.inspectionsDV.Columns[10].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.inspectionsDV.Columns[11].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.inspectionsDV.Columns[12].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.inspectionsDV.Columns[13].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+        }
 
         private InspectionDTO FillUpDto()
         {
@@ -99,11 +107,35 @@ namespace rentCar.views
             };
         }
 
-        private void ResetForm()
+        private void RefreshForm()
         {
-            InspectionForm NewForm = new InspectionForm();
-            NewForm.Show();
-            this.Dispose(false);
+            formTile.Text = "Formulario de inspeccion";
+            SaveInspectionBtn.Text = "Guardar inspeccion";
+
+            //Load inspection table data
+            inspectionsDV.DataSource = dao.GETALL();
+
+            //Load car data
+            CarCB.DataSource = carDAO.GETALL();//Id
+            CarCB.ValueMember = "FullCarDescription";
+            CarCB.DisplayMember = "FullCarDescription";
+
+            //Load customer data
+            CustomerCB.DataSource = customerDAO.GETALL();//Id
+            CustomerCB.ValueMember = "FullCustomerDescription";
+            CustomerCB.DisplayMember = "FullCustomerDescription";
+            
+            inspectionId = 0;
+
+            inspector.Text = "";
+            inspectionCommentTX.Text = "";
+            hasBotiquinChek.Checked = false;
+            hasRefactionChek.Checked = false;
+            hasScratchesChek.Checked = false;
+            checkLlanta1.Checked = false;
+            checkLlanta2.Checked = false;
+            checkLlanta3.Checked = false;
+            checkLlanta4.Checked = false;
         }
 
         private void SaveInspectionBtn_Click(object sender, EventArgs e)
@@ -114,18 +146,18 @@ namespace rentCar.views
             {
                 dao.EDIT(dto);
                 MessageBox.Show("SUCCESS : editado correctamente!");
-                ResetForm();
+                RefreshForm();
             }
             else if (SaveInspectionBtn.Text.Equals("Guardar inspeccion"))
             {
                 dao.ADD(dto);
                 MessageBox.Show("SUCCESS : vehiculo agregado correctamente!");
-                ResetForm();
+                RefreshForm();
             }
             else
             {
                 MessageBox.Show("ERROR : probleamas al ejecutar la operacion.");
-                ResetForm();
+                RefreshForm();
             }
         }
 
@@ -180,7 +212,7 @@ namespace rentCar.views
                     ///Delete the record
                     dao.DELETE(dto.Id);
                     MessageBox.Show("Elemento borrado!");
-                    ResetForm();
+                    RefreshForm();
                 }
             }
         }

@@ -71,6 +71,8 @@ select * from car_model;
 	INSERT INTO type_of_fuel values ('Hibrido',0);
 	INSERT INTO type_of_fuel values ('Electrico',0);
 
+	select * from carInfo
+
 ------------------///Create car associated tables
 
 CREATE TABLE carInfo
@@ -234,6 +236,22 @@ INSERT INTO departure_inspection values (1, 1, '04-MAY-2020', null, 'Good', 'LLa
 INSERT INTO departure_inspection values (1, 1, '04-MAY-2020', null, 'Good', 'LLantas delanteras en buenas condiciones', 0, 1, 0, 1, 'Necesita revision de la llanta derecha');
 
 select * from departure_inspection;
+
+create table rents(
+	id int IDENTITY(1,1) primary key,
+	employeeInfo varchar(100),
+	carId int,
+	carInfo varchar(200),
+	customerInfo varchar(200),
+	rent_date varchar(50),
+	devolution_date varchar(50),
+	mont_x_day int,
+	quantity_of_days int,
+	comment varchar(200),
+	state bit
+);
+    
+	  
 
 ------------------///Create car associated tables
 	CREATE TABLE rent_history 

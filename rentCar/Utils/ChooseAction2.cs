@@ -8,5 +8,14 @@ namespace rentCar.views.car
         {
             InitializeComponent();
         }
+
+        public ChooseAction2(string msg, string leftBtnText, string rightBtnText)
+        {
+            InitializeComponent();
+
+            chooseMsg.Text = msg;
+            rightBtn.Text = rightBtnText;
+            leftBtn.Text = leftBtnText;
+        }
     }
 }

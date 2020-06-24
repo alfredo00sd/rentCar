@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Forms;
 
 namespace rentCar.DAO
 {
@@ -14,28 +13,192 @@ namespace rentCar.DAO
         readonly SqlCommand cmd = new SqlCommand();
         List<InspectionDTO> dtoList;
 
+        private void FillRentParams(SqlCommand cmd, RentDTO dto)
+        {
+            cmd.Parameters.AddWithValue("@id", dto.Id);
+            cmd.Parameters.AddWithValue("@employeeInfo", dto.EmployeeInfo);
+            cmd.Parameters.AddWithValue("@inspectionId", dto.InspectionId);
+            cmd.Parameters.AddWithValue("@carId", dto.CarId);
+            cmd.Parameters.AddWithValue("@carInfo", dto.CarInfo);
+            cmd.Parameters.AddWithValue("@customerInfo", dto.CustomerInfo);
+            cmd.Parameters.AddWithValue("@rent_date", dto.RentDate);
+            cmd.Parameters.AddWithValue("@devolution_date", dto.DevolutionDate);
+            cmd.Parameters.AddWithValue("@mont_x_day", dto.MontPerDay);
+            cmd.Parameters.AddWithValue("@quantity_of_days", dto.QuantityOfDays);
+            cmd.Parameters.AddWithValue("@comment", dto.Comment);
+            cmd.Parameters.AddWithValue("@status", 1);     
+        }
+
+        public List<RentDTO> GetActiveRents() 
+        {
+            cmd.Connection = conexion.AbrirConexion();
+            cmd.CommandText = "select * from rents where state = 1";
+            cmd.CommandType = CommandType.Text;
+            reader = cmd.ExecuteReader();
+
+            List<RentDTO> ListaGenerica = new List<RentDTO>();
+
+            while (reader.Read())
+            {
+                ListaGenerica.Add(new RentDTO
+                {
+                    Id = reader.GetInt32(0),
+                    InspectionId = reader.GetInt32(1),
+                    EmployeeInfo = reader.GetString(2),
+                    CarId = reader.GetInt32(3), //can not be null reader.GetInt32(4)
+                    CarInfo = reader.GetString(4),
+                    CustomerInfo = reader.GetString(5),
+                    RentDate = reader.GetString(6),
+                    DevolutionDate = reader.GetString(7),
+                    MontPerDay = reader.GetInt32(8),
+                    QuantityOfDays = reader.GetInt32(9),
+                    Comment = reader.GetString(10),//reader.GetString(18)
+                    State = (bool)reader["state"]
+                });
+            }
+
+            conexion.CerrarConexion();
+            reader.Close();
+
+            return ListaGenerica;
+        }
+
+        public void ProcessRent(RentDTO dto) 
+        {
+            //Save the rent 
+            //Set rent status to 0.
+            cmd.Connection = conexion.AbrirConexion();
+            cmd.CommandText = "insert into rents values (@inspectionId, @employeeInfo, @carId, @carInfo, @customerInfo, @rent_date, @devolution_date, @mont_x_day, @quantity_of_days, @comment, @status)";
+            cmd.CommandType = CommandType.Text;
+
+            FillRentParams(cmd, dto);
+
+            cmd.ExecuteNonQuery();
+
+            cmd.Parameters.Clear();
+            conexion.CerrarConexion();
+
+            //set inspection status to 0.
+            cmd.Connection = conexion.AbrirConexion();
+            cmd.CommandText = "update inspection set state = 0 where id = " + dto.InspectionId + "";
+            cmd.CommandType = CommandType.Text;
+
+            cmd.ExecuteNonQuery();
+
+            conexion.CerrarConexion();
+
+            //Set car status to 0.
+            cmd.Connection = conexion.AbrirConexion();
+            cmd.CommandText = "update carInfo set status = 0 where id = " + dto.CarId + "";
+            cmd.CommandType = CommandType.Text;
+
+            cmd.ExecuteNonQuery();
+
+            conexion.CerrarConexion();
+        }
+
+        public void DevolutionProcess(RentDTO dto) 
+        {
+            //update rent
+            //set rent status to 1.
+            //add inspection comment as devolucion
+            //update devolution date
+            cmd.Connection = conexion.AbrirConexion();
+            cmd.CommandText = "update rents set state = 0, comment = 'Comentario de devolucion : "+dto.Comment+"', devolution_date = '" + dto.DevolutionDate + "' where id = " + dto.Id + " ";
+            cmd.CommandType = CommandType.Text;
+
+            cmd.ExecuteNonQuery();
+
+            conexion.CerrarConexion();
+
+            //set inspection status to 1.
+            cmd.Connection = conexion.AbrirConexion();
+            cmd.CommandText = "update inspection set state = 1 where id = " + dto.InspectionId + "";//
+            cmd.CommandType = CommandType.Text;
+
+            cmd.ExecuteNonQuery();
+
+            conexion.CerrarConexion();
+
+            //Set car status to 1.
+            cmd.Connection = conexion.AbrirConexion();
+            cmd.CommandText = "update carInfo set status = 1 where id = " + dto.CarId + "";
+            cmd.CommandType = CommandType.Text;
+
+            cmd.ExecuteNonQuery();
+
+            conexion.CerrarConexion();
+        }
+
+        public List<RentDTO> GetRentsRepo() 
+        {
+            cmd.Connection = conexion.AbrirConexion();
+            cmd.CommandText = "select * from rents";
+            cmd.CommandType = CommandType.Text;
+            reader = cmd.ExecuteReader();
+
+            List<RentDTO> ListaGenerica = new List<RentDTO>();
+
+            while (reader.Read())
+            {
+                ListaGenerica.Add(new RentDTO
+                {
+                    Id = reader.GetInt32(0),
+                    InspectionId = reader.GetInt32(1),
+                    EmployeeInfo = reader.GetString(2),
+                    CarId = reader.GetInt32(3), //can not be null reader.GetInt32(4)
+                    CarInfo = reader.GetString(4),
+                    CustomerInfo = reader.GetString(5),
+                    RentDate = reader.GetString(6),
+                    DevolutionDate = reader.GetString(7),
+                    MontPerDay = reader.GetInt32(8),
+                    QuantityOfDays = reader.GetInt32(9),
+                    Comment = reader.GetString(10),//reader.GetString(18)
+                    State = (bool)reader["state"]
+                });
+            }
+
+            conexion.CerrarConexion();
+            reader.Close();
+
+            return ListaGenerica;
+        }
+
         //Utils
-        //public bool GetRecordById(int id)
-        //{
-        //    cmd.Connection = conexion.AbrirConexion();
-        //    cmd.CommandText = "select * from carInfo where license_plate = '" + placa + "' or chassis_number = '" + chasis + "' or engine_number = '" + engine + "'";
-        //    cmd.CommandType = CommandType.Text;
+        public List<RentDTO> SearchRentBy(string criteria)
+        { //Cliente, carro, fecha
+            cmd.Connection = conexion.AbrirConexion();
+            cmd.CommandText = "select * from rents where customerInfo like '%" + criteria + "%' or carInfo like '%" + criteria + "%' or rent_date like '%" + criteria + "%' and state = 1";
+            cmd.CommandType = CommandType.Text;
 
-        //    reader = cmd.ExecuteReader();
+            reader = cmd.ExecuteReader();
 
-        //    if (reader.HasRows)//Exite el carro!
-        //    {
-        //        reader.Close();
-        //        conexion.CerrarConexion();
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        reader.Close();
-        //        conexion.CerrarConexion();
-        //        return false;
-        //    }
-        //}
+            List<RentDTO> ListaGenerica = new List<RentDTO>();
+
+            while (reader.Read())
+            {
+                ListaGenerica.Add(new RentDTO
+                {
+                    Id = reader.GetInt32(0),
+                    InspectionId = reader.GetInt32(1),
+                    EmployeeInfo = reader.GetString(2),
+                    CarId = reader.GetInt32(3), //can not be null reader.GetInt32(4)
+                    CarInfo = reader.GetString(4),
+                    CustomerInfo = reader.GetString(5),
+                    RentDate = reader.GetString(6),
+                    DevolutionDate = reader.GetString(7),
+                    MontPerDay = reader.GetInt32(8),
+                    QuantityOfDays = reader.GetInt32(9),
+                    Comment = reader.GetString(10),//reader.GetString(18)
+                    State = (bool)reader["state"]
+                });
+            }
+
+            conexion.CerrarConexion();
+            reader.Close();
+
+            return ListaGenerica;
+        }
 
         private void FillDtoParams(SqlCommand cmd, InspectionDTO dto)
         {

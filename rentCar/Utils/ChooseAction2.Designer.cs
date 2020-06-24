@@ -30,64 +30,64 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChooseAction2));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.label1 = new System.Windows.Forms.Label();
+            this.rightBtn = new FontAwesome.Sharp.IconButton();
+            this.leftBtn = new FontAwesome.Sharp.IconButton();
+            this.chooseMsg = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.iconButton2);
-            this.panel1.Controls.Add(this.iconButton1);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.rightBtn);
+            this.panel1.Controls.Add(this.leftBtn);
+            this.panel1.Controls.Add(this.chooseMsg);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(480, 161);
             this.panel1.TabIndex = 0;
             // 
-            // iconButton2
+            // rightBtn
             // 
-            this.iconButton2.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.iconButton2.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconSize = 16;
-            this.iconButton2.Location = new System.Drawing.Point(334, 96);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Rotation = 0D;
-            this.iconButton2.Size = new System.Drawing.Size(134, 53);
-            this.iconButton2.TabIndex = 2;
-            this.iconButton2.Text = "Editar";
-            this.iconButton2.UseVisualStyleBackColor = true;
+            this.rightBtn.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.rightBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.rightBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.rightBtn.IconColor = System.Drawing.Color.Black;
+            this.rightBtn.IconSize = 16;
+            this.rightBtn.Location = new System.Drawing.Point(334, 96);
+            this.rightBtn.Name = "rightBtn";
+            this.rightBtn.Rotation = 0D;
+            this.rightBtn.Size = new System.Drawing.Size(134, 53);
+            this.rightBtn.TabIndex = 2;
+            this.rightBtn.Text = "Editar";
+            this.rightBtn.UseVisualStyleBackColor = true;
             // 
-            // iconButton1
+            // leftBtn
             // 
-            this.iconButton1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.iconButton1.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconSize = 16;
-            this.iconButton1.Location = new System.Drawing.Point(12, 96);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Rotation = 0D;
-            this.iconButton1.Size = new System.Drawing.Size(134, 53);
-            this.iconButton1.TabIndex = 1;
-            this.iconButton1.Text = "Eliminar";
-            this.iconButton1.UseVisualStyleBackColor = true;
+            this.leftBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.leftBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.leftBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.leftBtn.IconColor = System.Drawing.Color.Black;
+            this.leftBtn.IconSize = 16;
+            this.leftBtn.Location = new System.Drawing.Point(12, 96);
+            this.leftBtn.Name = "leftBtn";
+            this.leftBtn.Rotation = 0D;
+            this.leftBtn.Size = new System.Drawing.Size(134, 53);
+            this.leftBtn.TabIndex = 1;
+            this.leftBtn.Text = "Eliminar";
+            this.leftBtn.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // chooseMsg
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(75, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(335, 18);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Desea editar o eliminar este elemento?";
+            this.chooseMsg.AutoSize = true;
+            this.chooseMsg.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chooseMsg.Location = new System.Drawing.Point(75, 32);
+            this.chooseMsg.Name = "chooseMsg";
+            this.chooseMsg.Size = new System.Drawing.Size(335, 18);
+            this.chooseMsg.TabIndex = 0;
+            this.chooseMsg.Text = "Desea editar o eliminar este elemento?";
             // 
-            // ConfirmAction
+            // ChooseAction2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -95,7 +95,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "ConfirmAction";
+            this.Name = "ChooseAction2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -106,8 +106,8 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private System.Windows.Forms.Label chooseMsg;
+        private FontAwesome.Sharp.IconButton rightBtn;
+        private FontAwesome.Sharp.IconButton leftBtn;
     }
 }
