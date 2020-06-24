@@ -87,6 +87,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(58)))), ((int)(((byte)(57)))));
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.inspectionCommentTX);
             this.panel1.Controls.Add(this.formTile);
@@ -116,9 +117,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(351, 465);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(129, 13);
+            this.label7.Size = new System.Drawing.Size(155, 13);
             this.label7.TabIndex = 19;
             this.label7.Text = "Comentario de inspeccion";
             // 
@@ -133,43 +136,53 @@
             // formTile
             // 
             this.formTile.AutoSize = true;
-            this.formTile.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.formTile.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.formTile.ForeColor = System.Drawing.Color.White;
             this.formTile.Location = new System.Drawing.Point(12, 9);
             this.formTile.Name = "formTile";
-            this.formTile.Size = new System.Drawing.Size(170, 16);
+            this.formTile.Size = new System.Drawing.Size(252, 23);
             this.formTile.TabIndex = 17;
             this.formTile.Text = "Formulario de inspeccion";
             // 
             // SaveInspectionBtn
             // 
+            this.SaveInspectionBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(173)))), ((int)(((byte)(95)))));
+            this.SaveInspectionBtn.FlatAppearance.BorderSize = 0;
+            this.SaveInspectionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveInspectionBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.SaveInspectionBtn.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveInspectionBtn.ForeColor = System.Drawing.Color.White;
             this.SaveInspectionBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.SaveInspectionBtn.IconColor = System.Drawing.Color.Black;
             this.SaveInspectionBtn.IconSize = 16;
-            this.SaveInspectionBtn.Location = new System.Drawing.Point(437, 37);
+            this.SaveInspectionBtn.Location = new System.Drawing.Point(437, 12);
             this.SaveInspectionBtn.Name = "SaveInspectionBtn";
             this.SaveInspectionBtn.Rotation = 0D;
             this.SaveInspectionBtn.Size = new System.Drawing.Size(129, 57);
             this.SaveInspectionBtn.TabIndex = 16;
             this.SaveInspectionBtn.Text = "Guardar inspeccion";
-            this.SaveInspectionBtn.UseVisualStyleBackColor = true;
+            this.SaveInspectionBtn.UseVisualStyleBackColor = false;
             this.SaveInspectionBtn.Click += new System.EventHandler(this.SaveInspectionBtn_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(2, 466);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 13);
+            this.label2.Size = new System.Drawing.Size(149, 13);
             this.label2.TabIndex = 8;
             this.label2.Text = "Cliente que desea rentar";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(2, 513);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 13);
+            this.label4.Size = new System.Drawing.Size(125, 13);
             this.label4.TabIndex = 15;
             this.label4.Text = "Empleado que asiste";
             // 
@@ -193,18 +206,22 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(6, 419);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 13);
+            this.label1.Size = new System.Drawing.Size(146, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "Vehiculo bajo inspeccion";
             // 
             // hasScratchesChek
             // 
             this.hasScratchesChek.AutoSize = true;
-            this.hasScratchesChek.Location = new System.Drawing.Point(254, 390);
+            this.hasScratchesChek.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hasScratchesChek.ForeColor = System.Drawing.Color.White;
+            this.hasScratchesChek.Location = new System.Drawing.Point(281, 390);
             this.hasScratchesChek.Name = "hasScratchesChek";
-            this.hasScratchesChek.Size = new System.Drawing.Size(239, 17);
+            this.hasScratchesChek.Size = new System.Drawing.Size(288, 17);
             this.hasScratchesChek.TabIndex = 13;
             this.hasScratchesChek.Text = "Tiene alguna ralladura de cristal u otra parte?";
             this.hasScratchesChek.UseVisualStyleBackColor = true;
@@ -221,9 +238,11 @@
             // hasBotiquinChek
             // 
             this.hasBotiquinChek.AutoSize = true;
-            this.hasBotiquinChek.Location = new System.Drawing.Point(117, 391);
+            this.hasBotiquinChek.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hasBotiquinChek.ForeColor = System.Drawing.Color.White;
+            this.hasBotiquinChek.Location = new System.Drawing.Point(130, 390);
             this.hasBotiquinChek.Name = "hasBotiquinChek";
-            this.hasBotiquinChek.Size = new System.Drawing.Size(131, 17);
+            this.hasBotiquinChek.Size = new System.Drawing.Size(152, 17);
             this.hasBotiquinChek.TabIndex = 12;
             this.hasBotiquinChek.Text = "Tiene gato y botiquin?";
             this.hasBotiquinChek.UseVisualStyleBackColor = true;
@@ -231,9 +250,11 @@
             // hasRefactionChek
             // 
             this.hasRefactionChek.AutoSize = true;
+            this.hasRefactionChek.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hasRefactionChek.ForeColor = System.Drawing.Color.White;
             this.hasRefactionChek.Location = new System.Drawing.Point(5, 391);
             this.hasRefactionChek.Name = "hasRefactionChek";
-            this.hasRefactionChek.Size = new System.Drawing.Size(106, 17);
+            this.hasRefactionChek.Size = new System.Drawing.Size(119, 17);
             this.hasRefactionChek.TabIndex = 11;
             this.hasRefactionChek.Text = "Tiene refaccion?";
             this.hasRefactionChek.UseVisualStyleBackColor = true;
@@ -241,16 +262,18 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(351, 419);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(123, 13);
+            this.label3.Size = new System.Drawing.Size(148, 13);
             this.label3.TabIndex = 10;
             this.label3.Text = "Cantidad de combustible";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(163, 84);
+            this.pictureBox1.Location = new System.Drawing.Point(189, 84);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(179, 300);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -275,9 +298,11 @@
             // checkLlanta1
             // 
             this.checkLlanta1.AutoSize = true;
+            this.checkLlanta1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkLlanta1.ForeColor = System.Drawing.Color.White;
             this.checkLlanta1.Location = new System.Drawing.Point(10, 137);
             this.checkLlanta1.Name = "checkLlanta1";
-            this.checkLlanta1.Size = new System.Drawing.Size(147, 17);
+            this.checkLlanta1.Size = new System.Drawing.Size(174, 17);
             this.checkLlanta1.TabIndex = 4;
             this.checkLlanta1.Text = "Llanta delantera izquierda";
             this.checkLlanta1.UseVisualStyleBackColor = true;
@@ -285,9 +310,11 @@
             // checkLlanta2
             // 
             this.checkLlanta2.AutoSize = true;
-            this.checkLlanta2.Location = new System.Drawing.Point(348, 139);
+            this.checkLlanta2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkLlanta2.ForeColor = System.Drawing.Color.White;
+            this.checkLlanta2.Location = new System.Drawing.Point(374, 139);
             this.checkLlanta2.Name = "checkLlanta2";
-            this.checkLlanta2.Size = new System.Drawing.Size(144, 17);
+            this.checkLlanta2.Size = new System.Drawing.Size(168, 17);
             this.checkLlanta2.TabIndex = 1;
             this.checkLlanta2.Text = "Llanta delantera derecha";
             this.checkLlanta2.UseVisualStyleBackColor = true;
@@ -295,9 +322,11 @@
             // checkLlanta4
             // 
             this.checkLlanta4.AutoSize = true;
+            this.checkLlanta4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkLlanta4.ForeColor = System.Drawing.Color.White;
             this.checkLlanta4.Location = new System.Drawing.Point(22, 301);
             this.checkLlanta4.Name = "checkLlanta4";
-            this.checkLlanta4.Size = new System.Drawing.Size(135, 17);
+            this.checkLlanta4.Size = new System.Drawing.Size(161, 17);
             this.checkLlanta4.TabIndex = 3;
             this.checkLlanta4.Text = "Llanta trasera izquierda";
             this.checkLlanta4.UseVisualStyleBackColor = true;
@@ -305,16 +334,18 @@
             // checkLlanta3
             // 
             this.checkLlanta3.AutoSize = true;
-            this.checkLlanta3.Location = new System.Drawing.Point(348, 301);
+            this.checkLlanta3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkLlanta3.ForeColor = System.Drawing.Color.White;
+            this.checkLlanta3.Location = new System.Drawing.Point(374, 301);
             this.checkLlanta3.Name = "checkLlanta3";
-            this.checkLlanta3.Size = new System.Drawing.Size(132, 17);
+            this.checkLlanta3.Size = new System.Drawing.Size(155, 17);
             this.checkLlanta3.TabIndex = 2;
             this.checkLlanta3.Text = "Llanta trasera derecha";
             this.checkLlanta3.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(203)))), ((int)(((byte)(214)))));
             this.panel2.Controls.Add(this.heplBtn);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.panel3);
@@ -341,10 +372,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(9, 9);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(164, 16);
+            this.label6.Size = new System.Drawing.Size(182, 18);
             this.label6.TabIndex = 18;
             this.label6.Text = "Inspecciones realizadas";
             // 

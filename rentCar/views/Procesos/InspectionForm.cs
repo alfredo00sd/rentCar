@@ -16,10 +16,10 @@ namespace rentCar.views
         DateTime today = DateTime.Today;
         private int inspectionId;
 
-        public InspectionForm()
+        public InspectionForm(string user)
         {
             InitializeComponent();
-
+            inspector.Text = user;
             RefreshForm();
             formatDV();
         }
@@ -101,7 +101,7 @@ namespace rentCar.views
                 Wheel4Check = checkLlanta4.Checked,
                 DateOfInspection = Convert.ToString(today),
                 InspectorId = 1,
-                Inspector = "Yolanda",
+                Inspector = inspector.Text,
                 Comment = inspectionCommentTX.Text,
                 State = true
             };
@@ -127,7 +127,6 @@ namespace rentCar.views
             
             inspectionId = 0;
 
-            inspector.Text = "";
             inspectionCommentTX.Text = "";
             hasBotiquinChek.Checked = false;
             hasRefactionChek.Checked = false;
@@ -197,7 +196,8 @@ namespace rentCar.views
                 if (rentResult == DialogResult.OK || dr == DialogResult.Cancel)
                 {
                     //Here do refresh to the table...
-                    inspectionsDV.Refresh();
+                    rentForm.Close();
+                    inspectionsDV.DataSource = dao.GETALL();
                 }
 
             }

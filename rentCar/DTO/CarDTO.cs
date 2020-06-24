@@ -108,7 +108,7 @@ namespace RentCarApp.DTO
 
         [Display(Name = "Numero de chasis")]
         [StringLength(17, MinimumLength = 10, ErrorMessage = "Los caracteres en el campo {0} entre 10 y 17.")]
-        //[RegularExpression("[A-HJ-NPR-Z0-9]{13}[0-9]{4}", ErrorMessage = "Numero de chasis invalido.")]
+        [RegularExpression("[A-HJ-NPR-Z0-9]{13}[0-9]{4}", ErrorMessage = "Numero de chasis invalido.")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Se requiere completar campo {0}")]
         public string ChasisNum { get => _chasisNum; set => _chasisNum = value; }
 

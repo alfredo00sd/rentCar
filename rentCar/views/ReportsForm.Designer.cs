@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportsForm));
             this.label1 = new System.Windows.Forms.Label();
             this.reportDV = new System.Windows.Forms.DataGridView();
             this.exportBtn = new FontAwesome.Sharp.IconButton();
@@ -37,9 +38,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(12, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(302, 13);
+            this.label1.Size = new System.Drawing.Size(523, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Un Reporte de rentas: entre fechas, por tipo de vehículo, etc. ";
             // 
@@ -56,7 +59,12 @@
             // 
             // exportBtn
             // 
+            this.exportBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(0)))), ((int)(((byte)(39)))));
+            this.exportBtn.FlatAppearance.BorderSize = 0;
+            this.exportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exportBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.exportBtn.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exportBtn.ForeColor = System.Drawing.Color.White;
             this.exportBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.exportBtn.IconColor = System.Drawing.Color.Black;
             this.exportBtn.IconSize = 16;
@@ -66,17 +74,19 @@
             this.exportBtn.Size = new System.Drawing.Size(140, 48);
             this.exportBtn.TabIndex = 2;
             this.exportBtn.Text = "Export to PDF";
-            this.exportBtn.UseVisualStyleBackColor = true;
+            this.exportBtn.UseVisualStyleBackColor = false;
             this.exportBtn.Click += new System.EventHandler(this.exportBtn_Click);
             // 
             // ReportsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(58)))), ((int)(((byte)(57)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.exportBtn);
             this.Controls.Add(this.reportDV);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReportsForm";
             this.Text = "ReportsForm";
             ((System.ComponentModel.ISupportInitialize)(this.reportDV)).EndInit();

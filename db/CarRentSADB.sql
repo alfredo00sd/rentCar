@@ -237,8 +237,13 @@ INSERT INTO departure_inspection values (1, 1, '04-MAY-2020', null, 'Good', 'LLa
 
 select * from departure_inspection;
 
+select * from rents
+select * from inspection
+
+
 create table rents(
 	id int IDENTITY(1,1) primary key,
+	inspectionId int,
 	employeeInfo varchar(100),
 	carId int,
 	carInfo varchar(200),
@@ -250,8 +255,12 @@ create table rents(
 	comment varchar(200),
 	state bit
 );
-    
-	  
+select * from carInfo
+  select * from carInfo where status = 1  
+	select * from rents
+
+	  delete from rents
+	  select * from inspection
 
 ------------------///Create car associated tables
 	CREATE TABLE rent_history 

@@ -297,6 +297,11 @@ namespace rentCar.views.car
             colorContainer.BackColor = Color.FromName("red");//Try to use the dto value...
             carStatsCheck.Checked = dto.Status;
         }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            viewTitle.Text = "Mantenimiento de vehiculos";
+        }
         //------------------------------------------------------------------------------Fill the form to edit the data
     }
 }

@@ -69,5 +69,10 @@ namespace rentCar.views.car.type
                 this.Close();   
             }
         }
+
+        private void CarBrandCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

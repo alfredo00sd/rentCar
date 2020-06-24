@@ -16,10 +16,9 @@ namespace rentCar.DAO.user
         public UserDTO ValidateLoggin(String userCard, String userClave)
         {
             cmd.Connection = conexion.AbrirConexion();
-            cmd.CommandText = "select * from users where user_name = @userName and user_password = @pass";
+            cmd.CommandText = "select * from users where user_name = '"+userCard+"' and user_password = '"+userClave+"'";
             cmd.CommandType = CommandType.Text;
-            cmd.Parameters.AddWithValue("@userName", userCard);
-            cmd.Parameters.AddWithValue("@pass", userClave);//Remember to encode the password
+            //Remember to encode the password
 
             reader = cmd.ExecuteReader();
 

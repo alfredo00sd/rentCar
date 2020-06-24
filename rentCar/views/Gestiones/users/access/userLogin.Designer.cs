@@ -68,7 +68,7 @@
             // 
             // userContainerForm
             // 
-            this.userContainerForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(0)))), ((int)(((byte)(15)))));
+            this.userContainerForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(58)))), ((int)(((byte)(57)))));
             this.userContainerForm.Controls.Add(this.recoverCredentials);
             this.userContainerForm.Controls.Add(this.validateUserBtn);
             this.userContainerForm.Controls.Add(this.appLogo);
@@ -146,7 +146,7 @@
             // minimizeBtn
             // 
             this.minimizeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.minimizeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(0)))), ((int)(((byte)(15)))));
+            this.minimizeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(0)))), ((int)(((byte)(39)))));
             this.minimizeBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.minimizeBtn.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
             this.minimizeBtn.IconColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -176,7 +176,7 @@
             // maximizeBtn
             // 
             this.maximizeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.maximizeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(0)))), ((int)(((byte)(15)))));
+            this.maximizeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(0)))), ((int)(((byte)(39)))));
             this.maximizeBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.maximizeBtn.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
             this.maximizeBtn.IconColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -192,7 +192,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(0)))), ((int)(((byte)(17)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(0)))), ((int)(((byte)(39)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
             this.Controls.Add(this.minimizeBtn);

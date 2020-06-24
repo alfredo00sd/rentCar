@@ -74,7 +74,7 @@
             // 
             // menuPanel
             // 
-            this.menuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(0)))), ((int)(((byte)(15)))));
+            this.menuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(58)))), ((int)(((byte)(57)))));
             this.menuPanel.Controls.Add(this.adminSubMenuPanel);
             this.menuPanel.Controls.Add(this.processSubMenuPanel);
             this.menuPanel.Controls.Add(this.copyRights);
@@ -101,12 +101,13 @@
             // 
             // reportBtn
             // 
+            this.reportBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(58)))), ((int)(((byte)(57)))));
             this.reportBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.reportBtn.FlatAppearance.BorderSize = 0;
             this.reportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.reportBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.reportBtn.ForeColor = System.Drawing.Color.FloralWhite;
-            this.reportBtn.IconChar = FontAwesome.Sharp.IconChar.ClipboardList;
+            this.reportBtn.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpenText;
             this.reportBtn.IconColor = System.Drawing.Color.WhiteSmoke;
             this.reportBtn.IconSize = 32;
             this.reportBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -119,7 +120,7 @@
             this.reportBtn.Text = "Reportes";
             this.reportBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.reportBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.reportBtn.UseVisualStyleBackColor = true;
+            this.reportBtn.UseVisualStyleBackColor = false;
             this.reportBtn.Click += new System.EventHandler(this.ReportBtn_Click);
             // 
             // processSubMenuPanel
@@ -140,7 +141,7 @@
             this.rentManagerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rentManagerBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.rentManagerBtn.ForeColor = System.Drawing.Color.FloralWhite;
-            this.rentManagerBtn.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
+            this.rentManagerBtn.IconChar = FontAwesome.Sharp.IconChar.Cloudsmith;
             this.rentManagerBtn.IconColor = System.Drawing.Color.WhiteSmoke;
             this.rentManagerBtn.IconSize = 32;
             this.rentManagerBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -163,7 +164,7 @@
             this.inspectorManagerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.inspectorManagerBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.inspectorManagerBtn.ForeColor = System.Drawing.Color.FloralWhite;
-            this.inspectorManagerBtn.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
+            this.inspectorManagerBtn.IconChar = FontAwesome.Sharp.IconChar.Laugh;
             this.inspectorManagerBtn.IconColor = System.Drawing.Color.WhiteSmoke;
             this.inspectorManagerBtn.IconSize = 32;
             this.inspectorManagerBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -193,12 +194,13 @@
             // 
             // processBtn
             // 
+            this.processBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(58)))), ((int)(((byte)(57)))));
             this.processBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.processBtn.FlatAppearance.BorderSize = 0;
             this.processBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.processBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.processBtn.ForeColor = System.Drawing.Color.FloralWhite;
-            this.processBtn.IconChar = FontAwesome.Sharp.IconChar.ClipboardList;
+            this.processBtn.IconChar = FontAwesome.Sharp.IconChar.PhoenixSquadron;
             this.processBtn.IconColor = System.Drawing.Color.WhiteSmoke;
             this.processBtn.IconSize = 32;
             this.processBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -211,7 +213,7 @@
             this.processBtn.Text = "Procesos";
             this.processBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.processBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.processBtn.UseVisualStyleBackColor = true;
+            this.processBtn.UseVisualStyleBackColor = false;
             this.processBtn.Click += new System.EventHandler(this.ProcessBtn_Click);
             // 
             // gestiSubMenuPanel
@@ -234,7 +236,7 @@
             this.CustomerManagerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CustomerManagerBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.CustomerManagerBtn.ForeColor = System.Drawing.Color.FloralWhite;
-            this.CustomerManagerBtn.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
+            this.CustomerManagerBtn.IconChar = FontAwesome.Sharp.IconChar.UserFriends;
             this.CustomerManagerBtn.IconColor = System.Drawing.Color.WhiteSmoke;
             this.CustomerManagerBtn.IconSize = 32;
             this.CustomerManagerBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -257,7 +259,7 @@
             this.employeeManagerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.employeeManagerBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.employeeManagerBtn.ForeColor = System.Drawing.Color.FloralWhite;
-            this.employeeManagerBtn.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
+            this.employeeManagerBtn.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
             this.employeeManagerBtn.IconColor = System.Drawing.Color.WhiteSmoke;
             this.employeeManagerBtn.IconSize = 32;
             this.employeeManagerBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -280,7 +282,7 @@
             this.GeneralManagerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GeneralManagerBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.GeneralManagerBtn.ForeColor = System.Drawing.Color.FloralWhite;
-            this.GeneralManagerBtn.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
+            this.GeneralManagerBtn.IconChar = FontAwesome.Sharp.IconChar.GalacticRepublic;
             this.GeneralManagerBtn.IconColor = System.Drawing.Color.WhiteSmoke;
             this.GeneralManagerBtn.IconSize = 32;
             this.GeneralManagerBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -303,7 +305,7 @@
             this.carManagerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.carManagerBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.carManagerBtn.ForeColor = System.Drawing.Color.FloralWhite;
-            this.carManagerBtn.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
+            this.carManagerBtn.IconChar = FontAwesome.Sharp.IconChar.CarAlt;
             this.carManagerBtn.IconColor = System.Drawing.Color.WhiteSmoke;
             this.carManagerBtn.IconSize = 32;
             this.carManagerBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -321,6 +323,7 @@
             // 
             // gestiBtn
             // 
+            this.gestiBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(58)))), ((int)(((byte)(57)))));
             this.gestiBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.gestiBtn.FlatAppearance.BorderSize = 0;
             this.gestiBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -339,7 +342,7 @@
             this.gestiBtn.Text = "Gestiones";
             this.gestiBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gestiBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.gestiBtn.UseVisualStyleBackColor = true;
+            this.gestiBtn.UseVisualStyleBackColor = false;
             this.gestiBtn.Click += new System.EventHandler(this.GestiBtn_Click);
             // 
             // logoPanel
@@ -365,7 +368,7 @@
             // 
             // panelContainer
             // 
-            this.panelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(0)))), ((int)(((byte)(25)))));
+            this.panelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(0)))), ((int)(((byte)(39)))));
             this.panelContainer.Controls.Add(this.panelDash);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(234, 0);
@@ -378,6 +381,7 @@
             this.panelDash.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelDash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(58)))), ((int)(((byte)(57)))));
             this.panelDash.Location = new System.Drawing.Point(6, 56);
             this.panelDash.Name = "panelDash";
             this.panelDash.Size = new System.Drawing.Size(720, 556);
@@ -385,7 +389,7 @@
             // 
             // titleBar
             // 
-            this.titleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(0)))), ((int)(((byte)(15)))));
+            this.titleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(58)))), ((int)(((byte)(57)))));
             this.titleBar.Controls.Add(this.userStatus);
             this.titleBar.Controls.Add(this.minimizeBtn);
             this.titleBar.Controls.Add(this.closeBtn);
@@ -404,6 +408,8 @@
             this.userStatus.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.userStatus.Controls.Add(this.iconPictureBox1);
             this.userStatus.Controls.Add(this.userName);
+            this.userStatus.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userStatus.ForeColor = System.Drawing.Color.White;
             this.userStatus.Location = new System.Drawing.Point(450, 3);
             this.userStatus.Name = "userStatus";
             this.userStatus.Size = new System.Drawing.Size(195, 32);
@@ -411,10 +417,10 @@
             // 
             // iconPictureBox1
             // 
-            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(0)))), ((int)(((byte)(15)))));
+            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(58)))), ((int)(((byte)(57)))));
             this.iconPictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.iconPictureBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.UniversalAccess;
+            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.UserCircle;
             this.iconPictureBox1.IconColor = System.Drawing.SystemColors.ButtonHighlight;
             this.iconPictureBox1.Location = new System.Drawing.Point(0, 0);
             this.iconPictureBox1.Name = "iconPictureBox1";
@@ -428,14 +434,14 @@
             this.userName.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.userName.Location = new System.Drawing.Point(38, 10);
             this.userName.Name = "userName";
-            this.userName.Size = new System.Drawing.Size(42, 13);
+            this.userName.Size = new System.Drawing.Size(55, 16);
             this.userName.TabIndex = 7;
             this.userName.Text = "LogOut";
             // 
             // minimizeBtn
             // 
             this.minimizeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.minimizeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(0)))), ((int)(((byte)(15)))));
+            this.minimizeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(58)))), ((int)(((byte)(57)))));
             this.minimizeBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.minimizeBtn.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
             this.minimizeBtn.IconColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -465,7 +471,7 @@
             // maximizeBtn
             // 
             this.maximizeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.maximizeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(0)))), ((int)(((byte)(15)))));
+            this.maximizeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(58)))), ((int)(((byte)(57)))));
             this.maximizeBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.maximizeBtn.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
             this.maximizeBtn.IconColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -488,7 +494,7 @@
             // 
             // iconCurrentChildForm
             // 
-            this.iconCurrentChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(0)))), ((int)(((byte)(15)))));
+            this.iconCurrentChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(58)))), ((int)(((byte)(57)))));
             this.iconCurrentChildForm.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.iconCurrentChildForm.IconChar = FontAwesome.Sharp.IconChar.Home;
             this.iconCurrentChildForm.IconColor = System.Drawing.SystemColors.ButtonHighlight;

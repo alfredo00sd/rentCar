@@ -1,4 +1,5 @@
-﻿using rentCar.views;
+﻿using rentCar.user;
+using rentCar.views;
 using System;
 using System.Windows.Forms;
 
@@ -14,7 +15,7 @@ namespace rentCar
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AppForm());//new AppForm() //GeneralView //EmployeeForm //LoginForm //InspectionForm
+            Application.Run(new userLogin());//new AppForm() //GeneralView //EmployeeForm //userLogin //InspectionForm
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace rentCar.DAO
 {
@@ -62,72 +63,86 @@ namespace rentCar.DAO
 
             return ListaGenerica;
         }
-
+        //ADD
         public void ProcessRent(RentDTO dto) 
         {
-            //Save the rent 
-            //Set rent status to 0.
-            cmd.Connection = conexion.AbrirConexion();
-            cmd.CommandText = "insert into rents values (@inspectionId, @employeeInfo, @carId, @carInfo, @customerInfo, @rent_date, @devolution_date, @mont_x_day, @quantity_of_days, @comment, @status)";
-            cmd.CommandType = CommandType.Text;
+            if (checkRecord("rents", dto.Id, 1))
+            {
+                MessageBox.Show("Este registro ya esta en el sistema, operacion invalida!", "Warn");
+            }
+            else 
+            {
+                //Save the rent 
+                //Set rent status to 0.
+                cmd.Connection = conexion.AbrirConexion();
+                cmd.CommandText = "insert into rents values (@inspectionId, @employeeInfo, @carId, @carInfo, @customerInfo, @rent_date, @devolution_date, @mont_x_day, @quantity_of_days, @comment, @status)";
+                cmd.CommandType = CommandType.Text;
 
-            FillRentParams(cmd, dto);
+                FillRentParams(cmd, dto);
 
-            cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
 
-            cmd.Parameters.Clear();
-            conexion.CerrarConexion();
+                cmd.Parameters.Clear();
+                conexion.CerrarConexion();
 
-            //set inspection status to 0.
-            cmd.Connection = conexion.AbrirConexion();
-            cmd.CommandText = "update inspection set state = 0 where id = " + dto.InspectionId + "";
-            cmd.CommandType = CommandType.Text;
+                //set inspection status to 0.
+                cmd.Connection = conexion.AbrirConexion();
+                cmd.CommandText = "update inspection set state = 0 where id = " + dto.InspectionId + "";
+                cmd.CommandType = CommandType.Text;
 
-            cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
 
-            conexion.CerrarConexion();
+                conexion.CerrarConexion();
 
-            //Set car status to 0.
-            cmd.Connection = conexion.AbrirConexion();
-            cmd.CommandText = "update carInfo set status = 0 where id = " + dto.CarId + "";
-            cmd.CommandType = CommandType.Text;
+                //Set car status to 0.
+                cmd.Connection = conexion.AbrirConexion();
+                cmd.CommandText = "update carInfo set status = 0 where id = " + dto.CarId + "";
+                cmd.CommandType = CommandType.Text;
 
-            cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
 
-            conexion.CerrarConexion();
+                conexion.CerrarConexion();
+            }
         }
 
         public void DevolutionProcess(RentDTO dto) 
         {
-            //update rent
-            //set rent status to 1.
-            //add inspection comment as devolucion
-            //update devolution date
-            cmd.Connection = conexion.AbrirConexion();
-            cmd.CommandText = "update rents set state = 0, comment = 'Comentario de devolucion : "+dto.Comment+"', devolution_date = '" + dto.DevolutionDate + "' where id = " + dto.Id + " ";
-            cmd.CommandType = CommandType.Text;
+            if (checkRecord("rents", dto.Id, 0))
+            {
+                MessageBox.Show("Este registro ya fue devuelto en el sistema, operacion invalida!", "Warn");
+            }
+            else
+            {
+                //update rent
+                //set rent status to 1.
+                //add inspection comment as devolucion
+                //update devolution date
+                cmd.Connection = conexion.AbrirConexion();
+                cmd.CommandText = "update rents set state = 0, comment = 'Comentario de devolucion : " + dto.Comment + "', devolution_date = '" + dto.DevolutionDate + "' where id = " + dto.Id + " ";
+                cmd.CommandType = CommandType.Text;
 
-            cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
 
-            conexion.CerrarConexion();
+                conexion.CerrarConexion();
 
-            //set inspection status to 1.
-            cmd.Connection = conexion.AbrirConexion();
-            cmd.CommandText = "update inspection set state = 1 where id = " + dto.InspectionId + "";//
-            cmd.CommandType = CommandType.Text;
+                //set inspection status to 1.
+                cmd.Connection = conexion.AbrirConexion();
+                cmd.CommandText = "update inspection set state = 1 where id = " + dto.InspectionId + "";//
+                cmd.CommandType = CommandType.Text;
 
-            cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
 
-            conexion.CerrarConexion();
+                conexion.CerrarConexion();
 
-            //Set car status to 1.
-            cmd.Connection = conexion.AbrirConexion();
-            cmd.CommandText = "update carInfo set status = 1 where id = " + dto.CarId + "";
-            cmd.CommandType = CommandType.Text;
+                //Set car status to 1.
+                cmd.Connection = conexion.AbrirConexion();
+                cmd.CommandText = "update carInfo set status = 1 where id = " + dto.CarId + "";
+                cmd.CommandType = CommandType.Text;
 
-            cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
 
-            conexion.CerrarConexion();
+                conexion.CerrarConexion();
+            }
         }
 
         public List<RentDTO> GetRentsRepo() 
@@ -200,6 +215,30 @@ namespace rentCar.DAO
             return ListaGenerica;
         }
 
+        private bool checkRecord(string table, int id, byte status) {
+
+            cmd.Connection = conexion.AbrirConexion();
+            cmd.CommandText = "select * from " + table + " where id = " + id + " and state = " + status + "";
+            cmd.CommandType = CommandType.Text;
+
+            reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)//Exite el carro!
+            {
+                reader.Close();
+                conexion.CerrarConexion();
+                return true;
+            }
+            else
+            {
+                reader.Close();
+                conexion.CerrarConexion();
+                return false;
+            }
+        }
+
+        //-----------------------------------------------------------------------Inspection
+
         private void FillDtoParams(SqlCommand cmd, InspectionDTO dto)
         {
             cmd.Parameters.AddWithValue("@Id", dto.Id);
@@ -257,12 +296,18 @@ namespace rentCar.DAO
         //ADD
         public void ADD(InspectionDTO dto)
         {
-            //if (GetRecordById(dto.Id))
-            //{
-            //    MessageBox.Show("ERROR : No se acepta duplicidad de registros en el sistema!");
-            //}
-            //else
-            //{
+            if (checkRecord("inspection", dto.Id, 1))
+            {
+                MessageBox.Show("ERROR : No se acepta duplicidad de registros en el sistema!!", "Warn");
+            }
+            else
+            {
+                //if (GetRecordById(dto.Id))
+                //{
+                //    MessageBox.Show("ERROR : No se acepta duplicidad de registros en el sistema!");
+                //}
+                //else
+                //{
                 cmd.Connection = conexion.AbrirConexion();
                 cmd.CommandText = "insert into inspection values (@CarId, @CarDetails, @CustomerId, @CustomerDetails, @QuantityOfFuel, @HasRefaction, @HasScratches, @HasCat, @Wheel1, @Wheel2, @Wheel3, @Wheel4, @DateOfInspection,  @InspectorId, @Inspector, @Comment, @Status)";
                 cmd.CommandType = CommandType.Text;
@@ -273,7 +318,7 @@ namespace rentCar.DAO
 
                 cmd.Parameters.Clear();
                 conexion.CerrarConexion();
-            //}
+            }
         }
 
         //Gets

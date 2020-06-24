@@ -69,7 +69,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(0)))), ((int)(((byte)(15)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(58)))), ((int)(((byte)(57)))));
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.SearchBarTX);
             this.panel2.Controls.Add(this.creditLimitTN);
@@ -113,6 +113,7 @@
             // 
             this.SearchBarTX.Location = new System.Drawing.Point(778, 117);
             this.SearchBarTX.Margin = new System.Windows.Forms.Padding(4);
+            this.SearchBarTX.MaxLength = 30;
             this.SearchBarTX.Name = "SearchBarTX";
             this.SearchBarTX.Size = new System.Drawing.Size(175, 20);
             this.SearchBarTX.TabIndex = 98;
@@ -175,6 +176,7 @@
             // 
             this.CustomerCedulaTX.Location = new System.Drawing.Point(404, 73);
             this.CustomerCedulaTX.Margin = new System.Windows.Forms.Padding(4);
+            this.CustomerCedulaTX.MaxLength = 11;
             this.CustomerCedulaTX.Name = "CustomerCedulaTX";
             this.CustomerCedulaTX.Size = new System.Drawing.Size(210, 20);
             this.CustomerCedulaTX.TabIndex = 14;
@@ -220,6 +222,7 @@
             // 
             this.CreditCardTX.Location = new System.Drawing.Point(404, 29);
             this.CreditCardTX.Margin = new System.Windows.Forms.Padding(4);
+            this.CreditCardTX.MaxLength = 20;
             this.CreditCardTX.Name = "CreditCardTX";
             this.CreditCardTX.Size = new System.Drawing.Size(210, 20);
             this.CreditCardTX.TabIndex = 9;
@@ -240,6 +243,7 @@
             // 
             this.CustomerLastNameTX.Location = new System.Drawing.Point(173, 117);
             this.CustomerLastNameTX.Margin = new System.Windows.Forms.Padding(4);
+            this.CustomerLastNameTX.MaxLength = 30;
             this.CustomerLastNameTX.Name = "CustomerLastNameTX";
             this.CustomerLastNameTX.Size = new System.Drawing.Size(210, 20);
             this.CustomerLastNameTX.TabIndex = 7;
@@ -313,6 +317,7 @@
             // 
             this.RNCTX.Location = new System.Drawing.Point(173, 29);
             this.RNCTX.Margin = new System.Windows.Forms.Padding(4);
+            this.RNCTX.MaxLength = 20;
             this.RNCTX.Name = "RNCTX";
             this.RNCTX.Size = new System.Drawing.Size(210, 20);
             this.RNCTX.TabIndex = 0;

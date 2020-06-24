@@ -30,9 +30,22 @@ namespace rentCar.views.customers
 
         private void ReopenForm()
         {
-            CustomerForm NewForm = new CustomerForm();
-            NewForm.Show();
-            this.Dispose(false);
+            //Fill table.
+            CustomerDV.DataSource = dao.GETALL();
+            validateCustomerBtn.Text = createCustomerParam;
+
+            //customerId = dto.Id;
+            RNCTX.Text = "";
+            CustomerNameTX.Text = "";
+            CustomerLastNameTX.Text = "";
+            CreditCardTX.Text = "";
+            CustomerCedulaTX.Text = "";
+            CustomerTypeCB.SelectedItem = "";
+            creditLimitTN.Value = 0;
+            CustomerStatusCheck.Checked = true;
+            //CustomerForm NewForm = new CustomerForm();
+            //NewForm.Show();
+            //this.Dispose(false);
         }
 
         //-------------------------------------------------------------------------------------Edit or Delete
@@ -211,18 +224,16 @@ namespace rentCar.views.customers
             return new CustomerDTO
             {
                 Id = customerId >= 1 ? customerId : 0,
-                RNC = RNCTX.Text.Equals("") ? "N/A" : RNCTX.Text,
+                RNC = RNCTX.Text.Equals("") ? "N/A" : RNCTX.Text.ToUpper(),
                 Name = CustomerNameTX.Text,
                 LastName = CustomerLastNameTX.Text,
-                CreditCardNo = CreditCardTX.Text,
+                CreditCardNo = CreditCardTX.Text.ToUpper(),
                 IdentificationCard = CustomerCedulaTX.Text.Equals("") ? "N/A" : CustomerCedulaTX.Text,
                 Type = Convert.ToString(CustomerTypeCB.SelectedItem),
                 CreditLimit = Convert.ToInt32(creditLimitTN.Value),
                 Status = CustomerStatusCheck.Checked ? true : false
             };
         }
-
         //------------------------------------------------------------Utils
-
     }
 }

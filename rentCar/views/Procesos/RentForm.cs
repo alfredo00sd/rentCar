@@ -15,13 +15,14 @@ namespace rentCar.views
         string carInfo;
         string customerInfo;
         int inspectionId;
+        int rentId;
 
         InspectionDAO dao = new InspectionDAO();
 
         private void devolutionMode(RentDTO dto) 
         {
             SaveRentBtn.Text = "Devolver";
-
+            rentId = dto.Id;    
             employee = dto.CustomerInfo;
             carId = dto.CarId;
             carInfo = dto.CarInfo;
@@ -31,7 +32,7 @@ namespace rentCar.views
             costPerDay.Value = dto.MontPerDay;
             CatOfDays.Value = dto.QuantityOfDays;
             rentComment.Text = dto.Comment;
-
+            inspectionId = dto.InspectionId;
             costPerDay.ReadOnly = true;
             CatOfDays.ReadOnly = true;
             rentComment.ReadOnly = true;
@@ -55,6 +56,7 @@ namespace rentCar.views
             return new RentDTO {
                 //id ?
                 //state is 0 on the DAO... hardcoded!
+                Id = rentId,
                 InspectionId = inspectionId,
                 EmployeeInfo = employee,
                 CarId = carId,
@@ -123,6 +125,7 @@ namespace rentCar.views
                 RentDTO dto = FillRentDto();
 
                 dao.DevolutionProcess(dto);
+                rentsDV.DataSource = dao.GetActiveRents();
             }
             else
             {

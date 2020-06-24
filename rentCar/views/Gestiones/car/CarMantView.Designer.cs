@@ -88,7 +88,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(0)))), ((int)(((byte)(17)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(0)))), ((int)(((byte)(39)))));
             this.panel1.Controls.Add(this.helpBtn);
             this.panel1.Controls.Add(this.refreshBtn);
             this.panel1.Controls.Add(this.viewTitle);
@@ -100,32 +100,32 @@
             // 
             // helpBtn
             // 
+            this.helpBtn.BackColor = System.Drawing.Color.Red;
             this.helpBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.helpBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.helpBtn.IconColor = System.Drawing.Color.Black;
-            this.helpBtn.IconSize = 16;
-            this.helpBtn.Location = new System.Drawing.Point(928, 6);
+            this.helpBtn.IconChar = FontAwesome.Sharp.IconChar.Question;
+            this.helpBtn.IconColor = System.Drawing.Color.White;
+            this.helpBtn.IconSize = 19;
+            this.helpBtn.Location = new System.Drawing.Point(982, 6);
             this.helpBtn.Name = "helpBtn";
             this.helpBtn.Rotation = 0D;
-            this.helpBtn.Size = new System.Drawing.Size(53, 23);
+            this.helpBtn.Size = new System.Drawing.Size(34, 26);
             this.helpBtn.TabIndex = 11;
-            this.helpBtn.Text = "Help ?";
-            this.helpBtn.UseVisualStyleBackColor = true;
+            this.helpBtn.UseVisualStyleBackColor = false;
             this.helpBtn.Click += new System.EventHandler(this.helpBtn_Click);
             // 
             // refreshBtn
             // 
+            this.refreshBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(0)))), ((int)(((byte)(3)))));
             this.refreshBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.refreshBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.refreshBtn.IconColor = System.Drawing.Color.Black;
-            this.refreshBtn.IconSize = 16;
-            this.refreshBtn.Location = new System.Drawing.Point(1007, 6);
+            this.refreshBtn.IconChar = FontAwesome.Sharp.IconChar.Retweet;
+            this.refreshBtn.IconColor = System.Drawing.Color.White;
+            this.refreshBtn.IconSize = 20;
+            this.refreshBtn.Location = new System.Drawing.Point(1022, 6);
             this.refreshBtn.Name = "refreshBtn";
             this.refreshBtn.Rotation = 0D;
-            this.refreshBtn.Size = new System.Drawing.Size(53, 23);
+            this.refreshBtn.Size = new System.Drawing.Size(38, 26);
             this.refreshBtn.TabIndex = 10;
-            this.refreshBtn.Text = "Reload";
-            this.refreshBtn.UseVisualStyleBackColor = true;
+            this.refreshBtn.UseVisualStyleBackColor = false;
             this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
             // viewTitle
@@ -157,6 +157,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(58)))), ((int)(((byte)(57)))));
             this.splitContainer1.Panel1.Controls.Add(this.carStatsCheck);
             this.splitContainer1.Panel1.Controls.Add(this.label15);
             this.splitContainer1.Panel1.Controls.Add(this.label11);
@@ -237,10 +238,12 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(15, 198);
+            this.textBox1.MaxLength = 40;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(406, 20);
             this.textBox1.TabIndex = 102;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
             // CarFabYearCB
             // 
@@ -332,7 +335,9 @@
             // 
             // colorPicker
             // 
+            this.colorPicker.BackColor = System.Drawing.Color.Transparent;
             this.colorPicker.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.colorPicker.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colorPicker.IconChar = FontAwesome.Sharp.IconChar.None;
             this.colorPicker.IconColor = System.Drawing.Color.Black;
             this.colorPicker.IconSize = 16;
@@ -342,12 +347,17 @@
             this.colorPicker.Size = new System.Drawing.Size(101, 20);
             this.colorPicker.TabIndex = 91;
             this.colorPicker.Text = "Color";
-            this.colorPicker.UseVisualStyleBackColor = true;
+            this.colorPicker.UseVisualStyleBackColor = false;
             this.colorPicker.Click += new System.EventHandler(this.colorPicker_Click);
             // 
             // SaveCarBtn
             // 
+            this.SaveCarBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(173)))), ((int)(((byte)(95)))));
+            this.SaveCarBtn.FlatAppearance.BorderSize = 0;
+            this.SaveCarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveCarBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.SaveCarBtn.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveCarBtn.ForeColor = System.Drawing.Color.White;
             this.SaveCarBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.SaveCarBtn.IconColor = System.Drawing.Color.Black;
             this.SaveCarBtn.IconSize = 16;
@@ -357,7 +367,7 @@
             this.SaveCarBtn.Size = new System.Drawing.Size(228, 47);
             this.SaveCarBtn.TabIndex = 90;
             this.SaveCarBtn.Text = "Agregar nuevo";
-            this.SaveCarBtn.UseVisualStyleBackColor = true;
+            this.SaveCarBtn.UseVisualStyleBackColor = false;
             this.SaveCarBtn.Click += new System.EventHandler(this.SaveCarBtn_Click);
             // 
             // commentBox
@@ -407,7 +417,7 @@
             this.iconButton1.Rotation = 0D;
             this.iconButton1.Size = new System.Drawing.Size(123, 48);
             this.iconButton1.TabIndex = 99;
-            this.iconButton1.Text = "Agregar imagen";
+            this.iconButton1.Text = "Agregar imagen [x]";
             this.iconButton1.UseVisualStyleBackColor = true;
             // 
             // chasisNoInput

@@ -20,14 +20,38 @@ namespace rentCar
         private Form currentChildForm;
         private struct RGBColors
         {
-            public static Color darkRedTheme = Color.FromArgb(110, 0, 15);
-            public static Color lightOrangeTheme = Color.FromArgb(250, 53, 0);
+            public static Color darkRedTheme = Color.FromArgb(71, 58, 57);
+            public static Color lightOrangeTheme = Color.FromArgb(212, 0, 39);
         }
 
         public AppForm(UserDTO user) {
             InitializeComponent();
 
             userName.Text = user.UserName;
+
+            leftPanelBtn = new Panel
+            {
+                Size = new Size(7, 50)
+            };
+            menuPanel.Controls.Add(leftPanelBtn);
+
+            //hide sub-menus
+            HiddeSubMenus();
+
+            //Unhide menu buttons
+            gestiBtn.Visible = true;
+            processBtn.Visible = true;
+
+            //User status bar
+            userStatus.Visible = true;
+            iconCurrentChildForm.Visible = true;
+            lblTitleChildForm.Visible = true;
+
+            //Form initial state
+            this.Text = "";
+            this.ControlBox = false;
+            this.DoubleBuffered = true;
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
         public AppForm()
@@ -194,7 +218,7 @@ namespace rentCar
         //--------------------------------------------------------------Inspection crud
         private void InspectorManagerBtn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new InspectionForm());
+            OpenChildForm(new InspectionForm(userName.Text));
         }
 
         //--------------------------------------------------------------Rent Crud

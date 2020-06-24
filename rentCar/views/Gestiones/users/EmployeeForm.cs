@@ -37,9 +37,24 @@ namespace rentCar.user
         private void Refresh()
         #pragma warning restore CS0114 // Member hides inherited member; missing override keyword
         {
-            EmployeeForm NewForm = new EmployeeForm();
-            NewForm.Show();
-            this.Dispose(false);
+            createUserBtn.Text = CREATE_EMPLOYEE_PARAM;
+            FillDataView();
+
+            EMPLOYEE_ID = 0;
+            dominicanIDTX.Text = "";
+            employeeNameTX.Text = "";
+            employeeLastNameTX.Text = "";
+            empoyeeCardTX.Text = "";
+            workSessionCB.SelectedItem = "";
+
+            workPositionCB.SelectedItem = "";
+            comissions.Value = 0;
+            employeStateCheck.Checked = true;
+
+
+            //EmployeeForm NewForm = new EmployeeForm();
+            //NewForm.Show();
+            //this.Dispose(false);
         }
 
         //------------------------------------------------------------Add Action

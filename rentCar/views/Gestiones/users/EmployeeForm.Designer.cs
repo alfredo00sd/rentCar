@@ -57,7 +57,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(0)))), ((int)(((byte)(15)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(58)))), ((int)(((byte)(57)))));
             this.panel1.Controls.Add(this.comissions);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.workPositionCB);
@@ -92,7 +92,7 @@
             0});
             this.comissions.Location = new System.Drawing.Point(725, 26);
             this.comissions.Maximum = new decimal(new int[] {
-            1000000,
+            10000,
             0,
             0,
             0});
@@ -315,7 +315,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(0)))), ((int)(((byte)(17)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(58)))), ((int)(((byte)(57)))));
             this.ClientSize = new System.Drawing.Size(974, 485);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
