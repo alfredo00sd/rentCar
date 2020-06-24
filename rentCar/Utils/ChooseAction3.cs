@@ -8,5 +8,19 @@ namespace rentCar.views.users
         {
             InitializeComponent();
         }
+
+        public ChooseAction3(string AbortDialog, string OkDialog, string CancelDialog)
+        {
+            InitializeComponent();
+            
+            //Abort action
+            btnInfo.Text = AbortDialog;
+            
+            //OK action
+            btnEdit.Text = OkDialog;
+            
+            //Cancel action
+            btnDelete.Text = CancelDialog;
+        }
     }
 }

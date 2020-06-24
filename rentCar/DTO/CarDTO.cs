@@ -83,6 +83,9 @@ namespace RentCarApp.DTO
         string _adquisitionDate;
         bool _status;
 
+        //Get full car for rent or inspection
+        public string FullCarDescription => Brand + "->" + Model + " del " + FabYear + " tipo " + Type + ", placa No. " + LicensePlate;
+
         // Get <> Set property
         public int Id { get => _id; set => _id = value; }
 

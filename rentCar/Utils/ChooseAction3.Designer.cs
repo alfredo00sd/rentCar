@@ -30,89 +30,89 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChooseAction3));
             this.ContChooseAction = new System.Windows.Forms.Panel();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.btnDelete = new FontAwesome.Sharp.IconButton();
+            this.btnEdit = new FontAwesome.Sharp.IconButton();
+            this.btnInfo = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.ContChooseAction.SuspendLayout();
             this.SuspendLayout();
             // 
             // ContChooseAction
             // 
-            this.ContChooseAction.Controls.Add(this.iconButton3);
-            this.ContChooseAction.Controls.Add(this.iconButton2);
-            this.ContChooseAction.Controls.Add(this.iconButton1);
+            this.ContChooseAction.Controls.Add(this.btnDelete);
+            this.ContChooseAction.Controls.Add(this.btnEdit);
+            this.ContChooseAction.Controls.Add(this.btnInfo);
             this.ContChooseAction.Controls.Add(this.label1);
             this.ContChooseAction.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ContChooseAction.Location = new System.Drawing.Point(0, 0);
             this.ContChooseAction.Name = "ContChooseAction";
-            this.ContChooseAction.Size = new System.Drawing.Size(621, 157);
+            this.ContChooseAction.Size = new System.Drawing.Size(621, 192);
             this.ContChooseAction.TabIndex = 0;
             // 
-            // iconButton3
+            // btnDelete
             // 
-            this.iconButton3.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.iconButton3.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton3.IconColor = System.Drawing.Color.Black;
-            this.iconButton3.IconSize = 16;
-            this.iconButton3.Location = new System.Drawing.Point(12, 76);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Rotation = 0D;
-            this.iconButton3.Size = new System.Drawing.Size(134, 53);
-            this.iconButton3.TabIndex = 6;
-            this.iconButton3.Text = "Eliminar";
-            this.iconButton3.UseVisualStyleBackColor = true;
+            this.btnDelete.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnDelete.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnDelete.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnDelete.IconColor = System.Drawing.Color.Black;
+            this.btnDelete.IconSize = 16;
+            this.btnDelete.Location = new System.Drawing.Point(475, 130);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Rotation = 0D;
+            this.btnDelete.Size = new System.Drawing.Size(134, 53);
+            this.btnDelete.TabIndex = 6;
+            this.btnDelete.Text = "Eliminar";
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
-            // iconButton2
+            // btnEdit
             // 
-            this.iconButton2.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.iconButton2.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconSize = 16;
-            this.iconButton2.Location = new System.Drawing.Point(242, 76);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Rotation = 0D;
-            this.iconButton2.Size = new System.Drawing.Size(134, 53);
-            this.iconButton2.TabIndex = 5;
-            this.iconButton2.Text = "Editar";
-            this.iconButton2.UseVisualStyleBackColor = true;
+            this.btnEdit.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnEdit.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnEdit.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnEdit.IconColor = System.Drawing.Color.Black;
+            this.btnEdit.IconSize = 16;
+            this.btnEdit.Location = new System.Drawing.Point(475, 71);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Rotation = 0D;
+            this.btnEdit.Size = new System.Drawing.Size(134, 53);
+            this.btnEdit.TabIndex = 5;
+            this.btnEdit.Text = "Editar";
+            this.btnEdit.UseVisualStyleBackColor = true;
             // 
-            // iconButton1
+            // btnInfo
             // 
-            this.iconButton1.DialogResult = System.Windows.Forms.DialogResult.Abort;
-            this.iconButton1.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconSize = 16;
-            this.iconButton1.Location = new System.Drawing.Point(475, 76);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Rotation = 0D;
-            this.iconButton1.Size = new System.Drawing.Size(134, 53);
-            this.iconButton1.TabIndex = 4;
-            this.iconButton1.Text = "Obtener credenciales";
-            this.iconButton1.UseVisualStyleBackColor = true;
+            this.btnInfo.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            this.btnInfo.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnInfo.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnInfo.IconColor = System.Drawing.Color.Black;
+            this.btnInfo.IconSize = 16;
+            this.btnInfo.Location = new System.Drawing.Point(475, 12);
+            this.btnInfo.Name = "btnInfo";
+            this.btnInfo.Rotation = 0D;
+            this.btnInfo.Size = new System.Drawing.Size(134, 53);
+            this.btnInfo.TabIndex = 4;
+            this.btnInfo.Text = "Obtener credenciales";
+            this.btnInfo.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(109, 21);
+            this.label1.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 87);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(411, 18);
+            this.label1.Size = new System.Drawing.Size(398, 32);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Que accion desea ejecutar sobre este elemento?";
+            this.label1.Text = "Que accion desea ejecutar ?";
             // 
-            // ChooseAction
+            // ChooseAction3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 157);
+            this.ClientSize = new System.Drawing.Size(621, 192);
             this.ControlBox = false;
             this.Controls.Add(this.ContChooseAction);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "ChooseAction";
+            this.Name = "ChooseAction3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ContChooseAction.ResumeLayout(false);
             this.ContChooseAction.PerformLayout();
@@ -123,9 +123,9 @@
         #endregion
 
         private System.Windows.Forms.Panel ContChooseAction;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnEdit;
+        private FontAwesome.Sharp.IconButton btnInfo;
         private System.Windows.Forms.Label label1;
-        private FontAwesome.Sharp.IconButton iconButton3;
+        private FontAwesome.Sharp.IconButton btnDelete;
     }
 }

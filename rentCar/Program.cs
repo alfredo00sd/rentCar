@@ -1,6 +1,4 @@
-﻿using rentCar.user;
-using rentCar.views.car;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace rentCar

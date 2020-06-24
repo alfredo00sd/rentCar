@@ -28,7 +28,7 @@ namespace rentCar.views.customers
             validateCustomerBtn.Text = createCustomerParam;
         }
 
-        private void Refresh()
+        private void ReopenForm()
         {
             CustomerForm NewForm = new CustomerForm();
             NewForm.Show();
@@ -66,7 +66,7 @@ namespace rentCar.views.customers
                                 MessageBox.Show("SUCCESS : Cliente creado!");
 
                                 //Refresh data and reset form....
-                                Refresh();
+                                ReopenForm();
                             }
                             else if (validateCustomerBtn.Text.Equals(editCustomerParam)) //Edit the customer
                             {
@@ -74,7 +74,7 @@ namespace rentCar.views.customers
                                 MessageBox.Show("SUCCESS : cliente editado correctamente!");
 
                                 //Refresh data and reset form...
-                                Refresh();
+                                ReopenForm();
                             }
                             else
                             {
@@ -117,7 +117,7 @@ namespace rentCar.views.customers
                             MessageBox.Show("SUCCESS : Cliente creado!");
 
                             //Refresh data and reset form....
-                            Refresh();
+                            ReopenForm();
                         }
                         else if (validateCustomerBtn.Text.Equals(editCustomerParam)) //Edit the customer
                         {
@@ -125,7 +125,7 @@ namespace rentCar.views.customers
                             MessageBox.Show("SUCCESS : cliente editado correctamente!");
 
                             //Refresh data and reset form...
-                            Refresh();
+                            ReopenForm();
                         }
                         else
                         {
@@ -172,7 +172,7 @@ namespace rentCar.views.customers
                 {
                     dao.DELETE(dto.Id);
                     MessageBox.Show("Elemento eliminado!");
-                    Refresh();
+                    ReopenForm();
                 }
                 else
                 {

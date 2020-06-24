@@ -1,6 +1,7 @@
 ﻿using FontAwesome.Sharp;
 using rentCar.DTO.user;
 using rentCar.user;
+using rentCar.views;
 using rentCar.views.car;
 using rentCar.views.customers;
 using System;
@@ -192,13 +193,13 @@ namespace rentCar
         //--------------------------------------------------------------Inspection crud
         private void InspectorManagerBtn_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new InspectionForm());
         }
 
         //--------------------------------------------------------------Rent Crud
         private void RentManagerBtn_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new RentForm());
         }
 
         //--------------------------------------------------------------Reports

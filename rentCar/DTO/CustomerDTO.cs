@@ -14,7 +14,10 @@ namespace rentCar.DTO
         private string _creditCardNo;
         private int _creditLimit;
         private bool _status;
-        
+
+        //Get full car for rent or inspection  {name: "John", age: 31, city: "New York"}
+        public string FullCustomerDescription => "{Sr/a: '" + Name +", " + LastName + "', RNC: '" + RNC + "' Cedula No: '" + IdentificationCard + "' L.C: '" + CreditLimit +"'}";
+
         //Methods
         public int Id { get => _id; set => _id = value; }
         

@@ -55,11 +55,13 @@
     <Compile Include="DAO\CommonsCarDAO.cs" />
     <Compile Include="DAO\CustomerDAO.cs" />
     <Compile Include="DAO\EmployeeDAO.cs" />
+    <Compile Include="DAO\InspectionDAO.cs" />
     <Compile Include="DAO\LoginDAO.cs" />
     <Compile Include="Config\DBConnection.cs" />
     <Compile Include="DTO\CarDTO.cs" />
     <Compile Include="DTO\CustomerDTO.cs" />
     <Compile Include="DTO\EmployeeDTO.cs" />
+    <Compile Include="DTO\InspectionDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Utils\CustomValidations.cs" />
     <Compile Include="views\AppForm.cs">
@@ -70,10 +72,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="views\car\CarMantView.cs">
+    <Compile Include="views\Gestiones\car\CarMantView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\car\CarMantView.Designer.cs">
+    <Compile Include="views\Gestiones\car\CarMantView.Designer.cs">
       <DependentUpon>CarMantView.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\ChooseAction2.cs">
@@ -82,22 +84,22 @@
     <Compile Include="Utils\ChooseAction2.Designer.cs">
       <DependentUpon>ChooseAction2.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\car\maintenances\GeneralView.cs">
+    <Compile Include="views\Gestiones\car\maintenances\GeneralView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\car\maintenances\GeneralView.Designer.cs">
+    <Compile Include="views\Gestiones\car\maintenances\GeneralView.Designer.cs">
       <DependentUpon>GeneralView.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\car\maintenances\CarModelEditForm.cs">
+    <Compile Include="views\Gestiones\car\maintenances\CarModelEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\car\maintenances\CarModelEditForm.Designer.cs">
+    <Compile Include="views\Gestiones\car\maintenances\CarModelEditForm.Designer.cs">
       <DependentUpon>CarModelEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\car\maintenances\GeneralCrud.cs">
+    <Compile Include="views\Gestiones\car\maintenances\GeneralCrud.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\car\maintenances\GeneralCrud.Designer.cs">
+    <Compile Include="views\Gestiones\car\maintenances\GeneralCrud.Designer.cs">
       <DependentUpon>GeneralCrud.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\ConfirmAction.cs">
@@ -112,22 +114,34 @@
     <Compile Include="Utils\ChooseAction3.Designer.cs">
       <DependentUpon>ChooseAction3.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\users\CustomerForm.cs">
+    <Compile Include="views\Procesos\InspectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\users\CustomerForm.Designer.cs">
+    <Compile Include="views\Procesos\InspectionForm.Designer.cs">
+      <DependentUpon>InspectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Procesos\RentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Procesos\RentForm.Designer.cs">
+      <DependentUpon>RentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Gestiones\users\CustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Gestiones\users\CustomerForm.Designer.cs">
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\users\access\userLogin.cs">
+    <Compile Include="views\Gestiones\users\access\userLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\users\access\userLogin.Designer.cs">
+    <Compile Include="views\Gestiones\users\access\userLogin.Designer.cs">
       <DependentUpon>userLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\users\EmployeeForm.cs">
+    <Compile Include="views\Gestiones\users\EmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\users\EmployeeForm.Designer.cs">
+    <Compile Include="views\Gestiones\users\EmployeeForm.Designer.cs">
       <DependentUpon>EmployeeForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="views\AppForm.resx">
@@ -142,34 +156,40 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="views\car\CarMantView.resx">
+    <EmbeddedResource Include="views\Gestiones\car\CarMantView.resx">
       <DependentUpon>CarMantView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\ChooseAction2.resx">
       <DependentUpon>ChooseAction2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\car\maintenances\GeneralView.resx">
+    <EmbeddedResource Include="views\Gestiones\car\maintenances\GeneralView.resx">
       <DependentUpon>GeneralView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\car\maintenances\CarModelEditForm.resx">
+    <EmbeddedResource Include="views\Gestiones\car\maintenances\CarModelEditForm.resx">
       <DependentUpon>CarModelEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\car\maintenances\GeneralCrud.resx">
+    <EmbeddedResource Include="views\Gestiones\car\maintenances\GeneralCrud.resx">
       <DependentUpon>GeneralCrud.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\ConfirmAction.resx">
       <DependentUpon>ConfirmAction.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\users\access\userLogin.resx">
+    <EmbeddedResource Include="views\Procesos\InspectionForm.resx">
+      <DependentUpon>InspectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Procesos\RentForm.resx">
+      <DependentUpon>RentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Gestiones\users\access\userLogin.resx">
       <DependentUpon>userLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\ChooseAction3.resx">
       <DependentUpon>ChooseAction3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\users\EmployeeForm.resx">
+    <EmbeddedResource Include="views\Gestiones\users\EmployeeForm.resx">
       <DependentUpon>EmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\users\CustomerForm.resx">
+    <EmbeddedResource Include="views\Gestiones\users\CustomerForm.resx">
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

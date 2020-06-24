@@ -35,6 +35,8 @@ namespace rentCar.DAO.user
                     {
                         Message = "Usuario desactivado! favor contactar al administrador..."
                     };
+                    reader.Close();
+                    conexion.CerrarConexion();
                     return user;
                 }
                 else {
@@ -50,6 +52,8 @@ namespace rentCar.DAO.user
                         Status = status,
                         Message = "OK"
                     };
+                    reader.Close();
+                    conexion.CerrarConexion();
                     return user;
                 }
             }
@@ -59,11 +63,10 @@ namespace rentCar.DAO.user
                 {
                     Message = "Usuario o Clave erronea, favor validar o contactar al administrador!"
                 };
+                reader.Close();
+                conexion.CerrarConexion();
                 return user;
             }
-
-            reader.Close();
-            conexion.CerrarConexion();
         }
     }
 }
